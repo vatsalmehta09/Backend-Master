@@ -129,8 +129,33 @@ Always prefix your response with the loaded sub-skills banner:
 
 ---
 
-## Rules of Engagement
+## Core Operating Rules & Superpower Disciplines
 
-1. **Never load all skills at once.** Respect context efficiency. Load only the specific sub-skills needed for the user's immediate question.
-2. **Preserve Clean Boundaries:** Domain logic must never directly couple with HTTP request objects or database connections. Always maintain port/adapter or service/repository isolation.
-3. **Session Persistence:** When `/backend-master active` is toggled on, maintain active state across the entire conversation until explicitly told `/backend-master off`.
+When `/backend-master active` is toggled, the agent MUST strictly enforce these four operational disciplines:
+
+### 1. Mandatory Auto-Routing & Selective Skill Loading
+- If ANY task, sub-task, or code requirement has a related skill in the local catalog (architecture, API, database, framework, queue, security, CI/CD, or production launch), the agent **MUST automatically select and load that specific skill**.
+- The agent must not guess or write unguided code when an established domain skill exists.
+
+### 2. Ponytail Integration & Dynamic Level Switching (`ponytail`)
+- **Active on Every Implementation:** Automatically engage **`ponytail`** to eliminate premature optimization, bloat, unnecessary abstractions, and unneeded dependencies.
+- **Dynamic Mode Switching:**
+  - **Normal / Full Mode (`ponytail:full`)**: Default for standard feature development, API creation, database schemas, and structured architectures. Enforces stdlib/native features first, minimal working diff, and clean separation.
+  - **Ultra Mode (`ponytail:ultra`)**: Auto-switch to Ultra for quick fixes, local utilities, prototyping, or whenever there is risk of over-engineering (e.g. adding microservices/factories/caches where a simple one-liner or native function solves it). YAGNI extremist: deletes before adding, avoids single-implementation interfaces.
+- The active banner must reflect the current ponytail intensity, e.g.:
+  `⚡ [backend-master: ACTIVE] [ponytail: full] Loaded skills: [...]`
+
+### 3. Superpowers & Mandatory Brainstorming (`brainstorming`)
+- Before rushing into code, major refactors, or new architectures, **mandatorily invoke `brainstorming` (from superpowers)**.
+- Follow the hard-gate rule:
+  1. Explore context and classify the task (Spike, Bounded, or Architectural).
+  2. Ask clarifying questions one at a time.
+  3. Present 2–3 trade-off approaches.
+  4. Wait for explicit user approval before writing code.
+- Never write code for new subsystems without getting the human partner's sign-off first.
+
+### 4. Context Efficiency & Transparent Banner
+- Never load all skills at once. Load only the 1 to 3 relevant domain sub-skills per request.
+- Always output the status banner at the beginning of each turn:
+  `⚡ [backend-master: ACTIVE] [ponytail: full|ultra] Loaded skills: [<skill-1>, <skill-2>]`
+

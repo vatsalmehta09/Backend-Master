@@ -21,9 +21,14 @@
 Instead of forcing developers to remember and manually invoke dozens of distinct skills (`clean-ddd-hexagonal`, `fastapi-expert`, `postgres-pro`, `backend-patterns`, `temporal-developer`, `api-and-interface-design`, etc.), **`backend-master`** acts as a **dynamic session supervisor**:
 
 1. **Persistent Session Mode (`/backend-master active`)**: Locks the AI into autonomous backend routing. Every turn automatically evaluates backend patterns without having to re-invoke skills.
-2. **Dynamic Capability Matrix**: Automatically analyzes your stack (Framework, Architecture, DB, Realtime, Queues, Security).
-3. **Selective Just-in-Time Injection**: Loads **only the top 1–3 relevant sub-skills** to prevent context window bloat while strictly enforcing architectural rules.
-4. **Transparent Notification**: Outputs an active banner displaying exactly which sub-skills were dynamically loaded to solve your request.
+2. **Mandatory Domain Skill Auto-Routing**: If ANY task touches an area with an existing local skill (APIs, databases, frameworks, security, CI/CD, production launch), it **must** load that exact skill.
+3. **Ponytail Discipline & Dynamic Level Switching**: Automatically applies **`ponytail`** to enforce YAGNI, standard library first, and eliminate premature over-engineering. Switches between **Full** (default clean architecture) and **Ultra** (YAGNI extremist, one-liners over new classes/services).
+4. **Superpowers & Mandatory Brainstorming (`brainstorming`)**: Hard-gates all architectural changes, new systems, or refactors—explores context, classifies the task (Spike/Bounded/Architectural), asks clarifying questions, presents 2–3 trade-offs, and secures user approval before touching code.
+5. **Selective Just-in-Time Injection**: Loads **only the top 1–3 relevant sub-skills** to prevent context window bloat while strictly enforcing architectural rules.
+6. **Transparent Notification**: Outputs an active banner displaying mode, ponytail intensity, and loaded skills:
+   ```
+   ⚡ [backend-master: ACTIVE] [ponytail: full|ultra] Loaded skills: [<skill-1>, <skill-2>]
+   ```
 
 ---
 
