@@ -1,6 +1,6 @@
 # Backend-Master: The Universal Backend Orchestrator Skill
 
-> **Universal Master Skill for Agentic AI (Claude Code, Gemini CLI / Antigravity, Cursor, Codex, and Agent SDKs).**
+> **Universal Master Skill & Curated Sub-Skills Repository for Agentic AI (Claude Code, Gemini CLI / Antigravity, Cursor, Codex, and Agent SDKs).**
 > Automatically understands backend requirements, classifies architectural domains, and selectively loads only the relevant deep sub-skills on demand.
 
 ---
@@ -45,49 +45,36 @@ Clone or copy [`SKILL.md`](SKILL.md) directly into your agent's skills directory
 
 ---
 
-## 🧠 Capability Matrix & Sub-Skills Registry
+## 🧠 Capability Matrix & Managed Sub-Skills (42 Curated Skills)
 
-`backend-master` orchestrates 6 primary backend domains:
+This repository exclusively contains **Backend-Master** and its **42 curated sub-skills**:
 
-```
-                      ┌────────────────────────┐
-                      │    /backend-master     │
-                      └───────────┬────────────┘
-                                  │
-       ┌──────────────────────────┼─────────────────────────┐
-       ▼                          ▼                         ▼
-┌──────────────┐          ┌──────────────┐          ┌──────────────┐
-│ Architecture │          │  APIs & Web  │          │  Databases   │
-│   & Domain   │          │  Protocols   │          │  & Caching   │
-├──────────────┤          ├──────────────┤          ├──────────────┤
-│• clean-ddd   │          │• api-design  │          │• postgres-pro│
-│• patterns    │          │• websockets  │          │• sql-pro     │
-│• microservice│          │• rest-api    │          │• db-optimizer│
-└──────────────┘          └──────────────┘          └──────────────┘
-       │                          │                         │
-       ▼                          ▼                         ▼
-┌──────────────┐          ┌──────────────┐          ┌──────────────┐
-│  Frameworks  │          │ Async Queues │          │  Security    │
-│  & Languages │          │  & Workflows │          │ & Hardening  │
-├──────────────┤          ├──────────────┤          ├──────────────┤
-│• fastapi     │          │• temporal    │          │• auth / oauth│
-│• django/go   │          │• rag-arch    │          │• owasp-top-10│
-│• rust/spring │          │• vercel-queue│          │• vibesec     │
-└──────────────┘          └──────────────┘          └──────────────┘
-```
+| Category | Contained Skills |
+|---|---|
+| **Core Architecture & DDD** | [`clean-ddd-hexagonal`](skills/clean-ddd-hexagonal), [`backend-patterns`](skills/backend-patterns), [`architecture-patterns`](skills/architecture-patterns), [`microservices-architect`](skills/microservices-architect) |
+| **API & Web Protocols** | [`api-and-interface-design`](skills/api-and-interface-design), [`api-designer`](skills/api-designer), [`rest-api`](skills/rest-api), [`websocket-engineer`](skills/websocket-engineer), [`websockets`](skills/websockets) |
+| **Databases & Caching** | [`sql-pro`](skills/sql-pro), [`postgres-pro`](skills/postgres-pro), [`database-optimizer`](skills/database-optimizer), [`supabase-postgres-best-practices`](skills/supabase-postgres-best-practices), [`runtime-cache`](skills/runtime-cache) |
+| **Frameworks & Languages** | [`fastapi-expert`](skills/fastapi-expert), [`django-expert`](skills/django-expert), [`python-pro`](skills/python-pro), [`golang-pro`](skills/golang-pro), [`rust-engineer`](skills/rust-engineer), [`spring-boot-engineer`](skills/spring-boot-engineer), [`csharp-developer`](skills/csharp-developer), [`rails-expert`](skills/rails-expert), [`laravel-specialist`](skills/laravel-specialist), [`php-pro`](skills/php-pro) |
+| **Workflows & Distributed Jobs** | [`temporal-developer`](skills/temporal-developer), [`temporal-cloud-setup`](skills/temporal-cloud-setup), [`temporal-ops`](skills/temporal-ops), [`temporal-serverless`](skills/temporal-serverless), [`rag-architect`](skills/rag-architect), [`vercel-queues`](skills/vercel-queues), [`vercel-storage`](skills/vercel-storage) |
+| **Security & Hardening** | [`auth`](skills/auth), [`oauth`](skills/oauth), [`security-and-hardening`](skills/security-and-hardening), [`security-audit`](skills/security-audit), [`security-diff-scan`](skills/security-diff-scan), [`owasp-top-10-testing`](skills/owasp-top-10-testing), [`api-security-testing`](skills/api-security-testing), [`vibesec`](skills/vibesec) |
+| **Infrastructure & SRE** | [`sre-engineer`](skills/sre-engineer), [`terraform-engineer`](skills/terraform-engineer) |
 
 ---
 
-## 📋 The 4-Step Execution Pipeline
+## 🔄 Bidirectional Sync & Maintenance Automation
 
-When a prompt arrives in active mode:
-1. **Decompose & Classify**: Detect language, framework, architectural boundaries, data tier, and security posture.
-2. **Selective Injection**: Read rules only from matching local sub-skills.
-3. **Activation Banner**:
-   ```
-   ⚡ [backend-master: ACTIVE] Loaded skills: [clean-ddd-hexagonal, fastapi-expert, postgres-pro]
-   ```
-4. **Execution**: Implement domain-isolated, production-grade code adhering to all loaded constraints.
+The repository includes a dedicated sync tool in [`scripts/sync-skills.ps1`](scripts/sync-skills.ps1) and a test suite in [`scripts/test-sync.ps1`](scripts/test-sync.ps1):
+
+- **Update a skill locally**: Run `scripts/sync-skills.ps1` — detects the edit and automatically commits/pushes the changes to GitHub.
+- **Delete a skill locally**: Run `scripts/sync-skills.ps1` — safely prunes the skill from the GitHub repository.
+- **Dry-run preview**:
+  ```powershell
+  pwsh scripts/sync-skills.ps1 -DryRun
+  ```
+- **Run the test suite**:
+  ```powershell
+  pwsh scripts/test-sync.ps1
+  ```
 
 ---
 
