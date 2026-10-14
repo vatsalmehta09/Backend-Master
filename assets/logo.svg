@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <title>Backend-Master Clean Tier Chevrons</title>
+  <!-- Top Chevron: API & Web Ingress Layer (Angles snapped to exact 30 deg isometric standard) -->
+  <polygon points="128,34 218,86 192,101 128,64 64,101 38,86" fill="#2563EB"/>
+  
+  <!-- Middle Chevron: Pure Domain / Business Logic Core -->
+  <polygon points="128,98 218,150 192,165 128,128 64,165 38,150" fill="#0EA5E9"/>
+  
+  <!-- Bottom Chevron: Infrastructure / Data Access Layer -->
+  <polygon points="128,162 218,214 192,229 128,192 64,229 38,214" fill="#059669"/>
+</svg>

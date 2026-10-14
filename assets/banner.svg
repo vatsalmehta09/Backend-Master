@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 220" width="920" height="220">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090D16"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Banner Background -->
+  <rect width="920" height="220" rx="20" fill="url(#bgGrad)" stroke="#1F2937" stroke-width="2"/>
+
+  <!-- Left: The Clean Hex-Stack Logo Symbol (Option 3) -->
+  <g transform="translate(50, 25)">
+    <!-- Top Chevron: API Ingress (Royal Blue) -->
+    <polygon points="85,20 148,56 130,67 85,41 40,67 22,56" fill="#2563EB"/>
+    <!-- Middle Chevron: Pure Domain / Logic (Cyan) -->
+    <polygon points="85,65 148,101 130,112 85,86 40,112 22,101" fill="#0EA5E9"/>
+    <!-- Bottom Chevron: Infrastructure / DB (Emerald) -->
+    <polygon points="85,110 148,146 130,157 85,131 40,157 22,146" fill="#059669"/>
+  </g>
+
+  <!-- Right: Typography & Identity Badges -->
+  <g transform="translate(245, 36)">
+    <!-- Title -->
+    <text x="0" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="50" font-weight="800" fill="#FFFFFF" letter-spacing="-1">
+      Backend<tspan fill="url(#brandGrad)">-Master</tspan>
+    </text>
+
+    <!-- Subtitle / Mission statement -->
+    <text x="0" y="90" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#94A3B8" letter-spacing="0.2">
+      The Universal Architecture &amp; Backend Skill Orchestrator
+    </text>
+
+    <!-- Interactive Badges -->
+    <g transform="translate(0, 114)">
+      <!-- Badge 1: Clean DDD -->
+      <rect x="0" y="0" width="115" height="26" rx="6" fill="#1E293B" stroke="#334155"/>
+      <text x="57" y="17" font-family="monospace" font-size="11" font-weight="700" fill="#38BDF8" text-anchor="middle">CLEAN DDD</text>
+
+      <!-- Badge 2: APIs & Realtime -->
+      <rect x="125" y="0" width="130" height="26" rx="6" fill="#1E293B" stroke="#334155"/>
+      <text x="190" y="17" font-family="monospace" font-size="11" font-weight="700" fill="#34D399" text-anchor="middle">APIS &amp; PROTOCOLS</text>
+
+      <!-- Badge 3: Databases -->
+      <rect x="265" y="0" width="115" height="26" rx="6" fill="#1E293B" stroke="#334155"/>
+      <text x="322" y="17" font-family="monospace" font-size="11" font-weight="700" fill="#FBBF24" text-anchor="middle">DATABASES</text>
+
+      <!-- Badge 4: Workflows -->
+      <rect x="390" y="0" width="115" height="26" rx="6" fill="#1E293B" stroke="#334155"/>
+      <text x="447" y="17" font-family="monospace" font-size="11" font-weight="700" fill="#C084FC" text-anchor="middle">WORKFLOWS</text>
+
+      <!-- Badge 5: Security -->
+      <rect x="515" y="0" width="105" height="26" rx="6" fill="#1E293B" stroke="#334155"/>
+      <text x="567" y="17" font-family="monospace" font-size="11" font-weight="700" fill="#F87171" text-anchor="middle">SECURITY</text>
+    </g>
+  </g>
+</svg>

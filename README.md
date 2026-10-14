@@ -1,7 +1,18 @@
-# Backend-Master: The Universal Backend Orchestrator Skill
+<p align="center">
+  <img src="assets/banner.svg" alt="Backend-Master" width="100%">
+</p>
 
-> **Universal Master Skill & Curated Sub-Skills Repository for Agentic AI (Claude Code, Gemini CLI / Antigravity, Cursor, Codex, and Agent SDKs).**
-> Automatically understands backend requirements, classifies architectural domains, and selectively loads only the relevant deep sub-skills on demand.
+<p align="center">
+  <strong>Universal Master Skill &amp; Curated Sub-Skills Repository for Agentic AI</strong><br>
+  <em>(Claude Code, Gemini CLI / Antigravity, Cursor, Codex, and Agent SDKs)</em>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/managed__skills-42-blue?style=flat-square" alt="Skills Count">
+  <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/architecture-Clean%20Hexagonal-blueviolet?style=flat-square" alt="Architecture">
+  <img src="https://img.shields.io/badge/orchestrator-active-emerald?style=flat-square" alt="Status">
+</p>
 
 ---
 
