@@ -1,0 +1,5 @@
+{
+  "version": "1.0.0",
+  "description": "django-storages-s3 skill",
+  "name": "django-storages-s3"
+}
