@@ -107,7 +107,9 @@ Always prefix your response with the loaded sub-skills banner:
 - **`vercel-queues`** (`~/.agents/skills/vercel-queues/SKILL.md`): Asynchronous message delivery, background workers, retry policies.
 - **`rag-architect`** (`~/.agents/skills/rag-architect/SKILL.md`): Vector storage, chunking, embeddings, hybrid retrieval backends.
 
-### 6. Observability, Infrastructure & SRE
+### 6. Production Readiness, Observability & Infrastructure
+- **`shipping-and-launch`** (`~/.agents/skills/shipping-and-launch/SKILL.md`): Pre-launch checklists, staged canary rollouts, zero-downtime deployments, reversible database migrations, and instant rollback procedures.
+- **`deprecation-and-migration`** (`~/.agents/skills/deprecation-and-migration/SKILL.md`): Database schema versioning, expand-and-contract zero-downtime schema migrations, data backfills, and API sunsetting (Hyrum's Law).
 - **`observability-and-instrumentation`** (`~/.agents/skills/observability-and-instrumentation/SKILL.md`): OpenTelemetry traces, RED/USE metrics, structured logging.
 - **`monitoring-expert`** (`~/.agents/skills/monitoring-expert/SKILL.md`): Prometheus metrics, Grafana dashboards, alerting SLIs/SLOs.
 - **`sentry`** (`~/.agents/skills/sentry/SKILL.md`): Error tracking, exception captures, performance transaction tracing.
