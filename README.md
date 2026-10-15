@@ -10,6 +10,8 @@
 <p align="center">
   <a href="https://github.com/vatsalmehta09/Backend-Master/actions"><img src="https://img.shields.io/badge/CI%2FCD-passing-brightgreen?style=flat-square" alt="CI/CD Status"></a>
   <a href="skills/"><img src="https://img.shields.io/badge/managed__skills-73-blue?style=flat-square" alt="Managed Skills"></a>
+  <a href="docs/decisions/"><img src="https://img.shields.io/badge/ADRs-9%20Accepted-blueviolet?style=flat-square" alt="ADRs"></a>
+  <a href="docs/ARCHITECTURE.md"><img src="https://img.shields.io/badge/architecture-documented-informational?style=flat-square" alt="Architecture"></a>
   <a href="REFERENCES.md"><img src="https://img.shields.io/badge/ecosystem-skills.sh-informational?style=flat-square" alt="Ecosystem"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License"></a>
   <img src="https://img.shields.io/badge/discipline-Ponytail%20YAGNI-ff69b4?style=flat-square" alt="Ponytail Discipline">
@@ -22,6 +24,7 @@
 - [⚡ What is Backend-Master?](#-what-is-backend-master)
 - [🧩 Why Backend-Master? (The 4 Foundational Problems)](#-why-backend-master-the-4-foundational-problems)
 - [🚀 Zero-Hassle Transparent Proxy & Fluid Multi-Stage Workflow](#-zero-hassle-transparent-proxy--fluid-multi-stage-workflow)
+- [🏛️ Architecture & Decision Records (ADRs)](#️-architecture--decision-records-adrs)
 - [🧠 In-Session Memory Engine (LTM & STM)](#-in-session-memory-engine-ltm--stm)
 - [🔒 The Hardcoded Workflow Gate (Plan-Then-Execute)](#-the-hardcoded-workflow-gate-plan-then-execute)
   - [🔍 Token Optimization: Graft Recommendation (Opt-In with Consent)](#-token-optimization-graft-recommendation-opt-in-with-consent)
@@ -113,6 +116,23 @@ Real backend features naturally cross multiple technical boundaries as they prog
   - **Quick Fixes & Bug Traces (Bounded / Hotfix)**: Phase 1 & Phase 2 verification is fast and crisp (1-2 sentences: *"Root cause: X; proposed fix: Y in file Z. Ready to proceed?"*). No bloated multi-page thesis.
   - **Major Architectural Shifts (Architectural)**: Phase 1 & 2 provide deep trade-off analysis (2-3 options with performance, complexity, and DB impact).
   - The workflow moves at the engineer's rhythm—agile when debugging, rigorous when architecting.
+
+---
+
+## 🏛️ Architecture & Decision Records (ADRs)
+
+The technical foundations, context, constraints, and trade-offs behind `Backend-Master` are fully documented under [`docs/`](docs/):
+- **[System Architecture Specification](docs/ARCHITECTURE.md)**: End-to-end pipeline diagram, intent classification, memory model, and circuit breaker flow.
+- **[Architecture Decision Records Index (docs/decisions/)](docs/decisions/README.md)**:
+  - [ADR-001: Universal Master Orchestrator Architecture & JIT Injection](docs/decisions/ADR-001-universal-orchestrator-and-jit-injection.md)
+  - [ADR-002: In-Session Memory Engine (Zero Disk Footprint, LTM vs. STM Dynamics)](docs/decisions/ADR-002-in-session-memory-engine-ltm-stm.md)
+  - [ADR-003: Polyglot Monorepo & Multi-Framework Dynamic Routing](docs/decisions/ADR-003-polyglot-monorepo-and-multi-framework-routing.md)
+  - [ADR-004: Mandatory Plan-Then-Execute Hard Gate (Phase 2 Hard Stop)](docs/decisions/ADR-004-mandatory-plan-then-execute-hard-gate.md)
+  - [ADR-005: Optional Codebase Token Optimization via Graft with Consent Gate](docs/decisions/ADR-005-token-optimization-via-graft-with-user-consent.md)
+  - [ADR-006: Autonomous Breakthrough Circuit Breaker (Unlazy Escalation)](docs/decisions/ADR-006-autonomous-breakthrough-circuit-breaker-unlazy.md)
+  - [ADR-007: Zero-Hassle Transparent Proxy & Fluid Multi-Stage Workflow](docs/decisions/ADR-007-zero-hassle-transparent-proxy-and-multi-stage-workflow.md)
+  - [ADR-008: Ponytail YAGNI Engineering Discipline Integration](docs/decisions/ADR-008-ponytail-yagni-discipline-integration.md)
+  - [ADR-009: Self-Contained Curated Skill Replicas & Automated Upstream Tracking](docs/decisions/ADR-009-standalone-curated-skill-replicas-and-upstream-tracking.md)
 
 ---
 
