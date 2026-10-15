@@ -1,7 +1,7 @@
 ---
 name: backend-master
 description: >
-  Universal master orchestrator and supervisor for all backend engineering across frameworks, languages, databases, distributed patterns, API designs, observability, container orchestration, and security. Automatically activates on any backend task. Enforces hard-gated planning before execution, dual inline/sub-agent execution modes, ponytail YAGNI pruning, and selective just-in-time domain skill loading.
+  Use when designing, building, debugging, optimizing, or refactoring backend systems, APIs (REST, GraphQL, gRPC, WebSockets, Webhooks), databases (PostgreSQL, MongoDB, Redis, Elasticsearch), message queues, container infrastructure, or backend architectures across Python, Node.js, Go, Rust, Java, C#, PHP, or Ruby.
 ---
 
 # Universal Backend Master Orchestrator
@@ -37,7 +37,8 @@ Every backend task **MUST STRICTLY FOLLOW THIS HARD-GATED 3-PHASE SEQUENCE**. Ne
 │  PHASE 1: CONTEXT EXPLORATION & BRAINSTORMING          │
 │  - Classify task (Spike, Bounded, or Architectural)    │
 │  - Mandatorily invoke `brainstorming` (from superpowers)│
-│  - Present 2–3 architectural options with trade-offs   │
+│  - Select ≤ 3 relevant curated skills (Rule of ≤ 3)    │
+│  - Present 2–3 trade-off approaches (or in-chat design)│
 └──────────────────────────┬─────────────────────────────┘
                            │
                            ▼
@@ -45,31 +46,51 @@ Every backend task **MUST STRICTLY FOLLOW THIS HARD-GATED 3-PHASE SEQUENCE**. Ne
 │  PHASE 2: THE STRICT USER VERIFICATION GATE            │
 │  ⚠️  HARD STOP: WAIT FOR EXPLICIT USER APPROVAL        │
 │  ❌  NO CODE GENERATION OR FILE EDITS ALLOWED HERE      │
+│  🛡️  Enforce Rationalization Table & Red Flags Check    │
 └──────────────────────────┬─────────────────────────────┘
                            │ (User confirms & approves plan)
                            ▼
 ┌────────────────────────────────────────────────────────┐
-│  PHASE 3: EXECUTION (INLINE OR SUB-AGENT)              │
-│  - Execute code changes ONLY on approved plan          │
-│  - Apply Ponytail discipline (full vs. ultra)          │
-│  - Verify against test suite & quality standards       │
+│  PHASE 3: EXECUTION & SUPERPOWERS VERIFICATION         │
+│  - Bounded: Inline + `test-driven-development` (TDD)   │
+│  - Architectural: Sub-agents + `writing-plans`         │
+│  - Apply Ponytail discipline (full vs. ultra YAGNI)    │
+│  - Pre-completion: `verification-before-completion`    │
 └────────────────────────────────────────────────────────┘
 ```
 
 ### Phase 1: Explore & Plan (`brainstorming`)
-1. Classify the task:
-   - **Spike**: Fast exploratory proof-of-concept.
-   - **Bounded**: Concrete, well-scoped change within existing service/module.
-   - **Architectural**: New service, data model change, cross-cutting distributed flow, or breaking migration.
-2. Ask clarifying questions one at a time if requirements are ambiguous.
-3. Present 2–3 clear implementation options with explicit trade-offs.
+1. Classify the task out loud:
+   - **Spike**: Fast exploratory feasibility probe ("Can we...", "Is it possible to..."). Present question and probe plan in 2–3 sentences.
+   - **Bounded**: Scoped change to existing code (new endpoint, bugfix, schema addition, query optimization). Present short in-chat design (approach, files touched, testing).
+   - **Architectural**: New service, new database cluster, cross-cutting distributed flow, or breaking contract. Present 2–3 approaches with trade-offs and recommendations.
+2. Select and read **only $\le 3$ relevant curated sub-skills** from the registry.
 
 ### Phase 2: The Strict User Verification Gate (HARD STOP)
-- **You MUST STOP and wait for the user's explicit verification and approval.**
-- **STRICT PROHIBITION**: Do NOT write implementation code, do NOT create new modules, and do NOT edit existing code files until the user explicitly selects an approach and confirms: *"Proceed"*, *"Approved"*, or provides direct feedback.
+- **What "No Code Generation" Means**:
+  - The agent **must halt execution** and wait for the human engineer's explicit approval.
+  - **PROHIBITED in Phase 2**: Generating production code files, editing existing code in the repository, or presenting the complete implementation. (Short illustrative pseudo-code snippets explaining a concept during discussion are permitted, but no implementation work is done).
+  - The agent waits until the user explicitly confirms (*"Approved"*, *"Proceed with Option 2"*, *"Looks good"*).
+
+### 🛡️ Rationalization Counter-Table (Stop & Address Excuses)
+
+| Common Agent Rationalization | Engineering Reality & Rule |
+|---|---|
+| *"The user asked for code directly, so I should just write it."* | The hard gate applies to every task. Present the design/options in chat first and get approval. |
+| *"This is a small/simple backend change, no need to stop."* | Simple changes break production. Present a 2-sentence inline design and wait for confirmation. |
+| *"I already know the optimal architecture, why discuss options?"* | Unexamined assumptions cause the most rework. Presenting 2–3 trade-offs surfaces hidden constraints. |
+| *"I'll write the code and explain the design in the same turn."* | Presenting the design and writing code in the same breath skips the approval gate entirely. |
+
+### 🚩 Red Flags — STOP and Wait for Approval
+- Writing code before receiving user approval.
+- Editing repository files during Phase 1 or Phase 2.
+- Dumping entire sub-skill documentation files into the conversation turn.
+- Adding distributed complexity (Kafka, Redis clusters) when a standard library map or database index suffices.
 
 ### Phase 3: Execution (Only After Approval)
-- Execute the agreed-upon design using the appropriate execution mode (Inline or Sub-Agent).
+- **Bounded Tasks**: Run in **Inline Mode** using [`superpowers:test-driven-development`](file:///C:/Users/VATSAL%20M/.agents/skills/superpowers/skills/test-driven-development/SKILL.md) (RED: failing test $\rightarrow$ GREEN: minimal implementation $\rightarrow$ REFACTOR).
+- **Architectural Tasks**: Invoke [`superpowers:writing-plans`](file:///C:/Users/VATSAL%20M/.agents/skills/superpowers/skills/writing-plans/SKILL.md) and execute via **Sub-Agent Mode** (`invoke_subagent`).
+- **Quality Gate**: Before concluding any backend task, verify against [`superpowers:verification-before-completion`](file:///C:/Users/VATSAL%20M/.agents/skills/superpowers/skills/verification-before-completion/SKILL.md) and automated test suites.
 
 ---
 

@@ -70,36 +70,55 @@ Instead of forcing developers and AI coding agents to manually remember and invo
 
 ## 🔒 The Hardcoded Workflow Gate (Plan-Then-Execute)
 
-Every backend task processed by `Backend-Master` strictly adheres to a mandatory 3-phase flow:
+Every backend task processed by `Backend-Master` strictly adheres to a mandatory 3-phase flow with deep **Superpowers** integration:
 
 ```mermaid
 flowchart TD
     A["User Request (Backend Task Detected)"] --> B["Phase 1: Explore & Classify (Spike / Bounded / Architectural)"]
-    B --> C["Invoke Brainstorming & Present 2-3 Trade-Off Options"]
+    B --> C["Invoke /brainstorming & Select ≤ 3 Sub-Skills"]
     C --> D{"Phase 2: HARD STOP (Wait for User Verification)"}
     D -- "User Selects Option & Approves" --> E["Phase 3: Execution Engine"]
     D -- "Feedback / Revision Requested" --> B
-    E --> F{"Select Execution Mode"}
-    F -- "Focused / Single Service" --> G["Inline Development Mode"]
-    F -- "Cross-Cutting / Multi-Service" --> H["Sub-Agent Development Mode"]
-    G --> I["Apply Ponytail (full | ultra)"]
+    E --> F{"Task Classification"}
+    F -- "Bounded / Single Service" --> G["Inline Mode + /test-driven-development"]
+    F -- "Architectural / Cross-Cutting" --> H["Sub-Agent Mode + /writing-plans"]
+    G --> I["Apply Ponytail YAGNI (full | ultra)"]
     H --> I
-    I --> J["Verify Against Tests & Output Solution"]
+    I --> J["Verify via /verification-before-completion & Automated Tests"]
 ```
 
 ### Phase 1: Context Exploration & Brainstorming
-- Classifies the task scope:
-  - **Spike**: Fast exploratory proof-of-concept.
-  - **Bounded**: Scoped change within an existing module or service.
-  - **Architectural**: New service, database schema evolution, distributed workflow, or breaking API contract.
-- Formulates 2–3 architectural approaches comparing performance, complexity, database load, and maintenance trade-offs.
+- Classifies the task scope out loud:
+  - **Spike**: Fast exploratory proof-of-concept ("Can we...", "Is it possible to..."). Present probe plan in 2–3 sentences.
+  - **Bounded**: Concrete, well-scoped change within existing code (new endpoint, bugfix, schema tweak). Present short in-chat design (approach, files touched, testing).
+  - **Architectural**: New service, database schema evolution, distributed workflow, or breaking API contract. Formulate 2–3 architectural approaches comparing performance, complexity, database load, and maintenance trade-offs.
+- Injects **only $\le 3$ relevant curated sub-skills** from the registry to prevent context bloat.
 
 ### Phase 2: The Strict User Verification Gate (HARD STOP)
 > [!IMPORTANT]
-> **No code is generated and no files are edited during Phase 2.** The agent halts execution and presents the trade-off matrix to the user, waiting for explicit confirmation (*"Approved"*, *"Proceed with Option 2"*, etc.).
+> **What "No Code Generation" Means**:
+> - The agent **halts execution** and waits for explicit user confirmation (*"Approved"*, *"Proceed with Option 2"*, etc.).
+> - **Zero code files are generated or modified** during Phase 2. Illustrative pseudo-code snippets explaining a concept during discussion are permitted, but no implementation work is done until the user confirms.
 
-### Phase 3: Execution (Inline or Sub-Agent)
-- Only after the human engineer verifies the plan does the orchestrator execute code changes, applying the active **Ponytail** intensity and verifying against automated tests.
+#### 🛡️ Rationalization Counter-Table
+
+| Common Agent Rationalization | Engineering Reality & Rule |
+|---|---|
+| *"The user asked for code directly, so I should just write it."* | The hard gate applies to every task. Present the design/options in chat first and get approval. |
+| *"This is a small/simple backend change, no need to stop."* | Simple changes break production. Present a 2-sentence inline design and wait for confirmation. |
+| *"I already know the optimal architecture, why discuss options?"* | Unexamined assumptions cause the most rework. Presenting 2–3 trade-offs surfaces hidden constraints. |
+| *"I'll write the code and explain the design in the same turn."* | Presenting the design and writing code in the same breath skips the approval gate entirely. |
+
+#### 🚩 Red Flags — STOP and Wait for Approval
+- Writing code before receiving user approval.
+- Editing repository files during Phase 1 or Phase 2.
+- Dumping entire sub-skill documentation files into the conversation turn.
+- Adding distributed complexity (Kafka, Redis clusters) when a standard library map or database index suffices.
+
+### Phase 3: Execution & Superpowers Verification
+- **Bounded Tasks**: Run in **Inline Mode** using [`superpowers:test-driven-development`](skills/test-master) (RED $\rightarrow$ GREEN $\rightarrow$ REFACTOR).
+- **Architectural Tasks**: Invoke [`superpowers:writing-plans`](skills/architecture-patterns) and execute via **Sub-Agent Mode** (`invoke_subagent`).
+- **Quality Gate**: Every task concludes by verifying against [`superpowers:verification-before-completion`](skills/test-master) and automated test suites.
 
 ---
 
