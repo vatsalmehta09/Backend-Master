@@ -16,16 +16,6 @@
 
 ---
 
-> [!WARNING]
-> ### 🛡️ Community Synthesis & Engineering Review Disclaimer
-> **Backend-Master** aggregates, synthesizes, and orchestrates open-source agent skills and best practices from leading engineers across the agent ecosystem.
-> 
-> While these patterns are battle-tested and curated for high quality, **they are not guaranteed to be universally correct for every specific production environment without developer review**.
-> 
-> **MANDATORY POLICY**: Developers and AI agents using this orchestrator must review all architectural proposals, database migrations, and code diffs before applying them to production. Detailed attributions and links are documented in [**`REFERENCES.md`**](REFERENCES.md).
-
----
-
 ## ⚡ What is Backend-Master?
 
 Instead of forcing developers to remember and manually invoke dozens of distinct skills (`clean-ddd-hexagonal`, `fastapi-expert`, `postgres-pro`, `docker-patterns`, `temporal-developer`, `k6`, `kafka-development`, etc.), **`backend-master`** acts as a **dynamic session supervisor and orchestrator**:
@@ -141,6 +131,11 @@ The repository includes a dedicated sync tool in [`scripts/sync-skills.ps1`](scr
   ```powershell
   pwsh scripts/test-sync.ps1
   ```
+
+---
+
+> [!NOTE]
+> **Community Synthesis & Review Disclaimer**: Backend-Master synthesizes open-source community skills and architectural patterns. Always review all architectural proposals, database migrations, and generated code before applying them to production. Full upstream attributions and registry links: [**`REFERENCES.md`**](REFERENCES.md).
 
 ---
 

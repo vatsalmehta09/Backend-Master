@@ -1,15 +1,5 @@
 # Upstream References & Curated Skills Directory
 
-> [!WARNING]
-> ### 🛡️ Community Synthesis & Engineering Review Disclaimer
-> **Backend-Master** aggregates, synthesizes, and orchestrates open-source agent skills, architectural patterns, and production engineering workflows authored by leading engineers across the agentic AI community.
-> 
-> While these skills and patterns are battle-tested and curated for high-quality production engineering, **they are not guaranteed to be universally correct, bug-free, or applicable to every unique architecture without developer review**.
-> 
-> **MANDATORY POLICY:**
-> - Developers and AI agents MUST review all architectural plans, generated code, database migrations, and security postures before deploying them to production.
-> - Never execute non-reversible operations (e.g., dropping database columns, executing unverified migrations, force deployments) without explicit human confirmation.
-
 ---
 
 ## 📚 Complete Index of All 65 Curated Sub-Skills
@@ -140,3 +130,8 @@ We deeply acknowledge and credit the following individual authors and engineerin
 - **[Strix Security](https://github.com/usestrix)**: Authors of `owasp-top-10-testing` and `api-security-testing`.
 - **[Supabase](https://github.com/supabase)** & **[Vercel Labs](https://github.com/vercel-labs)**: Authors of Postgres, edge storage, runtime caching, and queuing skills.
 - **[Anthropic](https://github.com/anthropics)** and the wider open-source **[skills.sh](https://skills.sh)** community.
+
+---
+
+> [!NOTE]
+> **Engineering Review Policy**: Backend-Master synthesizes open-source community skills. Always verify all architectural plans, database migrations, and generated code before applying them to production.

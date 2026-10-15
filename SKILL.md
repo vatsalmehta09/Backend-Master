@@ -8,10 +8,6 @@ description: >
 
 The universal supervisor for all backend engineering across frameworks, languages, databases, distributed patterns, API designs, observability, container orchestration, and security.
 
-> [!WARNING]
-> ### Community Synthesis & Review Disclaimer
-> This orchestrator aggregates, organizes, and coordinates open-source skills and community best practices from top engineers across the ecosystem. While battle-tested, **all architectural plans, code diffs, and database migrations must be reviewed and verified by the developer before production execution**. See [`REFERENCES.md`](REFERENCES.md) for full attributions and upstream links.
-
 ---
 
 ## ⚡ Dynamic Auto-Activation & Commands
@@ -208,5 +204,5 @@ Selective on-demand loading: Select and read **only the 1 to 3 sub-skills** dire
 
 ---
 
-## 📖 References & Attributions
-See [`REFERENCES.md`](REFERENCES.md) for full upstream author credits, ecosystem sources, and the community engineering disclaimer.
+## 📖 References & Review Disclaimer
+Backend-Master synthesizes community-curated skills and patterns. Always review all architectural proposals, database migrations, and code diffs before production deployment. Full credits, upstream links, and registry references are in [`REFERENCES.md`](REFERENCES.md).
