@@ -10,23 +10,53 @@ The universal supervisor for all backend engineering across frameworks, language
 
 ---
 
-## ⚡ Dynamic Auto-Activation & Commands
+## ⚡ Dynamic Auto-Activation & Command Palette
 
 `backend-master` activates **automatically** whenever any backend engineering task is detected in the conversation (APIs, schemas, databases, queues, architectures, Docker, testing, performance, or security).
 
-### Session Commands:
-- `/backend-master` or `/backend-master active`
-  Locks persistent active mode for the session, ensuring every turn runs the backend orchestrator pipeline.
-- `/backend-master off` or `/backend-master deactivate`
-  Deactivates persistent mode; returns to default model behavior.
-- `/backend-master status`
-  Displays current activation state, Long-Term Memory (LTM stack), Short-Term Memory (STM phase & task), current ponytail mode (`full` vs `ultra`), `unlazy` circuit breaker state, and active sub-skills.
-- `/backend-master <task>`
-  Executes a specific backend task through the master routing engine.
-- `/unlazy`
-  Manually triggers the autonomous breakthrough circuit breaker with explicit `GATES.md` acceptance gates.
-- Direct Sub-Skill Invocation (e.g. `/postgres-pro`, `/fastapi-expert`, `/docker-patterns`):
-  Can be invoked directly at any time; seamlessly integrated into the master orchestrator context.
+### 🎛️ Three Operating Modes (`lite` | `full` | `ultra`)
+1. **`lite` Mode (`mode: lite`)**:
+   - **For**: Rapid bugfixes, quick queries, micro-endpoints, single-file edits, or tight turnaround requests.
+   - **Behavior**: Fast 1-line confirmation gate (*"Proposed fix: X in file Y. Proceed?"*). Minimal overhead, maximum speed, laser focus on immediate delivery.
+2. **`full` Mode (`mode: full`) — Default**:
+   - **For**: Standard production backend engineering, new features, and domain modeling.
+   - **Behavior**: Comprehensive Phase 1 exploration, 2–3 architectural trade-offs, strict Phase 2 Hard Stop, and Phase 3 TDD with clean architecture.
+3. **`ultra` Mode (`mode: ultra`) — YAGNI Extremist**:
+   - **For**: Refactoring debt, hotfixes, or preventing premature complexity.
+   - **Behavior**: Deletes dead code, strips wrapper layers, eliminates speculative interfaces and factories, rejects third-party dependencies when standard library suffices, refuses premature caching/queues.
+
+### 🕹️ Action Command Palette:
+
+| Command | What it does |
+|---|---|
+| `/backend-master` or `/backend-master active` | Locks persistent active mode for the session (default: full mode). |
+| `/backend-master lite` | Switches session to **Lite** mode (fast, minimal overhead, 1-line check). |
+| `/backend-master full` | Switches session to **Full** mode (standard clean architecture & TDD). |
+| `/backend-master ultra` | Switches session to **Ultra** mode (YAGNI extremist, delete bloat, standard library first). |
+| `/backend-master audit` | Run technical quality checks (OWASP API Top 10, SQLi, N+1 queries, pool/memory leaks, unhandled errors). |
+| `/backend-master harden` | Defense-in-depth pass (input validation, rate limiting, JWT/auth verification, CORS/CSRF, RFC 7807 error envelopes, timeouts). |
+| `/backend-master optimize` | Performance tuning (slow query analysis, `EXPLAIN ANALYZE`, indexing strategy, cache-aside, pool sizing). |
+| `/backend-master benchmark` | Load and stress testing (generates & executes `k6` scripts, benchmarks p95/p99 latency and throughput). |
+| `/backend-master schema` | Database schema design, normalization, zero-downtime expand/contract migrations, non-blocking DDL. |
+| `/backend-master api` | Contract-first API modeling (REST, GraphQL, gRPC, WebSockets, OpenAPI specs, cursor pagination, idempotency). |
+| `/backend-master distill` | Ponytail YAGNI pruning pass (strip premature wrappers, single-impl interfaces, flatten classes into pure functions). |
+| `/backend-master critique` | Architectural review (bounded contexts, service coupling, distributed sagas, single points of failure). |
+| `/backend-master dockerize` | Container infrastructure (multi-stage Dockerfiles, Docker Compose mesh, non-root users, secret handling). |
+| `/backend-master document` | Generate or update backend documentation, ADRs, or API contracts from codebase. |
+| `/backend-master init` | Workspace discovery (detect framework, dependencies, databases, environment configs, and initialize LTM). |
+| `/backend-master status` | Displays current activation state, active mode, internal LTM stack, STM task, and loaded skills. |
+| `/backend-master off` | Deactivates persistent mode; returns to default model behavior. |
+| `/unlazy` | Manually triggers the autonomous breakthrough circuit breaker with explicit `GATES.md` acceptance gates. |
+| Direct Sub-Skill Invocation | Direct calls (e.g. `/postgres-pro`, `/fastapi-expert`, `/docker-patterns`) integrate seamlessly at any time. |
+
+### 🛡️ Laser Focus & Anti-Hallucination Policy:
+- **Stay On-Point**: Address only what is directly relevant to the backend task at hand. Eliminate unsolicited essays, meta-commentary, and conversational filler.
+- **Minimal Clean Banner**: Display a single clean status banner:
+  ```text
+  ⚡ [backend-master: ACTIVE] [mode: full] Loaded: [<skill-1>, <skill-2>]
+  ```
+  *(LTM and STM memory states are maintained internally in context and are NOT printed in chat turns unless explicitly requested via `/backend-master status`)*.
+- **Strict Ground Truth Verification**: Never speculate or hallucinate APIs, package versions, database columns, or repository paths. Always verify against actual files and manifests before asserting.
 
 ---
 
@@ -219,12 +249,11 @@ Depending on the scope, dependencies, and parallelizability of the task, the orc
      - Refuses caching or distributed queues when an in-process or simple DB solution suffices.
 
 ### Transparent Status Banner:
-Prefix every turn with the active orchestrator banner reflecting LTM and STM:
+Prefix every turn with a clean, unobtrusive status banner:
+```text
+⚡ [backend-master: AUTO|ACTIVE] [mode: lite|full|ultra] Loaded: [<skill-1>, <skill-2>]
 ```
-⚡ [backend-master: AUTO|ACTIVE]
-   [LTM: <Framework> | <DB> | <Architecture>]
-   [STM: Phase <1|2|3> GATE | <Scope> | ponytail: full|ultra | unlazy: standby|active] Loaded: [<skill-1>, <skill-2>]
-```
+*(Do NOT output multi-line LTM or STM memory blocks in chat turns; maintain them internally in context and only display them if the user explicitly asks via `/backend-master status`)*.
 
 ---
 

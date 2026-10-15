@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://github.com/vatsalmehta09/Backend-Master/actions"><img src="https://img.shields.io/badge/CI%2FCD-passing-brightgreen?style=flat-square" alt="CI/CD Status"></a>
   <a href="skills/"><img src="https://img.shields.io/badge/managed__skills-73-blue?style=flat-square" alt="Managed Skills"></a>
-  <a href="docs/decisions/"><img src="https://img.shields.io/badge/ADRs-9%20Accepted-blueviolet?style=flat-square" alt="ADRs"></a>
+  <a href="docs/decisions/"><img src="https://img.shields.io/badge/ADRs-10%20Accepted-blueviolet?style=flat-square" alt="ADRs"></a>
   <a href="docs/ARCHITECTURE.md"><img src="https://img.shields.io/badge/architecture-documented-informational?style=flat-square" alt="Architecture"></a>
   <a href="REFERENCES.md"><img src="https://img.shields.io/badge/ecosystem-skills.sh-informational?style=flat-square" alt="Ecosystem"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License"></a>
@@ -133,6 +133,7 @@ The technical foundations, context, constraints, and trade-offs behind `Backend-
   - [ADR-007: Zero-Hassle Transparent Proxy & Fluid Multi-Stage Workflow](docs/decisions/ADR-007-zero-hassle-transparent-proxy-and-multi-stage-workflow.md)
   - [ADR-008: Ponytail YAGNI Engineering Discipline Integration](docs/decisions/ADR-008-ponytail-yagni-discipline-integration.md)
   - [ADR-009: Self-Contained Curated Skill Replicas & Automated Upstream Tracking](docs/decisions/ADR-009-standalone-curated-skill-replicas-and-upstream-tracking.md)
+  - [ADR-010: Action Command Palette & Three-Tier Operating Modes](docs/decisions/ADR-010-command-palette-and-three-tier-operating-modes.md)
 
 ---
 
@@ -427,19 +428,53 @@ graph LR
 
 ---
 
-## 🕹️ Commands & Dynamic Activation Modes
+## 🕹️ Commands & Dynamic Operating Modes
 
-`Backend-Master` works dynamically out-of-the-box or via explicit commands:
+`Backend-Master` can be operated dynamically out-of-the-box or controlled via dedicated action commands:
 
-| Command | Action |
+### 🎛️ Three Operating Modes (`lite` | `full` | `ultra`)
+1. **`lite` Mode (`/backend-master lite`)**:
+   - **Best for**: Fast bugfixes, quick query tuning, micro-endpoints, single-file edits, or rapid iteration.
+   - **Behavior**: Fast 1-line confirmation gate (*"Proposed fix: X in file Y. Proceed?"*). Minimal overhead, maximum speed, laser focus on immediate delivery.
+2. **`full` Mode (`/backend-master full` — Default)**:
+   - **Best for**: Standard production backend engineering, new feature modules, and domain modeling.
+   - **Behavior**: Comprehensive Phase 1 exploration, 2–3 architectural trade-offs, strict Phase 2 Hard Stop, and Phase 3 TDD with clean architecture.
+3. **`ultra` Mode (`/backend-master ultra`)**:
+   - **Best for**: Refactoring technical debt, hotfixes, or preventing premature architectural complexity (Ponytail YAGNI extremist).
+   - **Behavior**: Deletes dead code, strips wrapper layers, eliminates speculative interfaces and factories, rejects third-party dependencies when standard library suffices, refuses premature caching/queues.
+
+### 🕹️ Action Command Palette
+
+| Command | What it does |
 |---|---|
-| **Auto-Detection (Default)** | Any request touching backend code, APIs, databases, or infrastructure activates the master orchestrator automatically. |
-| `/backend-master active` | **Locks Persistent Active Mode** for the entire session. Every subsequent turn enforces backend master routing. |
-| `/backend-master status` | Displays current activation state, Long-Term Memory (LTM stack), Short-Term Memory (STM phase & task), Ponytail intensity, `unlazy` state, and active sub-skills. |
-| `/backend-master <task>` | Executes a single backend task through the master routing engine without locking session state. |
+| `/backend-master` or `/backend-master active` | Locks persistent active mode for the session (default: full mode). |
+| `/backend-master lite` | Switches session to **Lite** mode (fast, minimal overhead, 1-line check). |
+| `/backend-master full` | Switches session to **Full** mode (standard clean architecture & TDD). |
+| `/backend-master ultra` | Switches session to **Ultra** mode (YAGNI extremist, delete bloat, standard library first). |
+| `/backend-master audit` | Run technical quality checks (OWASP API Top 10, SQLi, N+1 queries, pool/memory leaks, unhandled errors). |
+| `/backend-master harden` | Defense-in-depth pass (input validation, rate limiting, JWT/auth verification, CORS/CSRF, RFC 7807 error envelopes, timeouts). |
+| `/backend-master optimize` | Performance tuning (slow query analysis, `EXPLAIN ANALYZE`, indexing strategy, cache-aside, pool sizing). |
+| `/backend-master benchmark` | Load and stress testing (generates & executes `k6` scripts, benchmarks p95/p99 latency and throughput). |
+| `/backend-master schema` | Database schema design, normalization, zero-downtime expand/contract migrations, non-blocking DDL. |
+| `/backend-master api` | Contract-first API modeling (REST, GraphQL, gRPC, WebSockets, OpenAPI specs, cursor pagination, idempotency). |
+| `/backend-master distill` | Ponytail YAGNI pruning pass (strip premature wrappers, single-impl interfaces, flatten classes into pure functions). |
+| `/backend-master critique` | Architectural review (bounded contexts, service coupling, distributed sagas, single points of failure). |
+| `/backend-master dockerize` | Container infrastructure (multi-stage Dockerfiles, Docker Compose mesh, non-root users, secret handling). |
+| `/backend-master document` | Generate or update backend documentation, ADRs, or API contracts from codebase. |
+| `/backend-master init` | Workspace discovery (detect framework, dependencies, databases, environment configs, and initialize LTM). |
+| `/backend-master status` | Displays current activation state, active mode, internal LTM stack, STM task, and loaded skills. |
+| `/backend-master off` | Deactivates persistent mode; returns to default model behavior. |
 | `/unlazy` | Manually triggers the autonomous breakthrough circuit breaker with explicit `GATES.md` acceptance gates. |
-| `/backend-master off` | Deactivates persistent mode and returns to standard model behavior. |
-| Direct Sub-Skill Invocation | Direct calls (e.g. `/postgres-pro`, `/fastapi-expert`, `/k6`) are seamlessly merged into the master context. |
+| Direct Sub-Skill Invocation | Direct calls (e.g. `/postgres-pro`, `/fastapi-expert`, `/docker-patterns`) integrate seamlessly at any time. |
+
+### 🛡️ Laser Focus & Anti-Hallucination Policy
+- **On-Point Execution**: The agent stays focused on the backend task at hand. No unsolicited conversational essays or fluff.
+- **Minimal Status Banner**: Displays a single, clean banner per turn:
+  ```text
+  ⚡ [backend-master: ACTIVE] [mode: full] Loaded: [<skill-1>, <skill-2>]
+  ```
+  *(LTM and STM memory states are managed internally in context; they are not printed in regular turns unless explicitly requested via `/backend-master status`)*.
+- **Ground Truth Verification**: Validates all schemas, routes, dependencies, and file paths against actual files in the repository before making claims.
 
 ---
 

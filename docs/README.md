@@ -22,6 +22,7 @@ Welcome to the technical documentation for **`Backend-Master`**, the universal b
      - [ADR-007: Zero-Hassle Transparent Proxy & Fluid Multi-Stage Workflow](decisions/ADR-007-zero-hassle-transparent-proxy-and-multi-stage-workflow.md)
      - [ADR-008: Ponytail YAGNI Engineering Discipline Integration](decisions/ADR-008-ponytail-yagni-discipline-integration.md)
      - [ADR-009: Self-Contained Curated Skill Replicas & Automated Upstream Tracking](decisions/ADR-009-standalone-curated-skill-replicas-and-upstream-tracking.md)
+     - [ADR-010: Action Command Palette & Three-Tier Operating Modes](decisions/ADR-010-command-palette-and-three-tier-operating-modes.md)
 
 3. **[References & Upstream Attribution](../REFERENCES.md)**
    - Upstream repository sources, authors, licenses, and mapping of all 73 curated sub-skills.

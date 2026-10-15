@@ -10,23 +10,84 @@ The universal supervisor for all backend engineering across frameworks, language
 
 ---
 
-## ⚡ Dynamic Auto-Activation & Commands
+## ⚡ Dynamic Auto-Activation & Command Palette
 
 `backend-master` activates **automatically** whenever any backend engineering task is detected in the conversation (APIs, schemas, databases, queues, architectures, Docker, testing, performance, or security).
 
-### Session Commands:
-- `/backend-master` or `/backend-master active`
-  Locks persistent active mode for the session, ensuring every turn runs the backend orchestrator pipeline.
-- `/backend-master off` or `/backend-master deactivate`
-  Deactivates persistent mode; returns to default model behavior.
-- `/backend-master status`
-  Displays current activation state, Long-Term Memory (LTM stack), Short-Term Memory (STM phase & task), current ponytail mode (`full` vs `ultra`), `unlazy` circuit breaker state, and active sub-skills.
-- `/backend-master <task>`
-  Executes a specific backend task through the master routing engine.
-- `/unlazy`
-  Manually triggers the autonomous breakthrough circuit breaker with explicit `GATES.md` acceptance gates.
-- Direct Sub-Skill Invocation (e.g. `/postgres-pro`, `/fastapi-expert`, `/docker-patterns`):
-  Can be invoked directly at any time; seamlessly integrated into the master orchestrator context.
+### 🎛️ Three Operating Modes (`lite` | `full` | `ultra`)
+1. **`lite` Mode (`mode: lite`)**:
+   - **For**: Rapid bugfixes, quick queries, micro-endpoints, single-file edits, or tight turnaround requests.
+   - **Behavior**: Fast 1-line confirmation gate (*"Proposed fix: X in file Y. Proceed?"*). Minimal overhead, maximum speed, laser focus on immediate delivery.
+2. **`full` Mode (`mode: full`) — Default**:
+   - **For**: Standard production backend engineering, new features, and domain modeling.
+   - **Behavior**: Comprehensive Phase 1 exploration, 2–3 architectural trade-offs, strict Phase 2 Hard Stop, and Phase 3 TDD with clean architecture.
+3. **`ultra` Mode (`mode: ultra`) — YAGNI Extremist**:
+   - **For**: Refactoring debt, hotfixes, or preventing premature complexity.
+   - **Behavior**: Deletes dead code, strips wrapper layers, eliminates speculative interfaces and factories, rejects third-party dependencies when standard library suffices, refuses premature caching/queues.
+
+### 🕹️ Action Command Palette:
+
+| Command | What it does |
+|---|---|
+| `/backend-master` or `/backend-master active` | Locks persistent active mode for the session (default: full mode). |
+| `/backend-master lite` | Switches session to **Lite** mode (fast, minimal overhead, 1-line check). |
+| `/backend-master full` | Switches session to **Full** mode (standard clean architecture & TDD). |
+| `/backend-master ultra` | Switches session to **Ultra** mode (YAGNI extremist, delete bloat, standard library first). |
+| `/backend-master audit` | Run technical quality checks (OWASP API Top 10, SQLi, N+1 queries, pool/memory leaks, unhandled errors). |
+| `/backend-master harden` | Defense-in-depth pass (input validation, rate limiting, JWT/auth verification, CORS/CSRF, RFC 7807 error envelopes, timeouts). |
+| `/backend-master optimize` | Performance tuning (slow query analysis, `EXPLAIN ANALYZE`, indexing strategy, cache-aside, pool sizing). |
+| `/backend-master benchmark` | Load and stress testing (generates & executes `k6` scripts, benchmarks p95/p99 latency and throughput). |
+| `/backend-master schema` | Database schema design, normalization, zero-downtime expand/contract migrations, non-blocking DDL. |
+| `/backend-master api` | Contract-first API modeling (REST, GraphQL, gRPC, WebSockets, OpenAPI specs, cursor pagination, idempotency). |
+| `/backend-master distill` | Ponytail YAGNI pruning pass (strip premature wrappers, single-impl interfaces, flatten classes into pure functions). |
+| `/backend-master critique` | Architectural review (bounded contexts, service coupling, distributed sagas, single points of failure). |
+| `/backend-master dockerize` | Container infrastructure (multi-stage Dockerfiles, Docker Compose mesh, non-root users, secret handling). |
+| `/backend-master document` | Generate or update backend documentation, ADRs, or API contracts from codebase. |
+| `/backend-master init` | Workspace discovery (detect framework, dependencies, databases, environment configs, and initialize LTM). |
+| `/backend-master status` | Displays current activation state, active mode, internal LTM stack, STM task, and loaded skills. |
+| `/backend-master off` | Deactivates persistent mode; returns to default model behavior. |
+| `/unlazy` | Manually triggers the autonomous breakthrough circuit breaker with explicit `GATES.md` acceptance gates. |
+| Direct Sub-Skill Invocation | Direct calls (e.g. `/postgres-pro`, `/fastapi-expert`, `/docker-patterns`) integrate seamlessly at any time. |
+
+### 🛡️ Laser Focus & Anti-Hallucination Policy:
+- **Stay On-Point**: Address only what is directly relevant to the backend task at hand. Eliminate unsolicited essays, meta-commentary, and conversational filler.
+- **Minimal Clean Banner**: Display a single clean status banner:
+  ```text
+  ⚡ [backend-master: ACTIVE] [mode: full] Loaded: [<skill-1>, <skill-2>]
+  ```
+  *(LTM and STM memory states are maintained internally in context and are NOT printed in chat turns unless explicitly requested via `/backend-master status`)*.
+- **Strict Ground Truth Verification**: Never speculate or hallucinate APIs, package versions, database columns, or repository paths. Always verify against actual files and manifests before asserting.
+
+---
+
+## 🚀 Core Mission: Zero-Hassle Transparent Proxy & Fluid Multi-Stage Workflow
+
+The primary goal of `backend-master` is to **completely eliminate the cognitive overhead and hassle of discovering, searching for, configuring, or manually loading dozens of individual skills**. Developers and agents should never have to memorize skill names, search directories, or issue manual loading commands.
+
+### 1. Zero-Hassle Transparent Proxy Principle
+- **No Manual Skill Hunting**: The engineer speaks naturally in plain English (or provides code, bug reports, logs, or requirements).
+- **Silent Autonomous Resolution**: `backend-master` transparently parses the prompt, identifies domain entities (e.g. Postgres, Fastify, Kafka, Docker, k6), matches them against the 73 curated sub-skills, and injects the top 1 to 3 domain specialists on the fly.
+- **Transparent Status Banner**: The agent displays what it resolved in the session banner so the engineer has full visibility without lifting a finger.
+
+### 2. "Work Through All of the Things": Fluid Multi-Stage Workflow Progression
+Real backend features naturally cross multiple technical boundaries as they progress:
+1. **Schema & Migration Stage**: Designing tables, indexes, constraints (`sql-pro`, `postgres-pro`, `database-migration`).
+2. **Application & Routing Stage**: Controllers, middleware, input validation, error handling (`fastify-best-practices`, `fastapi-expert`, `api-and-interface-design`).
+3. **Caching & Asynchronous Processing**: Cache-aside, background queues, pub/sub (`redis-patterns`, `kafka-development`, `rabbitmq-development`).
+4. **Security & Authentication**: JWT validation, rate limiting, RLS policies, vulnerability mitigation (`auth`, `security-and-hardening`, `owasp-top-10-testing`).
+5. **Containerization & Deployment**: Multi-stage Dockerfile, docker-compose network mesh (`docker-patterns`, `devops-engineer`).
+6. **Testing & Performance Verification**: Integration suites, stress benchmarks, load tests (`test-master`, `k6`, `performance-optimization`).
+
+**How `backend-master` Flexibly Navigates Progression**:
+- As the conversation naturally moves from one stage to the next (*"Now let's containerize it"*, *"Now benchmark this endpoint at 10,000 req/s"*), the orchestrator **dynamically rotates active skills in STM** to match the immediate stage.
+- **Zero Friction**: The engineer never needs to say "switch skill to k6". The orchestrator detects the new phase, loads `k6`, retains the service tech stack in LTM, and immediately gets to work.
+
+### 3. Pragmatic Flexibility & Adaptive Gating (Workable, Not Bureaucratic)
+- `backend-master` is built to be a **workable collaborator**, not a rigid roadblock.
+- **Adaptive Gate Scaling**:
+  - **Quick Fixes & Bug Traces (Bounded / Hotfix)**: Phase 1 & Phase 2 verification is fast and crisp (1-2 sentences: *"Root cause: X; proposed fix: Y in file Z. Ready to proceed?"*). No bloated multi-page thesis.
+  - **Major Architectural Shifts (Architectural)**: Phase 1 & 2 provide deep trade-off analysis (2-3 options with performance, complexity, and DB impact).
+  - The workflow moves at the engineer's rhythm—agile when debugging, rigorous when architecting.
 
 ---
 
@@ -188,12 +249,11 @@ Depending on the scope, dependencies, and parallelizability of the task, the orc
      - Refuses caching or distributed queues when an in-process or simple DB solution suffices.
 
 ### Transparent Status Banner:
-Prefix every turn with the active orchestrator banner reflecting LTM and STM:
+Prefix every turn with a clean, unobtrusive status banner:
+```text
+⚡ [backend-master: AUTO|ACTIVE] [mode: lite|full|ultra] Loaded: [<skill-1>, <skill-2>]
 ```
-⚡ [backend-master: AUTO|ACTIVE]
-   [LTM: <Framework> | <DB> | <Architecture>]
-   [STM: Phase <1|2|3> GATE | <Scope> | ponytail: full|ultra | unlazy: standby|active] Loaded: [<skill-1>, <skill-2>]
-```
+*(Do NOT output multi-line LTM or STM memory blocks in chat turns; maintain them internally in context and only display them if the user explicitly asks via `/backend-master status`)*.
 
 ---
 

@@ -15,6 +15,7 @@ This directory documents the foundational architectural and design decisions for
 | [ADR-007](ADR-007-zero-hassle-transparent-proxy-and-multi-stage-workflow.md) | Zero-Hassle Transparent Proxy & Fluid Multi-Stage Workflow | **Accepted** | 2026-10-15 | Eliminates skill hunting; automatically rotates STM skills as a task moves through DB $\rightarrow$ API $\rightarrow$ Queue $\rightarrow$ Docker $\rightarrow$ Testing. |
 | [ADR-008](ADR-008-ponytail-yagni-discipline-integration.md) | Ponytail YAGNI Engineering Discipline Integration | **Accepted** | 2026-10-14 | Integrates Ponytail YAGNI pruning, dynamically switching between normal clean architecture and ultra-minimalist code pruning. |
 | [ADR-009](ADR-009-standalone-curated-skill-replicas-and-upstream-tracking.md) | Self-Contained Curated Skill Replicas and Automated Upstream Tracking | **Accepted** | 2026-10-15 | Houses self-contained copies of 73 skills in `skills/`, tracks 19 sources in `upstream-lock.json`, and verifies integrity in CI. |
+| [ADR-010](ADR-010-command-palette-and-three-tier-operating-modes.md) | Action Command Palette and Three-Tier Operating Modes (`lite`, `full`, `ultra`) | **Accepted** | 2026-10-15 | Introduces 3 operational modes, a rich command palette (`audit`, `harden`, `optimize`, etc.), and a minimal clean banner without chat clutter. |
 
 ## ADR Lifecycle
 
