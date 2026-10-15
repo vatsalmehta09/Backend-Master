@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "last_checked": "2026-10-15T12:30:00Z",
+  "total_managed_skills": 65,
+  "sources": {
+    "Jeffallan/claude-skills": {
+      "repo": "https://github.com/Jeffallan/claude-skills.git",
+      "tracked_commit": "1be15d8064f88fc25216442406d40add8fd23b53",
+      "skills": [
+        "microservices-architect",
+        "backend-patterns",
+        "architecture-patterns",
+        "graphql-architect",
+        "api-designer",
+        "websocket-engineer",
+        "sql-pro",
+        "postgres-pro",
+        "database-optimizer",
+        "python-pro",
+        "fastapi-expert",
+        "django-expert",
+        "nestjs-expert",
+        "golang-pro",
+        "rust-engineer",
+        "spring-boot-engineer",
+        "csharp-developer",
+        "rails-expert",
+        "laravel-specialist",
+        "php-pro",
+        "rag-architect",
+        "devops-engineer",
+        "cloud-architect",
+        "test-master",
+        "monitoring-expert",
+        "kubernetes-specialist",
+        "terraform-engineer",
+        "sre-engineer"
+      ]
+    },
+    "affaan-m/ecc": {
+      "repo": "https://github.com/affaan-m/ecc.git",
+      "tracked_commit": "b92f181b3b748d1abbc2afd94af6aa7d8c8fca29",
+      "skills": [
+        "docker-patterns",
+        "redis-patterns"
+      ]
+    },
+    "grafana/skills": {
+      "repo": "https://github.com/grafana/skills.git",
+      "tracked_commit": "1ccacf29049fde66637fe01ab93a83a772da323b",
+      "skills": [
+        "k6"
+      ]
+    },
+    "samber/developer-platform-skills": {
+      "repo": "https://github.com/samber/developer-platform-skills.git",
+      "tracked_commit": "fbaac9fda4a4c9b40979864bf868cc14bed85081",
+      "skills": [
+        "public-grpc-api-design"
+      ]
+    },
+    "mindrally/skills": {
+      "repo": "https://github.com/mindrally/skills.git",
+      "tracked_commit": "7682ca77710e0971eab4e0ae5dddfa281aea0ba5",
+      "skills": [
+        "kafka-development",
+        "rabbitmq-development"
+      ]
+    },
+    "wshobson/agents": {
+      "repo": "https://github.com/wshobson/agents.git",
+      "tracked_commit": "46891e7e60da0e52baf1050b7b6391b64e84c6d9",
+      "skills": [
+        "database-migration"
+      ]
+    },
+    "usestrix/strix": {
+      "repo": "https://github.com/usestrix/strix.git",
+      "tracked_commit": "ca20626f844b64e26755b7d78ae206ba8dd3acc9",
+      "skills": [
+        "owasp-top-10-testing",
+        "api-security-testing"
+      ]
+    },
+    "supabase/agent-skills": {
+      "repo": "https://github.com/supabase/agent-skills.git",
+      "tracked_commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "skills": [
+        "supabase-postgres-best-practices"
+      ]
+    },
+    "vercel-labs/agent-skills": {
+      "repo": "https://github.com/vercel-labs/agent-skills.git",
+      "tracked_commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "skills": [
+        "runtime-cache",
+        "vercel-storage",
+        "vercel-queues"
+      ]
+    },
+    "vercel/micro": {
+      "repo": "https://github.com/vercel/micro.git",
+      "tracked_commit": "cb3ac4f4cf03401a3568518ffd8d55eb9a50c5c5",
+      "skills": [
+        "micro"
+      ]
+    },
+    "addyosmani/agent-skills": {
+      "repo": "https://github.com/addyosmani/agent-skills.git",
+      "tracked_commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+      "skills": [
+        "deprecation-and-migration"
+      ]
+    },
+    "getsentry/agent-skills": {
+      "repo": "https://github.com/getsentry/agent-skills.git",
+      "tracked_commit": "9f54eb021916a7cff2c04a9f4e4c1f9439f3202c",
+      "skills": [
+        "sentry"
+      ]
+    },
+    "awais786/skills": {
+      "repo": "https://github.com/awais786/skills.git",
+      "tracked_commit": "98669c11ca63e9c81c11501e1437e5c47b556621",
+      "skills": [
+        "django-storages-s3"
+      ]
+    },
+    "temporalio/skill-temporal-developer": {
+      "repo": "https://github.com/temporalio/skill-temporal-developer.git",
+      "tracked_commit": "3041178b597dddb1b54f49e5e73fbae644fba283",
+      "skills": [
+        "temporal-developer",
+        "temporal-cloud-setup",
+        "temporal-ops",
+        "temporal-serverless"
+      ]
+    },
+    "zoom/skills": {
+      "repo": "https://github.com/zoom/skills.git",
+      "tracked_commit": "37140d66c75b43a672a948d3d6f2d3f796da9efb",
+      "skills": [
+        "rest-api",
+        "websockets"
+      ]
+    },
+    "anthropics/skills": {
+      "repo": "https://github.com/anthropics/skills.git",
+      "tracked_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "skills": [
+        "clean-ddd-hexagonal",
+        "api-and-interface-design",
+        "managing-python-dependencies",
+        "shipping-and-launch",
+        "ci-cd-and-automation",
+        "git-workflow-and-versioning",
+        "observability-and-instrumentation",
+        "performance-optimization",
+        "auth",
+        "oauth",
+        "security-and-hardening",
+        "security-audit",
+        "security-diff-scan",
+        "vibesec"
+      ]
+    }
+  }
+}

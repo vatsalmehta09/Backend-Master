@@ -1,0 +1,24 @@
+name: Check Upstream Skill Updates
+
+on:
+  schedule:
+    # Runs every Monday at 00:00 UTC
+    - cron: '0 0 * * 1'
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check-updates:
+    name: Check Upstream Sources
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Update Checker
+        shell: pwsh
+        run: |
+          pwsh scripts/check-updates.ps1

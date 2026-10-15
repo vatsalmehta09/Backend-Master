@@ -117,20 +117,28 @@ See [**`REFERENCES.md`**](REFERENCES.md) for complete details on upstream reposi
 
 ---
 
-## 🔄 Bidirectional Sync & Maintenance Automation
+## 🔄 Upstream Updates & Maintenance Automation
 
-The repository includes a dedicated sync tool in [`scripts/sync-skills.ps1`](scripts/sync-skills.ps1) and a test suite in [`scripts/test-sync.ps1`](scripts/test-sync.ps1):
+The repository includes tools to monitor upstream open-source releases, track revisions, and maintain bidirectional synchronization:
 
-- **Update a skill locally**: Run `scripts/sync-skills.ps1` — detects the edit and automatically commits/pushes the changes to GitHub.
-- **Delete a skill locally**: Run `scripts/sync-skills.ps1` — safely prunes the skill from the GitHub repository.
-- **Dry-run preview**:
+- **Check for Upstream & Local Updates**:
+  ```powershell
+  pwsh scripts/check-updates.ps1
+  ```
+  Compares all 65 sub-skills against upstream Git repositories tracked in [`upstream-lock.json`](upstream-lock.json) and detects local edits in `~/.agents/skills/`.
+- **Apply Local Changes & Commit to GitHub**:
+  ```powershell
+  pwsh scripts/check-updates.ps1 -ApplyLocal -AutoCommit
+  ```
+- **Sync & Prune Tool**:
   ```powershell
   pwsh scripts/sync-skills.ps1 -DryRun
   ```
-- **Run the test suite**:
+- **Run the Test Suite**:
   ```powershell
   pwsh scripts/test-sync.ps1
   ```
+- **Automated GitHub Action**: Runs weekly via [`.github/workflows/check-upstream-updates.yml`](.github/workflows/check-upstream-updates.yml) to detect new upstream commits automatically.
 
 ---
 
