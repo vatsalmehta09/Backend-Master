@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="https://github.com/vatsalmehta09/Backend-Master/actions"><img src="https://img.shields.io/badge/CI%2FCD-passing-brightgreen?style=flat-square" alt="CI/CD Status"></a>
-  <a href="skills/"><img src="https://img.shields.io/badge/managed__skills-70-blue?style=flat-square" alt="Managed Skills"></a>
+  <a href="skills/"><img src="https://img.shields.io/badge/managed__skills-73-blue?style=flat-square" alt="Managed Skills"></a>
   <a href="REFERENCES.md"><img src="https://img.shields.io/badge/ecosystem-skills.sh-informational?style=flat-square" alt="Ecosystem"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License"></a>
   <img src="https://img.shields.io/badge/discipline-Ponytail%20YAGNI-ff69b4?style=flat-square" alt="Ponytail Discipline">
@@ -33,7 +33,7 @@
   - [6. Containerization, Cloud Infrastructure & SRE](#6-containerization-cloud-infrastructure--sre)
   - [7. Testing Architectures, Mocking & Load Profiling](#7-testing-architectures-mocking--load-profiling)
   - [8. Defense-in-Depth Security, Auth & Hardening](#8-defense-in-depth-security-auth--hardening)
-- [📦 Complete Catalog of 70 Curated Sub-Skills](#-complete-catalog-of-70-curated-sub-skills)
+- [📦 Complete Catalog of 73 Curated Sub-Skills](#-complete-catalog-of-73-curated-sub-skills)
 - [🕹️ Commands & Dynamic Activation Modes](#️-commands--dynamic-activation-modes)
 - [🚀 Installation & Setup](#-installation--setup)
 - [🔄 Automated Upstream Tracking & Synchronization](#-automated-upstream-tracking--synchronization)
@@ -53,7 +53,7 @@ Instead of forcing developers and AI coding agents to manually remember and invo
 3. **Mandatory Hard-Gated Planning**: Enforces a strict 3-phase discipline (Context Exploration $\rightarrow$ **Wait for User Verification** $\rightarrow$ Code Execution). Under no circumstance is unreviewed code written.
 4. **Dual Execution Engine**: Dynamically routes work between focused **Inline Development** (single-service/file) and parallel **Sub-Agent Development** (multi-service/complex refactors).
 5. **Integrated Ponytail YAGNI Pruning**: Enforces standard library first and dynamically switches between normal clean architecture and ultra-minimalist code pruning.
-6. **Self-Contained Standalone Replicas**: Houses complete, verified copies of **70 curated open-source sub-skills** directly in [`skills/`](skills/) with zero missing dependencies.
+6. **Self-Contained Standalone Replicas**: Houses complete, verified copies of **73 curated open-source sub-skills** directly in [`skills/`](skills/) with zero missing dependencies.
 
 ---
 
@@ -143,7 +143,7 @@ Premature optimization and bloat are the enemies of maintainable backend code. `
 
 ## 🌐 Comprehensive Practice Areas (8 Core Domains)
 
-`Backend-Master` synthesizes 70 curated sub-skills across 8 complete engineering practice areas:
+`Backend-Master` synthesizes 73 curated sub-skills across 8 complete engineering practice areas:
 
 ```mermaid
 graph LR
@@ -172,12 +172,12 @@ graph LR
 
 ### 4. Polyglot Language & Framework Specialization
 - **Disciplines**: Idiomatic patterns across backend stacks:
-  - **Python**: Modern Python 3.11/3.12+, FastAPI async lifespan handlers, Pydantic v2 validation, Django ORM queryset optimization, uv dependency locking.
-  - **TypeScript / Node.js**: Modular NestJS dependency injection, controllers, guards, interceptors, TypeORM/Prisma, microservices.
+  - **Python**: Modern Python 3.11/3.12+, FastAPI async lifespan handlers, Pydantic v2 validation, Django ORM queryset optimization, Flask blueprints and application factories, uv dependency locking.
+  - **TypeScript / Node.js**: Modular NestJS dependency injection, controllers, guards, interceptors; Express.js layered architecture (controllers, services, repositories, middleware, error handling, JWT); Fastify high-performance encapsulation, plugins, hooks, JSON schema validation, microservices.
   - **Go**: Goroutine concurrency, context propagation, channels, idiomatic error handling.
   - **Rust**: Tokio runtime, memory safety, Axum/Actix web frameworks, zero-cost abstractions.
   - **Enterprise Polyglot**: Spring Boot 3 / Java, ASP.NET Core 8 / C#, Ruby on Rails, Laravel / Modern PHP 8.2+.
-- **Curated Skills**: [`python-pro`](skills/python-pro), [`fastapi-expert`](skills/fastapi-expert), [`django-expert`](skills/django-expert), [`managing-python-dependencies`](skills/managing-python-dependencies), [`nestjs-expert`](skills/nestjs-expert), [`golang-pro`](skills/golang-pro), [`rust-engineer`](skills/rust-engineer), [`spring-boot-engineer`](skills/spring-boot-engineer), [`csharp-developer`](skills/csharp-developer), [`rails-expert`](skills/rails-expert), [`laravel-specialist`](skills/laravel-specialist), [`php-pro`](skills/php-pro), [`micro`](skills/micro).
+- **Curated Skills**: [`python-pro`](skills/python-pro), [`fastapi-expert`](skills/fastapi-expert), [`django-expert`](skills/django-expert), [`flask-python`](skills/flask-python), [`managing-python-dependencies`](skills/managing-python-dependencies), [`nodejs-backend-patterns`](skills/nodejs-backend-patterns), [`fastify-best-practices`](skills/fastify-best-practices), [`nestjs-expert`](skills/nestjs-expert), [`golang-pro`](skills/golang-pro), [`rust-engineer`](skills/rust-engineer), [`spring-boot-engineer`](skills/spring-boot-engineer), [`csharp-developer`](skills/csharp-developer), [`rails-expert`](skills/rails-expert), [`laravel-specialist`](skills/laravel-specialist), [`php-pro`](skills/php-pro), [`micro`](skills/micro).
 
 ### 5. Distributed Workflows, Message Brokers & Event Streaming
 - **Disciplines**: Apache Kafka topic design, consumer groups, partition keys, schema registries, idempotency; RabbitMQ topic/direct exchanges, dead-letter exchanges (DLX), acknowledgments, backpressure; Temporal durable workflows, activities, deterministic replay; vector storage and hybrid RAG retrieval (pgvector); enterprise AI model gateway routing, provider failover, streaming SSE responses, and LLM token cost telemetry.
@@ -197,7 +197,7 @@ graph LR
 
 ---
 
-## 📦 Complete Catalog of 70 Curated Sub-Skills
+## 📦 Complete Catalog of 73 Curated Sub-Skills
 
 | Skill Name | Primary Focus | Language / Stack |
 |---|---|---|
@@ -228,7 +228,10 @@ graph LR
 | [`python-pro`](skills/python-pro) | Modern Python 3.11/3.12+, Typing, Asyncio, Memory Tuning | Python |
 | [`fastapi-expert`](skills/fastapi-expert) | Pydantic v2, Async Lifespans, Asyncpg Connection Pools | Python / FastAPI |
 | [`django-expert`](skills/django-expert) | Django ORM, QuerySet Optimization, DRF Serializers | Python / Django |
+| [`flask-python`](skills/flask-python) | Flask Blueprints, Application Factories, REST APIs, Contexts | Python / Flask |
 | [`managing-python-dependencies`](skills/managing-python-dependencies) | uv, Poetry, Pip-Tools, Reproducible Lockfiles | Python Packaging |
+| [`nodejs-backend-patterns`](skills/nodejs-backend-patterns) | Express/Fastify Controllers, Services, Repositories, JWT Auth | Node.js / Express |
+| [`fastify-best-practices`](skills/fastify-best-practices) | High-Throughput Fastify Plugins, Encapsulation, Hooks, Schema Validation | Node.js / Fastify |
 | [`nestjs-expert`](skills/nestjs-expert) | Modular TS Architecture, DI, Guards, Interceptors | TypeScript / Node.js |
 | [`golang-pro`](skills/golang-pro) | Goroutines, Channels, Context Propagation, net/http | Go |
 | [`rust-engineer`](skills/rust-engineer) | Tokio Runtime, Borrow Checker, Axum/Actix Frameworks | Rust |
@@ -309,12 +312,12 @@ Copy or symlink [`SKILL.md`](SKILL.md) and [`REFERENCES.md`](REFERENCES.md) into
 
 ## 🔄 Automated Upstream Tracking & Synchronization
 
-Because `Backend-Master` hosts standalone replicas of 70 curated skills, the repository includes an automated 3-part update tracking engine:
+Because `Backend-Master` hosts standalone replicas of 73 curated skills, the repository includes an automated 3-part update tracking engine:
 
-1. **Upstream Commit Lockfile ([`upstream-lock.json`](upstream-lock.json))**: Tracks the exact commit SHAs of all 18 upstream open-source repositories.
+1. **Upstream Commit Lockfile ([`upstream-lock.json`](upstream-lock.json))**: Tracks the exact commit SHAs of all 19 upstream open-source repositories.
 2. **Update Checker Script ([`scripts/check-updates.ps1`](scripts/check-updates.ps1))**:
    ```powershell
-   # Scan all 18 upstream repositories and local copies for updates:
+   # Scan all 19 upstream repositories and local copies for updates:
    pwsh scripts/check-updates.ps1
 
    # Apply newer local edits and automatically commit/push to GitHub:
@@ -345,4 +348,4 @@ Because `Backend-Master` hosts standalone replicas of 70 curated skills, the rep
 
 - **License**: MIT License.
 - **Author & Maintainer**: [Vatsal Mehta](https://github.com/vatsalmehta09).
-- **Upstream Credits**: Deep gratitude to [Jeff Allan](https://github.com/Jeffallan), [Affaan M](https://github.com/affaan-m), [Grafana Labs](https://github.com/grafana), [Samuel Berthe](https://github.com/samber), [MongoDB Inc.](https://github.com/mongodb), [Elastic](https://github.com/elastic), [Mindrally](https://github.com/mindrally), [W.S. Hobson](https://github.com/wshobson), [Strix Security](https://github.com/usestrix), [Supabase](https://github.com/supabase), [Vercel Labs](https://github.com/vercel-labs), and the entire [skills.sh](https://skills.sh/) community.
+- **Upstream Credits**: Deep gratitude to [Jeff Allan](https://github.com/Jeffallan), [Affaan M](https://github.com/affaan-m), [Grafana Labs](https://github.com/grafana), [Samuel Berthe](https://github.com/samber), [MongoDB Inc.](https://github.com/mongodb), [Elastic](https://github.com/elastic), [Mindrally](https://github.com/mindrally), [W.S. Hobson](https://github.com/wshobson), [Strix Security](https://github.com/usestrix), [Supabase](https://github.com/supabase), [Vercel Labs](https://github.com/vercel-labs), [Matteo Collina](https://github.com/mcollina), and the entire [skills.sh](https://skills.sh/) community.

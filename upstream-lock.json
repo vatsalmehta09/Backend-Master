@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "version": "1.0.0",
-  "last_checked": "2026-10-15T13:10:00Z",
-  "total_managed_skills": 70,
+  "last_checked": "2026-10-15T14:05:00Z",
+  "total_managed_skills": 73,
   "sources": {
     "Jeffallan/claude-skills": {
       "repo": "https://github.com/Jeffallan/claude-skills.git",
@@ -66,14 +66,23 @@
       "tracked_commit": "7682ca77710e0971eab4e0ae5dddfa281aea0ba5",
       "skills": [
         "kafka-development",
-        "rabbitmq-development"
+        "rabbitmq-development",
+        "flask-python"
       ]
     },
     "wshobson/agents": {
       "repo": "https://github.com/wshobson/agents.git",
       "tracked_commit": "46891e7e60da0e52baf1050b7b6391b64e84c6d9",
       "skills": [
-        "database-migration"
+        "database-migration",
+        "nodejs-backend-patterns"
+      ]
+    },
+    "mcollina/skills": {
+      "repo": "https://github.com/mcollina/skills.git",
+      "tracked_commit": "72b72751477157ebda36203eaffac701ac5df5ae",
+      "skills": [
+        "fastify-best-practices"
       ]
     },
     "usestrix/strix": {

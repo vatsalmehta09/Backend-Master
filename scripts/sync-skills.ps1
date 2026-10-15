@@ -30,7 +30,7 @@ $repoRoot = Split-Path -Parent $scriptDir
 $skillsTargetDir = Join-Path $repoRoot "skills"
 $localSkillsBase = "C:\Users\VATSAL M\.agents\skills"
 
-# 71 backend-master curated skills (1 orchestrator + 70 sub-skills)
+# 74 backend-master curated skills (1 orchestrator + 73 sub-skills)
 $backendSkills = @(
     "backend-master",
     "clean-ddd-hexagonal",
@@ -60,8 +60,12 @@ $backendSkills = @(
     "python-pro",
     "fastapi-expert",
     "django-expert",
+    "flask-python",
     "managing-python-dependencies",
     "nestjs-expert",
+    "nodejs-backend-patterns",
+    "fastify-best-practices",
+    "micro",
     "golang-pro",
     "rust-engineer",
     "spring-boot-engineer",
@@ -69,7 +73,6 @@ $backendSkills = @(
     "rails-expert",
     "laravel-specialist",
     "php-pro",
-    "micro",
     "temporal-developer",
     "temporal-cloud-setup",
     "temporal-ops",

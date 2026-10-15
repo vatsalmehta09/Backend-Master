@@ -2,7 +2,7 @@
 
 ---
 
-## 📚 Complete Index of All 70 Curated Sub-Skills
+## 📚 Complete Index of All 73 Curated Sub-Skills
 
 Every single sub-skill curated in `Backend-Master` includes direct upstream links to its source repository and `skills.sh` registry package:
 
@@ -48,14 +48,18 @@ Every single sub-skill curated in `Backend-Master` includes direct upstream link
 
 ---
 
-### 4. Language & Framework Specialists (13 Skills)
+### 4. Language & Framework Specialists (16 Skills)
 | Skill | Upstream Author | GitHub Source | skills.sh Registry | Install Command |
 |---|---|---|---|---|
 | **`python-pro`** | [Jeff Allan](https://github.com/Jeffallan) | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/main/skills/python-pro) | [python-pro](https://skills.sh/jeffallan/claude-skills/python-pro) | `npx skills add jeffallan/claude-skills@python-pro` |
 | **`fastapi-expert`** | [Jeff Allan](https://github.com/Jeffallan) | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/main/skills/fastapi-expert) | [fastapi-expert](https://skills.sh/jeffallan/claude-skills/fastapi-expert) | `npx skills add jeffallan/claude-skills@fastapi-expert` |
 | **`django-expert`** | [Jeff Allan](https://github.com/Jeffallan) | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/main/skills/django-expert) | [django-expert](https://skills.sh/jeffallan/claude-skills/django-expert) | `npx skills add jeffallan/claude-skills@django-expert` |
+| **`flask-python`** | [Mindrally](https://github.com/mindrally) | [mindrally/skills](https://github.com/mindrally/skills/tree/main/flask-python) | [flask-python](https://skills.sh/mindrally/skills/flask-python) | `npx skills add mindrally/skills@flask-python` |
 | **`managing-python-dependencies`** | Anthropics / Community | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/managing-python-dependencies) | [managing-python-dependencies](https://skills.sh/anthropics/skills/managing-python-dependencies) | `npx skills add anthropics/skills@managing-python-dependencies` |
 | **`nestjs-expert`** | [Jeff Allan](https://github.com/Jeffallan) | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/main/skills/nestjs-expert) | [nestjs-expert](https://skills.sh/jeffallan/claude-skills/nestjs-expert) | `npx skills add jeffallan/claude-skills@nestjs-expert` |
+| **`nodejs-backend-patterns`** | [W.S. Hobson](https://github.com/wshobson) | [wshobson/agents](https://github.com/wshobson/agents/tree/main/skills/nodejs-backend-patterns) | [nodejs-backend-patterns](https://skills.sh/wshobson/agents/nodejs-backend-patterns) | `npx skills add wshobson/agents@nodejs-backend-patterns` |
+| **`fastify-best-practices`** | [Matteo Collina (mcollina)](https://github.com/mcollina) | [mcollina/skills](https://github.com/mcollina/skills/tree/main/fastify-best-practices) | [fastify-best-practices](https://skills.sh/mcollina/skills/fastify-best-practices) | `npx skills add mcollina/skills@fastify-best-practices` |
+| **`micro`** | [Vercel](https://github.com/vercel) | [vercel/micro](https://github.com/vercel/micro) | [micro](https://skills.sh/vercel-labs/agent-skills/micro) | `npx skills add vercel-labs/agent-skills@micro` |
 | **`golang-pro`** | [Jeff Allan](https://github.com/Jeffallan) | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/main/skills/golang-pro) | [golang-pro](https://skills.sh/jeffallan/claude-skills/golang-pro) | `npx skills add jeffallan/claude-skills@golang-pro` |
 | **`rust-engineer`** | [Jeff Allan](https://github.com/Jeffallan) | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/main/skills/rust-engineer) | [rust-engineer](https://skills.sh/jeffallan/claude-skills/rust-engineer) | `npx skills add jeffallan/claude-skills@rust-engineer` |
 | **`spring-boot-engineer`** | [Jeff Allan](https://github.com/Jeffallan) | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/main/skills/spring-boot-engineer) | [spring-boot-engineer](https://skills.sh/jeffallan/claude-skills/spring-boot-engineer) | `npx skills add jeffallan/claude-skills@spring-boot-engineer` |
@@ -63,7 +67,6 @@ Every single sub-skill curated in `Backend-Master` includes direct upstream link
 | **`rails-expert`** | [Jeff Allan](https://github.com/Jeffallan) | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/main/skills/rails-expert) | [rails-expert](https://skills.sh/jeffallan/claude-skills/rails-expert) | `npx skills add jeffallan/claude-skills@rails-expert` |
 | **`laravel-specialist`** | [Jeff Allan](https://github.com/Jeffallan) | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/main/skills/laravel-specialist) | [laravel-specialist](https://skills.sh/jeffallan/claude-skills/laravel-specialist) | `npx skills add jeffallan/claude-skills@laravel-specialist` |
 | **`php-pro`** | [Jeff Allan](https://github.com/Jeffallan) | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/main/skills/php-pro) | [php-pro](https://skills.sh/jeffallan/claude-skills/php-pro) | `npx skills add jeffallan/claude-skills@php-pro` |
-| **`micro`** | [Vercel](https://github.com/vercel) | [vercel/micro](https://github.com/vercel/micro) | [micro](https://skills.sh/vercel-labs/agent-skills/micro) | `npx skills add vercel-labs/agent-skills@micro` |
 
 ---
 
@@ -132,8 +135,9 @@ We deeply acknowledge and credit the following individual authors and engineerin
 - **[Samuel Berthe](https://github.com/samber)**: Author of `public-grpc-api-design`, `webhook-platform-design`, and Go developer platform skills.
 - **[MongoDB Inc.](https://github.com/mongodb)**: Authors of `mongodb-connection` and `mongodb-query-optimizer`.
 - **[Elastic](https://github.com/elastic)**: Authors of `elasticsearch-index-design` distributed search and query optimization skills.
-- **[Mindrally](https://github.com/mindrally)**: Authors of `kafka-development` and `rabbitmq-development`.
-- **[W.S. Hobson](https://github.com/wshobson)**: Author of the zero-downtime `database-migration` skill.
+- **[Mindrally](https://github.com/mindrally)**: Authors of `kafka-development`, `rabbitmq-development`, and `flask-python`.
+- **[W.S. Hobson](https://github.com/wshobson)**: Author of `database-migration` and `nodejs-backend-patterns` (Express/Node production architecture).
+- **[Matteo Collina](https://github.com/mcollina)**: Author of the authoritative `fastify-best-practices` skill and Fastify lead maintainer.
 - **[Strix Security](https://github.com/usestrix)**: Authors of `owasp-top-10-testing` and `api-security-testing`.
 - **[Supabase](https://github.com/supabase)** & **[Vercel Labs](https://github.com/vercel-labs)**: Authors of Postgres, edge storage, runtime caching, queuing, and AI gateway skills.
 - **[Anthropic](https://github.com/anthropics)** and the wider open-source **[skills.sh](https://skills.sh)** community.

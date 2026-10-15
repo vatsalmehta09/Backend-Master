@@ -122,7 +122,7 @@ Prefix every turn with the active orchestrator banner:
 
 ---
 
-## 🗂️ Curated Sub-Skills Registry (70 Curated Skills)
+## 🗂️ Curated Sub-Skills Registry (73 Curated Skills)
 
 Selective on-demand loading: Select and read **only the 1 to 3 sub-skills** directly relevant to the current task. Never load all skills at once.
 
@@ -159,7 +159,10 @@ Selective on-demand loading: Select and read **only the 1 to 3 sub-skills** dire
 - **`python-pro`**: Modern Python 3.11/3.12+, strict typing, memory optimization, asyncio runtime.
 - **`fastapi-expert`**: Pydantic v2 schemas, async lifespan handlers, dependency injection, asyncpg pools.
 - **`django-expert`**: Django ORM, querysets optimization, middleware, DRF serialization.
+- **`flask-python`**: Flask Blueprints, application factories, RESTful resource routing, context teardown.
 - **`managing-python-dependencies`**: Poetry, uv, pip-tools, virtualenv isolation, deterministic lockfiles.
+- **`nodejs-backend-patterns`**: Express/Fastify layered controllers, service classes, repository abstractions, middleware, JWT auth.
+- **`fastify-best-practices`**: High-throughput Fastify plugin architecture, encapsulation, lifecycle hooks, fast-json-stringify schema validation.
 - **`nestjs-expert`**: Modular TypeScript architecture, DI, guards, interceptors, TypeORM/Prisma.
 - **`golang-pro`**: Goroutines, channels, context propagation, error handling idioms, net/http.
 - **`rust-engineer`**: Tokio runtime, ownership, Axum/Actix, zero-cost abstractions.
