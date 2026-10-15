@@ -2,7 +2,7 @@
 
 ---
 
-## 📚 Complete Index of All 65 Curated Sub-Skills
+## 📚 Complete Index of All 70 Curated Sub-Skills
 
 Every single sub-skill curated in `Backend-Master` includes direct upstream links to its source repository and `skills.sh` registry package:
 
@@ -16,7 +16,7 @@ Every single sub-skill curated in `Backend-Master` includes direct upstream link
 
 ---
 
-### 2. API Design, Web Protocols & Inter-Service IPC (7 Skills)
+### 2. API Design, Web Protocols & Inter-Service IPC (8 Skills)
 | Skill | Upstream Author | GitHub Source | skills.sh Registry | Install Command |
 |---|---|---|---|---|
 | **`api-and-interface-design`** | Anthropics / Community | [anthropics/skills](https://github.com/anthropics/skills/tree/main/skills/api-and-interface-design) | [api-and-interface-design](https://skills.sh/anthropics/skills/api-and-interface-design) | `npx skills add anthropics/skills@api-and-interface-design` |
@@ -26,10 +26,11 @@ Every single sub-skill curated in `Backend-Master` includes direct upstream link
 | **`websocket-engineer`** | [Jeff Allan](https://github.com/Jeffallan) | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/main/skills/websocket-engineer) | [websocket-engineer](https://skills.sh/jeffallan/claude-skills/websocket-engineer) | `npx skills add jeffallan/claude-skills@websocket-engineer` |
 | **`websockets`** | Zoom / Community | [zoom/skills](https://github.com/zoom/skills/tree/main/skills/websockets) | [websockets](https://skills.sh/zoom/skills/websockets) | `npx skills add zoom/skills@websockets` |
 | **`public-grpc-api-design`** | [Samuel Berthe (samber)](https://github.com/samber) | [samber/developer-platform-skills](https://github.com/samber/developer-platform-skills/tree/main/skills/public-grpc-api-design) | [public-grpc-api-design](https://skills.sh/samber/developer-platform-skills/public-grpc-api-design) | `npx skills add samber/developer-platform-skills@public-grpc-api-design` |
+| **`webhook-platform-design`** | [Samuel Berthe (samber)](https://github.com/samber) | [samber/developer-platform-skills](https://github.com/samber/developer-platform-skills/tree/main/skills/webhook-platform-design) | [webhook-platform-design](https://skills.sh/samber/developer-platform-skills/webhook-platform-design) | `npx skills add samber/developer-platform-skills@webhook-platform-design` |
 
 ---
 
-### 3. Databases, Caching & Data Evolution (9 Skills)
+### 3. Databases, Caching & Data Evolution (12 Skills)
 | Skill | Upstream Author | GitHub Source | skills.sh Registry | Install Command |
 |---|---|---|---|---|
 | **`sql-pro`** | [Jeff Allan](https://github.com/Jeffallan) | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/main/skills/sql-pro) | [sql-pro](https://skills.sh/jeffallan/claude-skills/sql-pro) | `npx skills add jeffallan/claude-skills@sql-pro` |
@@ -37,6 +38,9 @@ Every single sub-skill curated in `Backend-Master` includes direct upstream link
 | **`database-optimizer`** | [Jeff Allan](https://github.com/Jeffallan) | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/main/skills/database-optimizer) | [database-optimizer](https://skills.sh/jeffallan/claude-skills/database-optimizer) | `npx skills add jeffallan/claude-skills@database-optimizer` |
 | **`database-migration`** | [W.S. Hobson](https://github.com/wshobson) | [wshobson/agents](https://github.com/wshobson/agents/tree/main/skills/database-migration) | [database-migration](https://skills.sh/wshobson/agents/database-migration) | `npx skills add wshobson/agents@database-migration` |
 | **`redis-patterns`** | [Affaan M](https://github.com/affaan-m) | [affaan-m/ecc](https://github.com/affaan-m/ecc/tree/main/skills/redis-patterns) | [redis-patterns](https://skills.sh/affaan-m/ecc/redis-patterns) | `npx skills add affaan-m/ecc@redis-patterns` |
+| **`mongodb-connection`** | [MongoDB Inc.](https://github.com/mongodb) | [mongodb/agent-skills](https://github.com/mongodb/agent-skills/tree/main/skills/mongodb-connection) | [mongodb-connection](https://skills.sh/mongodb/agent-skills/mongodb-connection) | `npx skills add mongodb/agent-skills@mongodb-connection` |
+| **`mongodb-query-optimizer`** | [MongoDB Inc.](https://github.com/mongodb) | [mongodb/agent-skills](https://github.com/mongodb/agent-skills/tree/main/skills/mongodb-query-optimizer) | [mongodb-query-optimizer](https://skills.sh/mongodb/agent-skills/mongodb-query-optimizer) | `npx skills add mongodb/agent-skills@mongodb-query-optimizer` |
+| **`elasticsearch-index-design`** | [Elastic](https://github.com/elastic) | [elastic/agent-skills](https://github.com/elastic/agent-skills/tree/main/skills/elasticsearch-index-design) | [elasticsearch-index-design](https://skills.sh/elastic/agent-skills/elasticsearch-index-design) | `npx skills add elastic/agent-skills@elasticsearch-index-design` |
 | **`supabase-postgres-best-practices`** | [Supabase](https://github.com/supabase) | [supabase/agent-skills](https://github.com/supabase/agent-skills/tree/main/skills/supabase-postgres-best-practices) | [supabase-postgres-best-practices](https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices) | `npx skills add supabase/agent-skills@supabase-postgres-best-practices` |
 | **`django-storages-s3`** | [Awais](https://github.com/awais786) | [awais786/skills](https://github.com/awais786/skills/tree/main/skills/django-storages-s3) | [django-storages-s3](https://skills.sh/awais786/skills/django-storages-s3) | `npx skills add awais786/skills@django-storages-s3` |
 | **`runtime-cache`** | [Vercel Labs](https://github.com/vercel-labs) | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills/tree/main/skills/runtime-cache) | [runtime-cache](https://skills.sh/vercel-labs/agent-skills/runtime-cache) | `npx skills add vercel-labs/agent-skills@runtime-cache` |
@@ -63,7 +67,7 @@ Every single sub-skill curated in `Backend-Master` includes direct upstream link
 
 ---
 
-### 5. Workflows, Message Brokers & Event Streaming (8 Skills)
+### 5. Workflows, Message Brokers & Event Streaming (9 Skills)
 | Skill | Upstream Author | GitHub Source | skills.sh Registry | Install Command |
 |---|---|---|---|---|
 | **`temporal-developer`** | Temporal Technologies / Community | [temporalio/skills](https://github.com/temporalio/skills/tree/main/skills/temporal-developer) | [temporal-developer](https://skills.sh/temporalio/skills/temporal-developer) | `npx skills add temporalio/skills@temporal-developer` |
@@ -74,6 +78,7 @@ Every single sub-skill curated in `Backend-Master` includes direct upstream link
 | **`rabbitmq-development`** | [Mindrally](https://github.com/mindrally) | [mindrally/skills](https://github.com/mindrally/skills/tree/main/skills/rabbitmq-development) | [rabbitmq-development](https://skills.sh/mindrally/skills/rabbitmq-development) | `npx skills add mindrally/skills@rabbitmq-development` |
 | **`vercel-queues`** | [Vercel Labs](https://github.com/vercel-labs) | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills/tree/main/skills/vercel-queues) | [vercel-queues](https://skills.sh/vercel-labs/agent-skills/vercel-queues) | `npx skills add vercel-labs/agent-skills@vercel-queues` |
 | **`rag-architect`** | [Jeff Allan](https://github.com/Jeffallan) | [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/main/skills/rag-architect) | [rag-architect](https://skills.sh/jeffallan/claude-skills/rag-architect) | `npx skills add jeffallan/claude-skills@rag-architect` |
+| **`ai-gateway`** | [Vercel Labs](https://github.com/vercel-labs) | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills/tree/main/skills/ai-gateway) | [ai-gateway](https://skills.sh/vercel-labs/agent-skills/ai-gateway) | `npx skills add vercel-labs/agent-skills@ai-gateway` |
 
 ---
 
@@ -124,11 +129,13 @@ We deeply acknowledge and credit the following individual authors and engineerin
 - **[Jeff Allan](https://github.com/Jeffallan)** (`claude-skills`): Author of 24 core engineering skills spanning frameworks, databases, and microservices.
 - **[Affaan M](https://github.com/affaan-m)** (`ecc`): Author of production `docker-patterns` and `redis-patterns`.
 - **[Grafana Labs](https://github.com/grafana)**: Authors of the `k6` API performance and load testing skill.
-- **[Samuel Berthe](https://github.com/samber)**: Author of `public-grpc-api-design` and Go developer platform skills.
+- **[Samuel Berthe](https://github.com/samber)**: Author of `public-grpc-api-design`, `webhook-platform-design`, and Go developer platform skills.
+- **[MongoDB Inc.](https://github.com/mongodb)**: Authors of `mongodb-connection` and `mongodb-query-optimizer`.
+- **[Elastic](https://github.com/elastic)**: Authors of `elasticsearch-index-design` distributed search and query optimization skills.
 - **[Mindrally](https://github.com/mindrally)**: Authors of `kafka-development` and `rabbitmq-development`.
 - **[W.S. Hobson](https://github.com/wshobson)**: Author of the zero-downtime `database-migration` skill.
 - **[Strix Security](https://github.com/usestrix)**: Authors of `owasp-top-10-testing` and `api-security-testing`.
-- **[Supabase](https://github.com/supabase)** & **[Vercel Labs](https://github.com/vercel-labs)**: Authors of Postgres, edge storage, runtime caching, and queuing skills.
+- **[Supabase](https://github.com/supabase)** & **[Vercel Labs](https://github.com/vercel-labs)**: Authors of Postgres, edge storage, runtime caching, queuing, and AI gateway skills.
 - **[Anthropic](https://github.com/anthropics)** and the wider open-source **[skills.sh](https://skills.sh)** community.
 
 ---

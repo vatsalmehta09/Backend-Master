@@ -112,7 +112,7 @@ foreach ($dir in $repoSkills) {
 }
 
 if ($localDrifts -eq 0) {
-    Write-Host "  🟢 All 65 repo replicas match local ~/.agents/skills exactly!" -ForegroundColor Green
+    Write-Host "  🟢 All $($lockData.total_managed_skills) repo replicas match local ~/.agents/skills exactly!" -ForegroundColor Green
 }
 
 Write-Host ""

@@ -122,7 +122,7 @@ Prefix every turn with the active orchestrator banner:
 
 ---
 
-## 🗂️ Curated Sub-Skills Registry (65 Curated Skills)
+## 🗂️ Curated Sub-Skills Registry (70 Curated Skills)
 
 Selective on-demand loading: Select and read **only the 1 to 3 sub-skills** directly relevant to the current task. Never load all skills at once.
 
@@ -139,6 +139,7 @@ Selective on-demand loading: Select and read **only the 1 to 3 sub-skills** dire
 - **`rest-api`**: REST resource modeling, HTTP verb semantics, status codes, HATEOAS.
 - **`websocket-engineer`** / **`websockets`**: Real-time bidirectional WebSockets, room management, Redis pub/sub.
 - **`public-grpc-api-design`**: Protocol Buffers IDL, gRPC service contracts, streaming RPCs, error model (`google.rpc.Status`).
+- **`webhook-platform-design`**: Enterprise webhook platform architecture, HMAC-SHA256 signature verification, exponential retry backoff, replay prevention.
 
 ### 3. Databases, Caching & Data Evolution
 - **`sql-pro`**: Relational schema design, normalization, complex joins, indexing strategies.
@@ -146,6 +147,9 @@ Selective on-demand loading: Select and read **only the 1 to 3 sub-skills** dire
 - **`database-optimizer`**: Slow query analysis, `EXPLAIN ANALYZE`, indexing audits, connection pooling.
 - **`database-migration`**: Zero-downtime schema evolution, expand-and-contract migrations, non-blocking DDL.
 - **`redis-patterns`**: Redis caching patterns (cache-aside, write-through), Redlock distributed locks, TTLs.
+- **`mongodb-connection`**: MongoDB connection pooling, replica sets, connection string security, resilient connect.
+- **`mongodb-query-optimizer`**: MongoDB query performance, compound indexes, explain plans, aggregation optimization.
+- **`elasticsearch-index-design`**: Full-text search index mapping, analyzers, shard & replica allocation, fuzzy queries.
 - **`supabase-postgres-best-practices`**: Row Level Security (RLS) policies, Edge Functions, Postgres triggers.
 - **`django-storages-s3`**: Cloud object storage (AWS S3, MinIO, Cloudflare R2), signed URLs.
 - **`runtime-cache`**: Distributed cache layers, cache invalidation, stampede protection.
@@ -173,6 +177,7 @@ Selective on-demand loading: Select and read **only the 1 to 3 sub-skills** dire
 - **`rabbitmq-development`**: RabbitMQ exchanges (direct, topic, fanout), dead-letter queues (DLX), acks, backpressure.
 - **`vercel-queues`**: Asynchronous message delivery, background workers, retry policies.
 - **`rag-architect`**: Vector storage (pgvector, Pinecone), embeddings, chunking, hybrid retrieval backends.
+- **`ai-gateway`**: Unified LLM model routing, multi-provider failover, SSE streaming responses, token cost tracking.
 
 ### 6. Production Readiness, Containerization, Cloud & DevOps
 - **`devops-engineer`**: Multi-stage Dockerfiles, Docker Compose, CI/CD pipelines, containerization automation.

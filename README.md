@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="https://github.com/vatsalmehta09/Backend-Master/actions"><img src="https://img.shields.io/badge/CI%2FCD-passing-brightgreen?style=flat-square" alt="CI/CD Status"></a>
-  <a href="skills/"><img src="https://img.shields.io/badge/managed__skills-65-blue?style=flat-square" alt="Managed Skills"></a>
+  <a href="skills/"><img src="https://img.shields.io/badge/managed__skills-70-blue?style=flat-square" alt="Managed Skills"></a>
   <a href="REFERENCES.md"><img src="https://img.shields.io/badge/ecosystem-skills.sh-informational?style=flat-square" alt="Ecosystem"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License"></a>
   <img src="https://img.shields.io/badge/discipline-Ponytail%20YAGNI-ff69b4?style=flat-square" alt="Ponytail Discipline">
@@ -33,7 +33,7 @@
   - [6. Containerization, Cloud Infrastructure & SRE](#6-containerization-cloud-infrastructure--sre)
   - [7. Testing Architectures, Mocking & Load Profiling](#7-testing-architectures-mocking--load-profiling)
   - [8. Defense-in-Depth Security, Auth & Hardening](#8-defense-in-depth-security-auth--hardening)
-- [📦 Complete Catalog of 65 Curated Sub-Skills](#-complete-catalog-of-65-curated-sub-skills)
+- [📦 Complete Catalog of 70 Curated Sub-Skills](#-complete-catalog-of-70-curated-sub-skills)
 - [🕹️ Commands & Dynamic Activation Modes](#️-commands--dynamic-activation-modes)
 - [🚀 Installation & Setup](#-installation--setup)
 - [🔄 Automated Upstream Tracking & Synchronization](#-automated-upstream-tracking--synchronization)
@@ -53,7 +53,7 @@ Instead of forcing developers and AI coding agents to manually remember and invo
 3. **Mandatory Hard-Gated Planning**: Enforces a strict 3-phase discipline (Context Exploration $\rightarrow$ **Wait for User Verification** $\rightarrow$ Code Execution). Under no circumstance is unreviewed code written.
 4. **Dual Execution Engine**: Dynamically routes work between focused **Inline Development** (single-service/file) and parallel **Sub-Agent Development** (multi-service/complex refactors).
 5. **Integrated Ponytail YAGNI Pruning**: Enforces standard library first and dynamically switches between normal clean architecture and ultra-minimalist code pruning.
-6. **Self-Contained Standalone Replicas**: Houses complete, verified copies of **65 curated open-source sub-skills** directly in [`skills/`](skills/) with zero missing dependencies.
+6. **Self-Contained Standalone Replicas**: Houses complete, verified copies of **70 curated open-source sub-skills** directly in [`skills/`](skills/) with zero missing dependencies.
 
 ---
 
@@ -143,7 +143,7 @@ Premature optimization and bloat are the enemies of maintainable backend code. `
 
 ## 🌐 Comprehensive Practice Areas (8 Core Domains)
 
-`Backend-Master` synthesizes 65 curated sub-skills across 8 complete engineering practice areas:
+`Backend-Master` synthesizes 70 curated sub-skills across 8 complete engineering practice areas:
 
 ```mermaid
 graph LR
@@ -163,12 +163,12 @@ graph LR
 - **Curated Skills**: [`clean-ddd-hexagonal`](skills/clean-ddd-hexagonal), [`backend-patterns`](skills/backend-patterns), [`architecture-patterns`](skills/architecture-patterns), [`microservices-architect`](skills/microservices-architect).
 
 ### 2. API Design, Protocols & Inter-Service IPC
-- **Disciplines**: Strict REST contracts (RFC 7807 problem details, idempotency keys, cursor pagination), Apollo Federation 2.5+ GraphQL schemas, low-latency WebSockets with Redis pub/sub scaling, high-performance Protocol Buffers IDL and streaming gRPC (`google.rpc.Status`).
-- **Curated Skills**: [`api-and-interface-design`](skills/api-and-interface-design), [`graphql-architect`](skills/graphql-architect), [`api-designer`](skills/api-designer), [`rest-api`](skills/rest-api), [`websocket-engineer`](skills/websocket-engineer), [`websockets`](skills/websockets), [`public-grpc-api-design`](skills/public-grpc-api-design).
+- **Disciplines**: Strict REST contracts (RFC 7807 problem details, idempotency keys, cursor pagination), Apollo Federation 2.5+ GraphQL schemas, low-latency WebSockets with Redis pub/sub scaling, high-performance Protocol Buffers IDL and streaming gRPC (`google.rpc.Status`), and enterprise webhook platform architecture (HMAC-SHA256 signature verification, exponential retry backoff, replay attack prevention, dead-letter dispatch).
+- **Curated Skills**: [`api-and-interface-design`](skills/api-and-interface-design), [`graphql-architect`](skills/graphql-architect), [`api-designer`](skills/api-designer), [`rest-api`](skills/rest-api), [`websocket-engineer`](skills/websocket-engineer), [`websockets`](skills/websockets), [`public-grpc-api-design`](skills/public-grpc-api-design), [`webhook-platform-design`](skills/webhook-platform-design).
 
 ### 3. Databases, Caching & Zero-Downtime Data Evolution
-- **Disciplines**: Relational 3NF & denormalization trade-offs, PostgreSQL query optimization (`EXPLAIN ANALYZE`, index sizing, JSONB indexing, connection pooling), zero-downtime expand-and-contract migrations, Redis caching patterns (cache-aside, write-through, probabilistic early expiration, Redlock distributed locking), Supabase Row Level Security (RLS), and S3/R2 cloud object storage.
-- **Curated Skills**: [`sql-pro`](skills/sql-pro), [`postgres-pro`](skills/postgres-pro), [`database-optimizer`](skills/database-optimizer), [`database-migration`](skills/database-migration), [`redis-patterns`](skills/redis-patterns), [`supabase-postgres-best-practices`](skills/supabase-postgres-best-practices), [`django-storages-s3`](skills/django-storages-s3), [`runtime-cache`](skills/runtime-cache), [`vercel-storage`](skills/vercel-storage).
+- **Disciplines**: Relational 3NF & denormalization trade-offs, PostgreSQL query optimization (`EXPLAIN ANALYZE`, index sizing, JSONB indexing, connection pooling), zero-downtime expand-and-contract migrations, Redis caching patterns (cache-aside, write-through, probabilistic early expiration, Redlock distributed locking), MongoDB replica set connection resiliency, document schema validation, aggregation pipeline tuning, Elasticsearch full-text search indexing, mapping optimizations, shard topologies, Supabase Row Level Security (RLS), and S3/R2 cloud object storage.
+- **Curated Skills**: [`sql-pro`](skills/sql-pro), [`postgres-pro`](skills/postgres-pro), [`database-optimizer`](skills/database-optimizer), [`database-migration`](skills/database-migration), [`redis-patterns`](skills/redis-patterns), [`mongodb-connection`](skills/mongodb-connection), [`mongodb-query-optimizer`](skills/mongodb-query-optimizer), [`elasticsearch-index-design`](skills/elasticsearch-index-design), [`supabase-postgres-best-practices`](skills/supabase-postgres-best-practices), [`django-storages-s3`](skills/django-storages-s3), [`runtime-cache`](skills/runtime-cache), [`vercel-storage`](skills/vercel-storage).
 
 ### 4. Polyglot Language & Framework Specialization
 - **Disciplines**: Idiomatic patterns across backend stacks:
@@ -180,8 +180,8 @@ graph LR
 - **Curated Skills**: [`python-pro`](skills/python-pro), [`fastapi-expert`](skills/fastapi-expert), [`django-expert`](skills/django-expert), [`managing-python-dependencies`](skills/managing-python-dependencies), [`nestjs-expert`](skills/nestjs-expert), [`golang-pro`](skills/golang-pro), [`rust-engineer`](skills/rust-engineer), [`spring-boot-engineer`](skills/spring-boot-engineer), [`csharp-developer`](skills/csharp-developer), [`rails-expert`](skills/rails-expert), [`laravel-specialist`](skills/laravel-specialist), [`php-pro`](skills/php-pro), [`micro`](skills/micro).
 
 ### 5. Distributed Workflows, Message Brokers & Event Streaming
-- **Disciplines**: Apache Kafka topic design, consumer groups, partition keys, schema registries, idempotency; RabbitMQ topic/direct exchanges, dead-letter exchanges (DLX), acknowledgments, backpressure; Temporal durable workflows, activities, deterministic replay; vector storage and hybrid RAG retrieval (pgvector).
-- **Curated Skills**: [`temporal-developer`](skills/temporal-developer), [`temporal-cloud-setup`](skills/temporal-cloud-setup), [`temporal-ops`](skills/temporal-ops), [`temporal-serverless`](skills/temporal-serverless), [`kafka-development`](skills/kafka-development), [`rabbitmq-development`](skills/rabbitmq-development), [`vercel-queues`](skills/vercel-queues), [`rag-architect`](skills/rag-architect).
+- **Disciplines**: Apache Kafka topic design, consumer groups, partition keys, schema registries, idempotency; RabbitMQ topic/direct exchanges, dead-letter exchanges (DLX), acknowledgments, backpressure; Temporal durable workflows, activities, deterministic replay; vector storage and hybrid RAG retrieval (pgvector); enterprise AI model gateway routing, provider failover, streaming SSE responses, and LLM token cost telemetry.
+- **Curated Skills**: [`temporal-developer`](skills/temporal-developer), [`temporal-cloud-setup`](skills/temporal-cloud-setup), [`temporal-ops`](skills/temporal-ops), [`temporal-serverless`](skills/temporal-serverless), [`kafka-development`](skills/kafka-development), [`rabbitmq-development`](skills/rabbitmq-development), [`vercel-queues`](skills/vercel-queues), [`rag-architect`](skills/rag-architect), [`ai-gateway`](skills/ai-gateway).
 
 ### 6. Containerization, Cloud Infrastructure & SRE
 - **Disciplines**: Multi-stage production Dockerfiles (minimal alpine/distroless, layer cache mounts, non-root users), Docker Compose development meshes, AWS/GCP/Azure Well-Architected Framework, VPC networks, private subnets, Terraform Infrastructure as Code (IaC), Kubernetes orchestration (Deployments, StatefulSets, HPA, Helm), automated CI/CD pipelines (GitHub Actions), OpenTelemetry tracing, Prometheus/Grafana alerting, and SRE incident remediation.
@@ -197,7 +197,7 @@ graph LR
 
 ---
 
-## 📦 Complete Catalog of 65 Curated Sub-Skills
+## 📦 Complete Catalog of 70 Curated Sub-Skills
 
 | Skill Name | Primary Focus | Language / Stack |
 |---|---|---|
@@ -212,11 +212,15 @@ graph LR
 | [`websocket-engineer`](skills/websocket-engineer) | Real-Time WebSockets, Rooms, Redis Pub/Sub | Real-Time Systems |
 | [`websockets`](skills/websockets) | WebSocket Connection Management, Heartbeats, Backpressure | WebSockets |
 | [`public-grpc-api-design`](skills/public-grpc-api-design) | Protobuf IDL, Streaming gRPC Contracts, `google.rpc.Status` | gRPC / Protobuf |
+| [`webhook-platform-design`](skills/webhook-platform-design) | Webhook Delivery Architecture, HMAC Signatures, Retries, Idempotency | Samber / Webhooks |
 | [`sql-pro`](skills/sql-pro) | Relational Schema Design, Normalization, Complex Joins | SQL / RDBMS |
 | [`postgres-pro`](skills/postgres-pro) | PostgreSQL Optimization, JSONB, Concurrency, Partitioning | PostgreSQL |
 | [`database-optimizer`](skills/database-optimizer) | Query Execution Plans, `EXPLAIN ANALYZE`, Connection Pools | Database Performance |
 | [`database-migration`](skills/database-migration) | Zero-Downtime Migrations, Expand-and-Contract DDL | Database Ops |
 | [`redis-patterns`](skills/redis-patterns) | Cache-Aside, Write-Through, Redlock, TTLs, Eviction | Redis |
+| [`mongodb-connection`](skills/mongodb-connection) | Connection Pooling, Replica Sets, Resilient Cluster Connect | MongoDB / NoSQL |
+| [`mongodb-query-optimizer`](skills/mongodb-query-optimizer) | Index Strategy, Explain Plans, Aggregation Optimization | MongoDB / NoSQL |
+| [`elasticsearch-index-design`](skills/elasticsearch-index-design) | Sharding, Mappings, Inverted Index, Fuzzy Search | Elasticsearch / Search |
 | [`supabase-postgres-best-practices`](skills/supabase-postgres-best-practices) | Row Level Security (RLS), Edge Functions, Triggers | Supabase / Postgres |
 | [`django-storages-s3`](skills/django-storages-s3) | Cloud Object Storage (S3, MinIO, R2), Signed URLs | Storage / Django |
 | [`runtime-cache`](skills/runtime-cache) | Cache Layer Invalidation, Stampede Protection | Caching |
@@ -242,6 +246,7 @@ graph LR
 | [`rabbitmq-development`](skills/rabbitmq-development) | Direct/Topic Exchanges, Dead-Letter Queues (DLX), Acks | RabbitMQ |
 | [`vercel-queues`](skills/vercel-queues) | Async Message Delivery, Background Worker Retries | Serverless Queues |
 | [`rag-architect`](skills/rag-architect) | Vector Databases (pgvector, Pinecone), Hybrid RAG | AI Backends |
+| [`ai-gateway`](skills/ai-gateway) | Multi-Provider Model Routing, Fallback, SSE Streaming, Cost Tracking | AI Gateways / LLM |
 | [`devops-engineer`](skills/devops-engineer) | Multi-Stage Dockerfiles, Docker Compose, CI/CD, GitOps | DevOps / Containers |
 | [`docker-patterns`](skills/docker-patterns) | Production Docker Best Practices, Layer Caching, Non-Root | Docker |
 | [`cloud-architect`](skills/cloud-architect) | AWS/GCP/Azure Well-Architected Framework, VPCs, DR | Multi-Cloud |
@@ -304,12 +309,12 @@ Copy or symlink [`SKILL.md`](SKILL.md) and [`REFERENCES.md`](REFERENCES.md) into
 
 ## 🔄 Automated Upstream Tracking & Synchronization
 
-Because `Backend-Master` hosts standalone replicas of 65 curated skills, the repository includes an automated 3-part update tracking engine:
+Because `Backend-Master` hosts standalone replicas of 70 curated skills, the repository includes an automated 3-part update tracking engine:
 
-1. **Upstream Commit Lockfile ([`upstream-lock.json`](upstream-lock.json))**: Tracks the exact commit SHAs of all 16 upstream open-source repositories.
+1. **Upstream Commit Lockfile ([`upstream-lock.json`](upstream-lock.json))**: Tracks the exact commit SHAs of all 18 upstream open-source repositories.
 2. **Update Checker Script ([`scripts/check-updates.ps1`](scripts/check-updates.ps1))**:
    ```powershell
-   # Scan all 16 upstream repositories and local copies for updates:
+   # Scan all 18 upstream repositories and local copies for updates:
    pwsh scripts/check-updates.ps1
 
    # Apply newer local edits and automatically commit/push to GitHub:
@@ -340,4 +345,4 @@ Because `Backend-Master` hosts standalone replicas of 65 curated skills, the rep
 
 - **License**: MIT License.
 - **Author & Maintainer**: [Vatsal Mehta](https://github.com/vatsalmehta09).
-- **Upstream Credits**: Deep gratitude to [Jeff Allan](https://github.com/Jeffallan), [Affaan M](https://github.com/affaan-m), [Grafana Labs](https://github.com/grafana), [Samuel Berthe](https://github.com/samber), [Mindrally](https://github.com/mindrally), [W.S. Hobson](https://github.com/wshobson), [Strix Security](https://github.com/usestrix), [Supabase](https://github.com/supabase), [Vercel Labs](https://github.com/vercel-labs), and the entire [skills.sh](https://skills.sh/) community.
+- **Upstream Credits**: Deep gratitude to [Jeff Allan](https://github.com/Jeffallan), [Affaan M](https://github.com/affaan-m), [Grafana Labs](https://github.com/grafana), [Samuel Berthe](https://github.com/samber), [MongoDB Inc.](https://github.com/mongodb), [Elastic](https://github.com/elastic), [Mindrally](https://github.com/mindrally), [W.S. Hobson](https://github.com/wshobson), [Strix Security](https://github.com/usestrix), [Supabase](https://github.com/supabase), [Vercel Labs](https://github.com/vercel-labs), and the entire [skills.sh](https://skills.sh/) community.

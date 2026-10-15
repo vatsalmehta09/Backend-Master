@@ -30,7 +30,7 @@ $repoRoot = Split-Path -Parent $scriptDir
 $skillsTargetDir = Join-Path $repoRoot "skills"
 $localSkillsBase = "C:\Users\VATSAL M\.agents\skills"
 
-# 65 backend-master curated skills
+# 71 backend-master curated skills (1 orchestrator + 70 sub-skills)
 $backendSkills = @(
     "backend-master",
     "clean-ddd-hexagonal",
@@ -44,11 +44,15 @@ $backendSkills = @(
     "websocket-engineer",
     "websockets",
     "public-grpc-api-design",
+    "webhook-platform-design",
     "sql-pro",
     "postgres-pro",
     "database-optimizer",
     "database-migration",
     "redis-patterns",
+    "mongodb-connection",
+    "mongodb-query-optimizer",
+    "elasticsearch-index-design",
     "supabase-postgres-best-practices",
     "django-storages-s3",
     "runtime-cache",
@@ -74,6 +78,7 @@ $backendSkills = @(
     "rabbitmq-development",
     "vercel-queues",
     "rag-architect",
+    "ai-gateway",
     "devops-engineer",
     "docker-patterns",
     "cloud-architect",

@@ -35,7 +35,7 @@ jobs:
               }
           }
           if ($errors -gt 0) { exit 1 }
-          Write-Host "All 65 skills have valid frontmatters!" -ForegroundColor Green
+          Write-Host "All 70 skills have valid frontmatters!" -ForegroundColor Green
 
       - name: Run Test Suite
         shell: pwsh
@@ -46,7 +46,7 @@ jobs:
         shell: pwsh
         run: |
           $lock = Get-Content "upstream-lock.json" | ConvertFrom-Json
-          if ($lock.total_managed_skills -ne 65) {
+          if ($lock.total_managed_skills -ne 70) {
               Write-Error "Mismatch in total_managed_skills"
               exit 1
           }

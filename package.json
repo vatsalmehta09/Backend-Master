@@ -28,6 +28,10 @@
     "testing",
     "security",
     "owasp",
+    "webhooks",
+    "mongodb",
+    "elasticsearch",
+    "ai-gateway",
     "ponytail"
   ],
   "author": "Vatsal Mehta (https://github.com/vatsalmehta09)",

@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "version": "1.0.0",
-  "last_checked": "2026-10-15T12:30:00Z",
-  "total_managed_skills": 65,
+  "last_checked": "2026-10-15T13:10:00Z",
+  "total_managed_skills": 70,
   "sources": {
     "Jeffallan/claude-skills": {
       "repo": "https://github.com/Jeffallan/claude-skills.git",
@@ -57,7 +57,8 @@
       "repo": "https://github.com/samber/developer-platform-skills.git",
       "tracked_commit": "fbaac9fda4a4c9b40979864bf868cc14bed85081",
       "skills": [
-        "public-grpc-api-design"
+        "public-grpc-api-design",
+        "webhook-platform-design"
       ]
     },
     "mindrally/skills": {
@@ -96,7 +97,23 @@
       "skills": [
         "runtime-cache",
         "vercel-storage",
-        "vercel-queues"
+        "vercel-queues",
+        "ai-gateway"
+      ]
+    },
+    "mongodb/agent-skills": {
+      "repo": "https://github.com/mongodb/agent-skills.git",
+      "tracked_commit": "c370a63b27075008a92134686b24af3817edeb00",
+      "skills": [
+        "mongodb-connection",
+        "mongodb-query-optimizer"
+      ]
+    },
+    "elastic/agent-skills": {
+      "repo": "https://github.com/elastic/agent-skills.git",
+      "tracked_commit": "baa511126ba2dc37b52e273b52734f8e4e0d323c",
+      "skills": [
+        "elasticsearch-index-design"
       ]
     },
     "vercel/micro": {
