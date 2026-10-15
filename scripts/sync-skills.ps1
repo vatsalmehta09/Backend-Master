@@ -124,6 +124,49 @@ if (-not (Test-Path $skillsTargetDir)) {
 $copiedCount = 0
 $prunedCount = 0
 
+function Invoke-MirrorDirectory([string]$src, [string]$dst, [string[]]$excludeDirs = @(), [string[]]$excludeFiles = @()) {
+    if (Get-Command "robocopy.exe" -ErrorAction SilentlyContinue) {
+        $rArgs = @($src, $dst, "/MIR")
+        if ($excludeDirs.Count -gt 0) { $rArgs += @("/XD") + $excludeDirs }
+        if ($excludeFiles.Count -gt 0) { $rArgs += @("/XF") + $excludeFiles }
+        $rArgs += @("/NFL", "/NDL", "/NJH", "/NJS", "/nc", "/ns", "/np")
+        & robocopy.exe @rArgs | Out-Null
+    } else {
+        if (-not (Test-Path $dst)) {
+            New-Item -ItemType Directory -Path $dst -Force | Out-Null
+        }
+        Get-ChildItem -Path $src -Recurse | ForEach-Object {
+            $rel = [System.IO.Path]::GetRelativePath($src, $_.FullName)
+            $destPath = Join-Path $dst $rel
+            $skip = $false
+            foreach ($exDir in $excludeDirs) {
+                if ($rel -split "[\\/]" -contains $exDir) { $skip = $true; break }
+            }
+            foreach ($exFile in $excludeFiles) {
+                if ($_.Name -eq $exFile) { $skip = $true; break }
+            }
+            if (-not $skip) {
+                if ($_.PSIsContainer) {
+                    if (-not (Test-Path $destPath)) { New-Item -ItemType Directory -Path $destPath -Force | Out-Null }
+                } else {
+                    $parent = Split-Path $destPath -Parent
+                    if (-not (Test-Path $parent)) { New-Item -ItemType Directory -Path $parent -Force | Out-Null }
+                    Copy-Item -Path $_.FullName -Destination $destPath -Force
+                }
+            }
+        }
+        if (Test-Path $dst) {
+            Get-ChildItem -Path $dst -Recurse | ForEach-Object {
+                $rel = [System.IO.Path]::GetRelativePath($dst, $_.FullName)
+                $srcPath = Join-Path $src $rel
+                if (-not (Test-Path $srcPath)) {
+                    Remove-Item -Path $_.FullName -Recurse -Force -ErrorAction SilentlyContinue
+                }
+            }
+        }
+    }
+}
+
 foreach ($skill in $backendSkills) {
     $srcSkillPath = Join-Path $localSkillsBase $skill
     $dstSkillPath = Join-Path $skillsTargetDir $skill
@@ -132,16 +175,7 @@ foreach ($skill in $backendSkills) {
         if ($DryRun) {
             Write-Host "  [SYNC] Would copy/update skill: $skill" -ForegroundColor Yellow
         } else {
-            # Use robocopy to mirror content while excluding nested .git and temp files
-            $robocopyArgs = @(
-                $srcSkillPath,
-                $dstSkillPath,
-                "/MIR",
-                "/XD", ".git", "node_modules", "__pycache__",
-                "/XF", ".DS_Store", "desktop.ini", "Thumbs.db",
-                "/NFL", "/NDL", "/NJH", "/NJS", "/nc", "/ns", "/np"
-            )
-            & robocopy.exe @robocopyArgs | Out-Null
+            Invoke-MirrorDirectory $srcSkillPath $dstSkillPath @(".git", "node_modules", "__pycache__") @(".DS_Store", "desktop.ini", "Thumbs.db")
         }
         $copiedCount++
     } else {

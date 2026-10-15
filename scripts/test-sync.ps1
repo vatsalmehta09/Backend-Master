@@ -33,6 +33,49 @@ function Assert-Test([string]$testName, [bool]$condition) {
     }
 }
 
+function Invoke-MirrorDirectory([string]$src, [string]$dst, [string[]]$excludeDirs = @(), [string[]]$excludeFiles = @()) {
+    if (Get-Command "robocopy.exe" -ErrorAction SilentlyContinue) {
+        $rArgs = @($src, $dst, "/MIR")
+        if ($excludeDirs.Count -gt 0) { $rArgs += @("/XD") + $excludeDirs }
+        if ($excludeFiles.Count -gt 0) { $rArgs += @("/XF") + $excludeFiles }
+        $rArgs += @("/NFL", "/NDL", "/NJH", "/NJS", "/nc", "/ns", "/np")
+        & robocopy.exe @rArgs | Out-Null
+    } else {
+        if (-not (Test-Path $dst)) {
+            New-Item -ItemType Directory -Path $dst -Force | Out-Null
+        }
+        Get-ChildItem -Path $src -Recurse | ForEach-Object {
+            $rel = [System.IO.Path]::GetRelativePath($src, $_.FullName)
+            $destPath = Join-Path $dst $rel
+            $skip = $false
+            foreach ($exDir in $excludeDirs) {
+                if ($rel -split "[\\/]" -contains $exDir) { $skip = $true; break }
+            }
+            foreach ($exFile in $excludeFiles) {
+                if ($_.Name -eq $exFile) { $skip = $true; break }
+            }
+            if (-not $skip) {
+                if ($_.PSIsContainer) {
+                    if (-not (Test-Path $destPath)) { New-Item -ItemType Directory -Path $destPath -Force | Out-Null }
+                } else {
+                    $parent = Split-Path $destPath -Parent
+                    if (-not (Test-Path $parent)) { New-Item -ItemType Directory -Path $parent -Force | Out-Null }
+                    Copy-Item -Path $_.FullName -Destination $destPath -Force
+                }
+            }
+        }
+        if (Test-Path $dst) {
+            Get-ChildItem -Path $dst -Recurse | ForEach-Object {
+                $rel = [System.IO.Path]::GetRelativePath($dst, $_.FullName)
+                $srcPath = Join-Path $src $rel
+                if (-not (Test-Path $srcPath)) {
+                    Remove-Item -Path $_.FullName -Recurse -Force -ErrorAction SilentlyContinue
+                }
+            }
+        }
+    }
+}
+
 try {
     # -------------------------------------------------------------
     # Test 1: Skill Add & Synchronization
@@ -41,9 +84,9 @@ try {
     New-Item -ItemType Directory -Path $skill1 -Force | Out-Null
     Set-Content -Path (Join-Path $skill1 "SKILL.md") -Value "clean ddd content v1"
 
-    # Mirror using robocopy logic as in sync script
+    # Mirror using cross-platform mirror logic
     $dstSkill1 = Join-Path $mockRepoSkills "clean-ddd-hexagonal"
-    & robocopy.exe $skill1 $dstSkill1 /MIR /XD .git /XF .DS_Store /NFL /NDL /NJH /NJS /nc /ns /np | Out-Null
+    Invoke-MirrorDirectory $skill1 $dstSkill1 @(".git") @(".DS_Store")
 
     Assert-Test "Test 1: Skill folder and SKILL.md copied to repo" (Test-Path (Join-Path $dstSkill1 "SKILL.md"))
     $content = Get-Content (Join-Path $dstSkill1 "SKILL.md") -Raw
@@ -56,14 +99,14 @@ try {
     New-Item -ItemType Directory -Path $nestedGit -Force | Out-Null
     Set-Content -Path (Join-Path $nestedGit "config") -Value "mock git repo"
 
-    & robocopy.exe $skill1 $dstSkill1 /MIR /XD .git /XF .DS_Store /NFL /NDL /NJH /NJS /nc /ns /np | Out-Null
+    Invoke-MirrorDirectory $skill1 $dstSkill1 @(".git") @(".DS_Store")
     Assert-Test "Test 2: Nested .git folder is excluded by /XD .git" (-not (Test-Path (Join-Path $dstSkill1 ".git")))
 
     # -------------------------------------------------------------
     # Test 3: Skill Update / Modification
     # -------------------------------------------------------------
     Set-Content -Path (Join-Path $skill1 "SKILL.md") -Value "clean ddd content v2 updated"
-    & robocopy.exe $skill1 $dstSkill1 /MIR /XD .git /XF .DS_Store /NFL /NDL /NJH /NJS /nc /ns /np | Out-Null
+    Invoke-MirrorDirectory $skill1 $dstSkill1 @(".git") @(".DS_Store")
     $updatedContent = Get-Content (Join-Path $dstSkill1 "SKILL.md") -Raw
     Assert-Test "Test 3: File update is properly mirrored" ($updatedContent -match "clean ddd content v2 updated")
 

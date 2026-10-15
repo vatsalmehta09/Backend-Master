@@ -123,6 +123,49 @@ Write-Host "  Upstream Repos Checked:     $(($lockData.sources.PSObject.Properti
 Write-Host "  Upstream Updates Available: $upstreamUpdates"
 Write-Host "  Local Drifts Detected:      $localDrifts"
 
+function Invoke-MirrorDirectory([string]$src, [string]$dst, [string[]]$excludeDirs = @(), [string[]]$excludeFiles = @()) {
+    if (Get-Command "robocopy.exe" -ErrorAction SilentlyContinue) {
+        $rArgs = @($src, $dst, "/MIR")
+        if ($excludeDirs.Count -gt 0) { $rArgs += @("/XD") + $excludeDirs }
+        if ($excludeFiles.Count -gt 0) { $rArgs += @("/XF") + $excludeFiles }
+        $rArgs += @("/NFL", "/NDL", "/NJH", "/NJS", "/nc", "/ns", "/np")
+        & robocopy.exe @rArgs | Out-Null
+    } else {
+        if (-not (Test-Path $dst)) {
+            New-Item -ItemType Directory -Path $dst -Force | Out-Null
+        }
+        Get-ChildItem -Path $src -Recurse | ForEach-Object {
+            $rel = [System.IO.Path]::GetRelativePath($src, $_.FullName)
+            $destPath = Join-Path $dst $rel
+            $skip = $false
+            foreach ($exDir in $excludeDirs) {
+                if ($rel -split "[\\/]" -contains $exDir) { $skip = $true; break }
+            }
+            foreach ($exFile in $excludeFiles) {
+                if ($_.Name -eq $exFile) { $skip = $true; break }
+            }
+            if (-not $skip) {
+                if ($_.PSIsContainer) {
+                    if (-not (Test-Path $destPath)) { New-Item -ItemType Directory -Path $destPath -Force | Out-Null }
+                } else {
+                    $parent = Split-Path $destPath -Parent
+                    if (-not (Test-Path $parent)) { New-Item -ItemType Directory -Path $parent -Force | Out-Null }
+                    Copy-Item -Path $_.FullName -Destination $destPath -Force
+                }
+            }
+        }
+        if (Test-Path $dst) {
+            Get-ChildItem -Path $dst -Recurse | ForEach-Object {
+                $rel = [System.IO.Path]::GetRelativePath($dst, $_.FullName)
+                $srcPath = Join-Path $src $rel
+                if (-not (Test-Path $srcPath)) {
+                    Remove-Item -Path $_.FullName -Recurse -Force -ErrorAction SilentlyContinue
+                }
+            }
+        }
+    }
+}
+
 # 3. Apply Local Updates if Requested
 if ($ApplyLocal -and $localDrifts -gt 0) {
     Write-Host ""
@@ -130,13 +173,7 @@ if ($ApplyLocal -and $localDrifts -gt 0) {
     foreach ($s in $skillsToSync) {
         $src = Join-Path $localSkillsBase $s
         $dst = Join-Path $skillsDir $s
-        $robocopyArgs = @(
-            $src, $dst, "/MIR",
-            "/XD", ".git", "node_modules", "__pycache__",
-            "/XF", ".DS_Store", "desktop.ini",
-            "/NFL", "/NDL", "/NJH", "/NJS", "/nc", "/ns", "/np"
-        )
-        & robocopy.exe @robocopyArgs | Out-Null
+        Invoke-MirrorDirectory $src $dst @(".git", "node_modules", "__pycache__") @(".DS_Store", "desktop.ini")
         Write-Host "  ✓ Updated replica: $s" -ForegroundColor Green
     }
 
