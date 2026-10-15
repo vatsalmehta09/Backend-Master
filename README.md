@@ -21,7 +21,10 @@
 
 - [⚡ What is Backend-Master?](#-what-is-backend-master)
 - [🧩 Why Backend-Master? (The 4 Foundational Problems)](#-why-backend-master-the-4-foundational-problems)
+- [🧠 In-Session Memory Engine (LTM & STM)](#-in-session-memory-engine-ltm--stm)
 - [🔒 The Hardcoded Workflow Gate (Plan-Then-Execute)](#-the-hardcoded-workflow-gate-plan-then-execute)
+  - [🔍 Token Optimization: Graft Recommendation (Opt-In with Consent)](#-token-optimization-graft-recommendation-opt-in-with-consent)
+  - [⚡ Autonomous Breakthrough Circuit Breaker (Unlazy)](#-autonomous-breakthrough-circuit-breaker-unlazy)
 - [⚙️ Dual Execution Modes (Inline vs. Sub-Agent)](#️-dual-execution-modes-inline-vs-sub-agent)
 - [✂️ The Ponytail YAGNI Discipline](#️-the-ponytail-yagni-discipline)
 - [🌐 Comprehensive Practice Areas (8 Core Domains)](#-comprehensive-practice-areas-8-core-domains)
@@ -66,6 +69,35 @@ Instead of forcing developers and AI coding agents to manually remember and invo
 | **Rushed / Unverified Code** | Starts writing code immediately without exploring architectural trade-offs or getting developer sign-off. | **Hard-Gated Plan-Then-Execute**: Mandatory brainstorming, 2–3 trade-offs, and a hard stop for verification. |
 | **Monolithic vs Distributed Mismatch** | Applies the same execution pattern to a 10-line bug fix and a 10-service distributed migration. | **Dual Execution Modes**: Inline mode for bounded tasks; Sub-agent mode for parallel cross-cutting work. |
 
+## 🧠 In-Session Memory Engine (LTM & STM)
+
+`Backend-Master` maintains memory **purely inside the session context in memory** (zero files created on disk), providing continuity across prompts without cluttering the repository:
+
+### 1. Long-Term Memory (LTM) — Invariant Project Stack
+Remains pinned throughout the entire session once detected or established:
+- **Core Runtime & Language**: Python 3.12, Node.js 22 LTS, Go 1.22, Rust 1.78, .NET 8.
+- **Web Framework**: FastAPI, Express.js, Fastify, Flask, Django, NestJS, Spring Boot.
+- **Data & Caching**: PostgreSQL, MongoDB, Redis, SQLAlchemy Async, Prisma, Mongoose.
+- **Messaging & IPC**: Apache Kafka, RabbitMQ, Temporal, REST, gRPC Protobuf, Webhooks.
+- **Architectural Style**: Clean/Hexagonal Architecture, Layered Services, Event-Driven.
+- **Pinned Sub-Skills**: Stack-specific base skills pre-loaded for the session (e.g. `[fastapi-expert, postgres-pro]`).
+
+### 2. Short-Term Memory (STM) — Ephemeral Task Working State
+Evolves dynamically with each prompt and resets/transitions upon task completion:
+- **3-Phase Gate Status**: Phase 1 (Explore), Phase 2 (Awaiting Approval), or Phase 3 (Execution).
+- **Task Scope**: `Spike` (feasibility probe), `Bounded` (local change), or `Architectural` (breaking/new system).
+- **Active Loaded Sub-Skills**: The $\le 3$ domain skills injected strictly for this prompt (Rule of $\le 3$).
+- **Ponytail YAGNI Intensity**: `ponytail:full` (feature implementation) vs. `ponytail:ultra` (bugfix/dead-code pruning).
+- **Circuit Breaker Status**: `unlazy:standby` (normal development) vs. `unlazy:active` (escalated completion).
+- **Working Delta**: Target files touched in the turn, recent test results, pending user verification item.
+
+### Session Banner Output:
+```text
+⚡ [backend-master: ACTIVE]
+   [LTM: FastAPI | PostgreSQL 16 | Redis | Clean Architecture]
+   [STM: Phase 2/3 GATE | Bounded | ponytail: full | unlazy: standby] Loaded: [fastapi-expert, redis-patterns]
+```
+
 ---
 
 ## 🔒 The Hardcoded Workflow Gate (Plan-Then-Execute)
@@ -84,7 +116,11 @@ flowchart TD
     F -- "Architectural / Cross-Cutting" --> H["Sub-Agent Mode + /writing-plans"]
     G --> I["Apply Ponytail YAGNI (full | ultra)"]
     H --> I
-    I --> J["Verify via /verification-before-completion & Automated Tests"]
+    I --> J{"Autonomous Stall / Loop Detected?"}
+    J -- "Yes / Explicit Directive" --> K["Escalate to /unlazy (Strict GATES.md)"]
+    J -- "No (Clean Pass)" --> L["Verify via /verification-before-completion"]
+    K --> L
+    L --> M["Output Verified Solution"]
 ```
 
 ### Phase 1: Context Exploration & Brainstorming
@@ -93,6 +129,11 @@ flowchart TD
   - **Bounded**: Concrete, well-scoped change within existing code (new endpoint, bugfix, schema tweak). Present short in-chat design (approach, files touched, testing).
   - **Architectural**: New service, database schema evolution, distributed workflow, or breaking API contract. Formulate 2–3 architectural approaches comparing performance, complexity, database load, and maintenance trade-offs.
 - Injects **only $\le 3$ relevant curated sub-skills** from the registry to prevent context bloat.
+
+#### 🔍 Token Optimization: Graft Recommendation (Opt-In with Consent)
+- When exploring large codebases, symbols, or call hierarchies, check if `graft` MCP tools (`graft_find_code`, `graft_trace_calls`, `graft_file_api`, `graft_repo_map`) are available.
+- **Recommendation Only**: `graft` is strictly an optional recommendation to optimize token usage. If the user does not want to use it, let it go and proceed seamlessly with standard file viewing/grep tools.
+- **MANDATORY PERMISSION GATE**: The agent **MUST explicitly ask the user for permission before downloading or installing graft**. NEVER download, install, or clone `graft` without the user's explicit prior approval.
 
 ### Phase 2: The Strict User Verification Gate (HARD STOP)
 > [!IMPORTANT]
@@ -119,6 +160,18 @@ flowchart TD
 - **Bounded Tasks**: Run in **Inline Mode** using [`superpowers:test-driven-development`](skills/test-master) (RED $\rightarrow$ GREEN $\rightarrow$ REFACTOR).
 - **Architectural Tasks**: Invoke [`superpowers:writing-plans`](skills/architecture-patterns) and execute via **Sub-Agent Mode** (`invoke_subagent`).
 - **Quality Gate**: Every task concludes by verifying against [`superpowers:verification-before-completion`](skills/test-master) and automated test suites.
+
+#### ⚡ Autonomous Breakthrough Circuit Breaker (Unlazy)
+- **Dormant by Default (`unlazy:standby`)**: For standard clean implementations, `unlazy` remains dormant to avoid unnecessary overhead.
+- **Auto-Escalates / Activates ONLY when (`unlazy:active`)**:
+  1. **Stall / Loop Detection**: The agent is caught in repetitive loops, failing the same test repeatedly, or spending excessive turns/time without forward progress.
+  2. **Half-Done Work**: Implementations are returned incomplete, with deferred TODOs or shallow mocks.
+  3. **Explicit Directive**: The user invokes `/unlazy` or requests an exhaustive, uncompromised solution ("go out of the box", "give your best", "do not stop until it is completely verified").
+- **What Happens When Escalated**:
+  - Suspends casual shortcuts.
+  - Generates strict verifiable acceptance gates (`GATES.md`) with explicit `CHECK:` and `EXPECT:` conditions.
+  - Builds a Depth Tree to break complex multi-part deliverables into verifiable leaves.
+  - Re-verifies every check with execution evidence before reporting completion.
 
 ---
 
@@ -304,8 +357,9 @@ graph LR
 |---|---|
 | **Auto-Detection (Default)** | Any request touching backend code, APIs, databases, or infrastructure activates the master orchestrator automatically. |
 | `/backend-master active` | **Locks Persistent Active Mode** for the entire session. Every subsequent turn enforces backend master routing. |
-| `/backend-master status` | Displays active orchestrator mode, current Ponytail intensity (`full` vs `ultra`), and active loaded sub-skills. |
+| `/backend-master status` | Displays current activation state, Long-Term Memory (LTM stack), Short-Term Memory (STM phase & task), Ponytail intensity, `unlazy` state, and active sub-skills. |
 | `/backend-master <task>` | Executes a single backend task through the master routing engine without locking session state. |
+| `/unlazy` | Manually triggers the autonomous breakthrough circuit breaker with explicit `GATES.md` acceptance gates. |
 | `/backend-master off` | Deactivates persistent mode and returns to standard model behavior. |
 | Direct Sub-Skill Invocation | Direct calls (e.g. `/postgres-pro`, `/fastapi-expert`, `/k6`) are seamlessly merged into the master context. |
 

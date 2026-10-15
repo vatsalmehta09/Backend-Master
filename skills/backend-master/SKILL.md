@@ -20,11 +20,37 @@ The universal supervisor for all backend engineering across frameworks, language
 - `/backend-master off` or `/backend-master deactivate`
   Deactivates persistent mode; returns to default model behavior.
 - `/backend-master status`
-  Displays the current activation state, current ponytail mode (`full` vs `ultra`), and active sub-skills.
+  Displays current activation state, Long-Term Memory (LTM stack), Short-Term Memory (STM phase & task), current ponytail mode (`full` vs `ultra`), `unlazy` circuit breaker state, and active sub-skills.
 - `/backend-master <task>`
   Executes a specific backend task through the master routing engine.
+- `/unlazy`
+  Manually triggers the autonomous breakthrough circuit breaker with explicit `GATES.md` acceptance gates.
 - Direct Sub-Skill Invocation (e.g. `/postgres-pro`, `/fastapi-expert`, `/docker-patterns`):
   Can be invoked directly at any time; seamlessly integrated into the master orchestrator context.
+
+---
+
+## 🧠 In-Session Memory Engine (LTM & STM)
+
+`backend-master` tracks memory **purely inside the session context** (zero files created on disk).
+
+### 1. Long-Term Memory (LTM) — Architectural & Project Invariants
+Maintained invariant across the entire session once detected or confirmed:
+- **Core Stack**: Language & runtime version (e.g. Python 3.12, Node.js 22 LTS, Go 1.22, Rust 1.78, .NET 8).
+- **Web Framework**: Primary framework (e.g. FastAPI, Express, Fastify, Flask, Django, NestJS, Spring Boot).
+- **Persistence Layer**: Primary database, ORM/driver, and caching (e.g. PostgreSQL 16, asyncpg/SQLAlchemy, Redis).
+- **Messaging & IPC**: Event broker, background queue, communication protocols (e.g. Kafka, RabbitMQ, Temporal, REST, gRPC).
+- **Architecture Pattern**: Clean/Hexagonal Architecture, Layered Service-Repository, Event-Driven.
+- **Pinned Sub-Skills**: Default core skills pre-selected for this stack (e.g. `[fastapi-expert, postgres-pro]`).
+
+### 2. Short-Term Memory (STM) — Task & Turn Working State
+Evolves per prompt; transitions or resets upon task completion:
+- **3-Phase Gate Status**: Active phase (Phase 1: Explore, Phase 2: Awaiting User Approval, Phase 3: Executing).
+- **Task Scope**: `Spike` (feasibility probe) | `Bounded` (local change) | `Architectural` (breaking/new system).
+- **Active Sub-Skills**: The $\le 3$ domain skills injected strictly for this prompt (Rule of $\le 3$).
+- **Ponytail YAGNI Intensity**: `ponytail:full` (feature implementation) vs `ponytail:ultra` (bugfix/dead-code pruning).
+- **Circuit Breaker State**: `unlazy:standby` (normal development) vs `unlazy:active` (escalated completion).
+- **Working Delta**: Target files touched in the turn, recent test results, pending user verification item.
 
 ---
 
@@ -65,6 +91,10 @@ Every backend task **MUST STRICTLY FOLLOW THIS HARD-GATED 3-PHASE SEQUENCE**. Ne
    - **Bounded**: Scoped change to existing code (new endpoint, bugfix, schema addition, query optimization). Present short in-chat design (approach, files touched, testing).
    - **Architectural**: New service, new database cluster, cross-cutting distributed flow, or breaking contract. Present 2–3 approaches with trade-offs and recommendations.
 2. Select and read **only $\le 3$ relevant curated sub-skills** from the registry.
+3. **🔍 Token Optimization: Graft Recommendation (Opt-In with Consent)**:
+   - When exploring an existing codebase, symbols, or call hierarchies, check if `graft` MCP tools (`graft_find_code`, `graft_trace_calls`, `graft_file_api`, `graft_repo_map`) are available.
+   - **Recommendation Only**: `graft` is strictly an optional recommendation to optimize token usage. If the user does not want to use it, let it go and proceed seamlessly with standard file viewing/grep tools.
+   - **MANDATORY PERMISSION GATE**: The agent **MUST explicitly ask the user for permission before downloading or installing graft**. NEVER download, install, or clone `graft` without the user's explicit prior approval.
 
 ### Phase 2: The Strict User Verification Gate (HARD STOP)
 - **What "No Code Generation" Means**:
@@ -91,6 +121,17 @@ Every backend task **MUST STRICTLY FOLLOW THIS HARD-GATED 3-PHASE SEQUENCE**. Ne
 - **Bounded Tasks**: Run in **Inline Mode** using [`superpowers:test-driven-development`](file:///C:/Users/VATSAL%20M/.agents/skills/superpowers/skills/test-driven-development/SKILL.md) (RED: failing test $\rightarrow$ GREEN: minimal implementation $\rightarrow$ REFACTOR).
 - **Architectural Tasks**: Invoke [`superpowers:writing-plans`](file:///C:/Users/VATSAL%20M/.agents/skills/superpowers/skills/writing-plans/SKILL.md) and execute via **Sub-Agent Mode** (`invoke_subagent`).
 - **Quality Gate**: Before concluding any backend task, verify against [`superpowers:verification-before-completion`](file:///C:/Users/VATSAL%20M/.agents/skills/superpowers/skills/verification-before-completion/SKILL.md) and automated test suites.
+- **⚡ Autonomous Breakthrough Circuit Breaker: Escalation to `unlazy`**:
+  - **Dormant by Default (`unlazy:standby`)**: For standard clean implementations, `unlazy` remains dormant to avoid unnecessary overhead.
+  - **Auto-Escalates / Activates ONLY when (`unlazy:active`)**:
+    1. **Stall / Loop Detection**: The agent is caught in repetitive loops, failing the same test repeatedly, or spending excessive turns/time without forward progress.
+    2. **Half-Done Work**: Implementations are returned incomplete, with deferred TODOs or shallow mocks.
+    3. **Explicit Directive**: The user invokes `/unlazy` or requests an exhaustive, uncompromised solution ("go out of the box", "give your best", "do not stop until it is completely verified").
+  - **What Happens When Escalated**:
+    - Suspends casual shortcuts.
+    - Generates strict verifiable acceptance gates (`GATES.md`) with explicit `CHECK:` and `EXPECT:` conditions.
+    - Builds a Depth Tree to break complex multi-part deliverables into verifiable leaves.
+    - Re-verifies every check with execution evidence before reporting completion.
 
 ---
 
@@ -136,9 +177,11 @@ Depending on the scope, dependencies, and parallelizability of the task, the orc
      - Refuses caching or distributed queues when an in-process or simple DB solution suffices.
 
 ### Transparent Status Banner:
-Prefix every turn with the active orchestrator banner:
+Prefix every turn with the active orchestrator banner reflecting LTM and STM:
 ```
-⚡ [backend-master: AUTO|ACTIVE] [ponytail: full|ultra] Loaded skills: [<skill-1>, <skill-2>]
+⚡ [backend-master: AUTO|ACTIVE]
+   [LTM: <Framework> | <DB> | <Architecture>]
+   [STM: Phase <1|2|3> GATE | <Scope> | ponytail: full|ultra | unlazy: standby|active] Loaded: [<skill-1>, <skill-2>]
 ```
 
 ---
