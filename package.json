@@ -1,0 +1,48 @@
+{
+  "name": "@vatsalmehta09/backend-master",
+  "version": "1.0.0",
+  "description": "Universal Backend Engineering Orchestrator & Curated Skill Hub for AI Agents (Claude Code, Gemini CLI, Cursor, Codex)",
+  "main": "SKILL.md",
+  "keywords": [
+    "agent-skills",
+    "backend",
+    "backend-master",
+    "clean-architecture",
+    "domain-driven-design",
+    "microservices",
+    "fastapi",
+    "django",
+    "nestjs",
+    "golang",
+    "rust",
+    "spring-boot",
+    "csharp",
+    "postgres",
+    "redis",
+    "kafka",
+    "rabbitmq",
+    "temporal",
+    "docker",
+    "kubernetes",
+    "k6",
+    "testing",
+    "security",
+    "owasp",
+    "ponytail"
+  ],
+  "author": "Vatsal Mehta (https://github.com/vatsalmehta09)",
+  "license": "MIT",
+  "homepage": "https://github.com/vatsalmehta09/Backend-Master#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vatsalmehta09/Backend-Master.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vatsalmehta09/Backend-Master/issues"
+  },
+  "scripts": {
+    "test": "pwsh scripts/test-sync.ps1",
+    "check-updates": "pwsh scripts/check-updates.ps1",
+    "sync": "pwsh scripts/sync-skills.ps1"
+  }
+}

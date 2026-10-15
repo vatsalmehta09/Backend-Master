@@ -1,0 +1,53 @@
+name: CI / Skill Verification
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    name: Validate Skills & Replicas
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Validate Skill Frontmatters
+        shell: pwsh
+        run: |
+          $skillsDir = "skills"
+          $errors = 0
+          Get-ChildItem -Path $skillsDir -Directory | ForEach-Object {
+              $skillFile = Join-Path $_.FullName "SKILL.md"
+              if (-not (Test-Path $skillFile)) {
+                  Write-Error "Missing SKILL.md in $($_.Name)"
+                  $errors++
+              } else {
+                  $firstLines = Get-Content $skillFile -TotalCount 20
+                  $hasName = $firstLines | Where-Object { $_ -match "^name:\s*.+" }
+                  $hasDesc = $firstLines | Where-Object { $_ -match "^description:\s*.+" }
+                  if (-not $hasName -or -not $hasDesc) {
+                      Write-Error "Invalid frontmatter in $($_.Name)/SKILL.md"
+                      $errors++
+                  }
+              }
+          }
+          if ($errors -gt 0) { exit 1 }
+          Write-Host "All 65 skills have valid frontmatters!" -ForegroundColor Green
+
+      - name: Run Test Suite
+        shell: pwsh
+        run: |
+          pwsh scripts/test-sync.ps1
+
+      - name: Validate Upstream Lockfile
+        shell: pwsh
+        run: |
+          $lock = Get-Content "upstream-lock.json" | ConvertFrom-Json
+          if ($lock.total_managed_skills -ne 65) {
+              Write-Error "Mismatch in total_managed_skills"
+              exit 1
+          }
+          Write-Host "Lockfile verified: $($lock.total_managed_skills) skills tracked!" -ForegroundColor Green
