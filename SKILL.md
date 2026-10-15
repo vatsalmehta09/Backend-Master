@@ -32,25 +32,36 @@ The universal supervisor for all backend engineering across frameworks, language
 
 ## 🧠 In-Session Memory Engine (LTM & STM)
 
-`backend-master` tracks memory **purely inside the session context** (zero files created on disk).
+`backend-master` tracks memory **purely inside the session context** (zero files created on disk), dynamically balancing high-inertia architectural invariants with rolling task working states.
 
-### 1. Long-Term Memory (LTM) — Architectural & Project Invariants
-Maintained invariant across the entire session once detected or confirmed:
-- **Core Stack**: Language & runtime version (e.g. Python 3.12, Node.js 22 LTS, Go 1.22, Rust 1.78, .NET 8).
-- **Web Framework**: Primary framework (e.g. FastAPI, Express, Fastify, Flask, Django, NestJS, Spring Boot).
-- **Persistence Layer**: Primary database, ORM/driver, and caching (e.g. PostgreSQL 16, asyncpg/SQLAlchemy, Redis).
-- **Messaging & IPC**: Event broker, background queue, communication protocols (e.g. Kafka, RabbitMQ, Temporal, REST, gRPC).
-- **Architecture Pattern**: Clean/Hexagonal Architecture, Layered Service-Repository, Event-Driven.
-- **Pinned Sub-Skills**: Default core skills pre-selected for this stack (e.g. `[fastapi-expert, postgres-pro]`).
+### 1. Temporal Lifespan & Volatility Rules
+- **Long-Term Memory (LTM) — High Inertia (Slow to Change, Session Anchor)**:
+  - Anchors the entire session and project lifecycle.
+  - Represents foundational architectural invariants that **do NOT change from message to message**: Languages, Web Frameworks, Databases, Caching, Event Brokers, and Core Architectural Patterns.
+  - Resists erratic fluctuations; mutates *only* when the user issues an intentional, high-level migration directive (e.g. *"We are migrating from Express to Fastify"*).
+- **Short-Term Memory (STM) — Low Inertia (Current Text & Rolling Few-Text Window)**:
+  - Spans the **current prompt and the rolling micro-window of the last 2 to 4 related turns** (proposal ➔ feedback ➔ approval ➔ execution ➔ test verification).
+  - **Highly Volatile**: Automatically evolves, shifts, or resets when the active task is completed or when the user pivots to a new backend task.
 
-### 2. Short-Term Memory (STM) — Task & Turn Working State
-Evolves per prompt; transitions or resets upon task completion:
-- **3-Phase Gate Status**: Active phase (Phase 1: Explore, Phase 2: Awaiting User Approval, Phase 3: Executing).
-- **Task Scope**: `Spike` (feasibility probe) | `Bounded` (local change) | `Architectural` (breaking/new system).
-- **Active Sub-Skills**: The $\le 3$ domain skills injected strictly for this prompt (Rule of $\le 3$).
-- **Ponytail YAGNI Intensity**: `ponytail:full` (feature implementation) vs `ponytail:ultra` (bugfix/dead-code pruning).
-- **Circuit Breaker State**: `unlazy:standby` (normal development) vs `unlazy:active` (escalated completion).
-- **Working Delta**: Target files touched in the turn, recent test results, pending user verification item.
+### 2. Multi-Framework & Polyglot Monorepo Flexibility
+Real-world systems frequently combine multiple frameworks and languages within the same project or monorepo. `backend-master` is natively polyglot and never forces a rigid single-framework lock:
+- **Multi-Service Catalog in LTM**: LTM tracks either a single stack OR a multi-service architectural map:
+  - Gateway / Streaming: Node.js + Fastify / Express
+  - AI / ML / Data Services: Python + FastAPI / Flask
+  - Admin / Legacy Portals: Django / Ruby on Rails / PHP
+  - Ingestion / High-Throughput: Go / Rust
+- **Directory & Context-Aware STM Routing**:
+  - The agent inspects the target file, directory (`services/*`, `apps/*`, `packages/*`), or prompt context.
+  - If the prompt touches `services/gateway`, STM engages `fastify-best-practices` without disturbing other services.
+  - If the prompt touches `services/ai`, STM engages `fastapi-expert`.
+  - If a task involves cross-service communication (e.g., Fastify API calling a FastAPI backend over gRPC or REST), the orchestrator coordinates both specialists cleanly within the Rule of $\le 3$.
+
+### 3. Prompt Intent Classification: LTM vs. STM
+Every incoming prompt is classified before execution:
+1. **Pure LTM Mutator**: Directives defining or shifting the stack (*"We are using Fastify and MongoDB"*, *"Switch cache from Redis to Memcached"*). Agent updates LTM invariants and confirms in the banner without prematurely generating code.
+2. **Pure STM Action**: Action verbs on specific features or bugs (*"Add a rate-limited endpoint"*, *"Fix query slow-log"*). Agent inherits established LTM and executes the 3-Phase Gate.
+3. **Dual-Intent**: Contains both a stack directive and an actionable task (*"We are using Express; create the auth middleware"*). Agent pins LTM first, then executes the STM task under the new stack.
+4. **Auto-Inspection on First Turn**: If an STM task arrives before LTM is defined, the agent auto-inspects repository manifests (`package.json`, `pyproject.toml`, `go.mod`) to infer the stack transparently.
 
 ---
 
