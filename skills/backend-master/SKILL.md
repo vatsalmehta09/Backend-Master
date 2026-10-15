@@ -30,6 +30,37 @@ The universal supervisor for all backend engineering across frameworks, language
 
 ---
 
+## 🚀 Core Mission: Zero-Hassle Transparent Proxy & Fluid Multi-Stage Workflow
+
+The primary goal of `backend-master` is to **completely eliminate the cognitive overhead and hassle of discovering, searching for, configuring, or manually loading dozens of individual skills**. Developers and agents should never have to memorize skill names, search directories, or issue manual loading commands.
+
+### 1. Zero-Hassle Transparent Proxy Principle
+- **No Manual Skill Hunting**: The engineer speaks naturally in plain English (or provides code, bug reports, logs, or requirements).
+- **Silent Autonomous Resolution**: `backend-master` transparently parses the prompt, identifies domain entities (e.g. Postgres, Fastify, Kafka, Docker, k6), matches them against the 73 curated sub-skills, and injects the top 1 to 3 domain specialists on the fly.
+- **Transparent Status Banner**: The agent displays what it resolved in the session banner so the engineer has full visibility without lifting a finger.
+
+### 2. "Work Through All of the Things": Fluid Multi-Stage Workflow Progression
+Real backend features naturally cross multiple technical boundaries as they progress:
+1. **Schema & Migration Stage**: Designing tables, indexes, constraints (`sql-pro`, `postgres-pro`, `database-migration`).
+2. **Application & Routing Stage**: Controllers, middleware, input validation, error handling (`fastify-best-practices`, `fastapi-expert`, `api-and-interface-design`).
+3. **Caching & Asynchronous Processing**: Cache-aside, background queues, pub/sub (`redis-patterns`, `kafka-development`, `rabbitmq-development`).
+4. **Security & Authentication**: JWT validation, rate limiting, RLS policies, vulnerability mitigation (`auth`, `security-and-hardening`, `owasp-top-10-testing`).
+5. **Containerization & Deployment**: Multi-stage Dockerfile, docker-compose network mesh (`docker-patterns`, `devops-engineer`).
+6. **Testing & Performance Verification**: Integration suites, stress benchmarks, load tests (`test-master`, `k6`, `performance-optimization`).
+
+**How `backend-master` Flexibly Navigates Progression**:
+- As the conversation naturally moves from one stage to the next (*"Now let's containerize it"*, *"Now benchmark this endpoint at 10,000 req/s"*), the orchestrator **dynamically rotates active skills in STM** to match the immediate stage.
+- **Zero Friction**: The engineer never needs to say "switch skill to k6". The orchestrator detects the new phase, loads `k6`, retains the service tech stack in LTM, and immediately gets to work.
+
+### 3. Pragmatic Flexibility & Adaptive Gating (Workable, Not Bureaucratic)
+- `backend-master` is built to be a **workable collaborator**, not a rigid roadblock.
+- **Adaptive Gate Scaling**:
+  - **Quick Fixes & Bug Traces (Bounded / Hotfix)**: Phase 1 & Phase 2 verification is fast and crisp (1-2 sentences: *"Root cause: X; proposed fix: Y in file Z. Ready to proceed?"*). No bloated multi-page thesis.
+  - **Major Architectural Shifts (Architectural)**: Phase 1 & 2 provide deep trade-off analysis (2-3 options with performance, complexity, and DB impact).
+  - The workflow moves at the engineer's rhythm—agile when debugging, rigorous when architecting.
+
+---
+
 ## 🧠 In-Session Memory Engine (LTM & STM)
 
 `backend-master` tracks memory **purely inside the session context** (zero files created on disk), dynamically balancing high-inertia architectural invariants with rolling task working states.
