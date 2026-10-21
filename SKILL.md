@@ -1,7 +1,7 @@
 ---
 name: backend-master
 description: >
-  Use when designing, building, debugging, optimizing, or refactoring backend systems, APIs (REST, GraphQL, gRPC, WebSockets, Webhooks), databases (PostgreSQL, MongoDB, Redis, Elasticsearch), message queues, container infrastructure, or backend architectures across Python, Node.js, Go, Rust, Java, C#, PHP, or Ruby.
+  Universal backend engineering orchestrator & curated skill hub. Use when designing, building, debugging, optimizing, testing, or hardening backend services, APIs, databases, message queues, container infrastructure, or microservices across any language or framework (Python, Node.js/TS, Go, Rust, Java, C#, PHP, Ruby, and dynamic polyglot execution).
 ---
 
 # Universal Backend Master Orchestrator
@@ -14,40 +14,47 @@ The universal supervisor for all backend engineering across frameworks, language
 
 `backend-master` activates **automatically** whenever any backend engineering task is detected in the conversation (APIs, schemas, databases, queues, architectures, Docker, testing, performance, or security).
 
+### 🕹️ Action Command Palette (`/backend-master <command> [target]`)
+
+All commands accept an optional `[target]` parameter (file path, directory, service, endpoint, or query):
+
+| Command | What it executes | Underlying Specialist Skills |
+|---|---|---|
+| `/backend-master` or `/backend-master active` | Locks persistent active orchestrator for the session (default: `full` mode). | Core Orchestrator |
+| `/backend-master lite` | Switches session to **Lite** mode (rapid turnaround, 1-line confirmation gate). | Core Orchestrator |
+| `/backend-master full` | Switches session to **Full** mode (standard clean architecture & comprehensive TDD). | Core Orchestrator |
+| `/backend-master ultra` | Switches session to **Ultra** mode (Ponytail YAGNI extremist: delete bloat, stdlib first). | `ponytail` |
+| `/backend-master init` | Project inspection & setup: detects frameworks, DBs, ORMs, and initializes durable `BACKEND.md`. | Core Orchestrator |
+| `/backend-master audit [target]` | Codebase sweep: OWASP Top 10, N+1 queries, unhandled errors, connection pool leaks, dead code. | `owasp-top-10-testing`, `security-audit`, `database-optimizer` |
+| `/backend-master diagnose [target]` | Root-cause a specific bug, crash, or failing test: stack trace analysis, log triage, fault isolation. | Framework specialists, `observability-and-instrumentation` |
+| `/backend-master profile [target]` | Quantitative performance breakdown: slow queries (`EXPLAIN ANALYZE`), CPU hotspots, pool contention. | `database-optimizer`, `postgres-pro`, `performance-optimization` |
+| `/backend-master scaffold [target]` | Generate clean service, router, handler, or module boilerplate with opinionated boundaries. | `clean-ddd-hexagonal`, `backend-patterns`, framework specialists |
+| `/backend-master schema [target]` | Relational or document schema design, normalization, zero-downtime expand/contract migrations, non-blocking DDL. | `sql-pro`, `postgres-pro`, `database-migration`, `mongodb-*` |
+| `/backend-master api [target]` | Contract-first API modeling: OpenAPI 3.1 specs, Protocol Buffers IDL, GraphQL SDL, cursor pagination, idempotency keys. | `api-and-interface-design`, `public-grpc-api-design`, `graphql-architect` |
+| `/backend-master integrate [target]` | Inter-service messaging & workflows: Kafka topics, RabbitMQ exchanges/DLX, Temporal sagas, WebSocket rooms. | `kafka-development`, `rabbitmq-development`, `temporal-developer`, `websocket-engineer` |
+| `/backend-master harden [target]` | Defense-in-depth: rate limiting, CORS/CSRF, JWT/OIDC auth guards, RFC 7807 error envelopes, timeouts, RLS. | `security-and-hardening`, `auth`, `oauth`, `vibesec` |
+| `/backend-master pentest [target]` | Active red-team probe: simulates attack payloads (SQLi, BOLA/IDOR, SSRF, broken auth, input fuzzing). | `api-security-testing`, `owasp-top-10-testing`, `security-diff-scan` |
+| `/backend-master test [target]` | Scaffold unit & integration test suites, mock strategies, database fixtures, and coverage audits. | `test-master`, framework testing libraries |
+| `/backend-master loadtest [target]` | Generate & execute k6 load/stress tests: measure throughput ceilings, p95/p99 latency, breaking points. | `k6`, `performance-optimization` |
+| `/backend-master optimize [target]` | Targeted performance fixes: composite indexing, query rewrites, Redis cache-aside, connection pool tuning. | `database-optimizer`, `redis-patterns`, `runtime-cache` |
+| `/backend-master containerize [target]` | Production container infrastructure: multi-stage Dockerfiles, Docker Compose meshes, unprivileged users, healthchecks. | `docker-patterns`, `devops-engineer`, `kubernetes-specialist` |
+| `/backend-master observe [target]` | Vendor-neutral observability: OpenTelemetry traces/spans, Prometheus RED/USE metrics, structured JSON logging. | `observability-and-instrumentation`, `monitoring-expert` |
+| `/backend-master status` | Displays current activation state, active mode, internal LTM stack, STM task, and loaded skills. | Core Orchestrator |
+| `/backend-master off` | Deactivates persistent mode; returns to default model behavior. | Core Orchestrator |
+| `/unlazy` | Manually triggers the autonomous breakthrough circuit breaker with explicit `GATES.md` acceptance gates. | Core Orchestrator |
+| Direct Sub-Skill Invocation | Direct calls (e.g. `/postgres-pro`, `/fastapi-expert`, `/docker-patterns`) integrate seamlessly at any time. | Sub-Skill Registry |
+
 ### 🎛️ Three Operating Modes (`lite` | `full` | `ultra`)
-1. **`lite` Mode (`mode: lite`)**:
+
+1. **`lite` Mode (`/backend-master lite`)**:
    - **For**: Rapid bugfixes, quick queries, micro-endpoints, single-file edits, or tight turnaround requests.
    - **Behavior**: Fast 1-line confirmation gate (*"Proposed fix: X in file Y. Proceed?"*). Minimal overhead, maximum speed, laser focus on immediate delivery.
-2. **`full` Mode (`mode: full`) — Default**:
-   - **For**: Standard production backend engineering, new features, and domain modeling.
+2. **`full` Mode (`/backend-master full` — Default)**:
+   - **For**: Standard production backend engineering, new feature modules, domain modeling, and schema migrations.
    - **Behavior**: Comprehensive Phase 1 exploration, 2–3 architectural trade-offs, strict Phase 2 Hard Stop, and Phase 3 TDD with clean architecture.
-3. **`ultra` Mode (`mode: ultra`) — YAGNI Extremist**:
-   - **For**: Refactoring debt, hotfixes, or preventing premature complexity.
+3. **`ultra` Mode (`/backend-master ultra`) — YAGNI Extremist**:
+   - **For**: Refactoring technical debt, hotfixes, eliminating bloat, or preventing premature architectural complexity (Ponytail discipline).
    - **Behavior**: Deletes dead code, strips wrapper layers, eliminates speculative interfaces and factories, rejects third-party dependencies when standard library suffices, refuses premature caching/queues.
-
-### 🕹️ Action Command Palette:
-
-| Command | What it does |
-|---|---|
-| `/backend-master` or `/backend-master active` | Locks persistent active mode for the session (default: full mode). |
-| `/backend-master lite` | Switches session to **Lite** mode (fast, minimal overhead, 1-line check). |
-| `/backend-master full` | Switches session to **Full** mode (standard clean architecture & TDD). |
-| `/backend-master ultra` | Switches session to **Ultra** mode (YAGNI extremist, delete bloat, standard library first). |
-| `/backend-master audit` | Run technical quality checks (OWASP API Top 10, SQLi, N+1 queries, pool/memory leaks, unhandled errors). |
-| `/backend-master harden` | Defense-in-depth pass (input validation, rate limiting, JWT/auth verification, CORS/CSRF, RFC 7807 error envelopes, timeouts). |
-| `/backend-master optimize` | Performance tuning (slow query analysis, `EXPLAIN ANALYZE`, indexing strategy, cache-aside, pool sizing). |
-| `/backend-master benchmark` | Load and stress testing (generates & executes `k6` scripts, benchmarks p95/p99 latency and throughput). |
-| `/backend-master schema` | Database schema design, normalization, zero-downtime expand/contract migrations, non-blocking DDL. |
-| `/backend-master api` | Contract-first API modeling (REST, GraphQL, gRPC, WebSockets, OpenAPI specs, cursor pagination, idempotency). |
-| `/backend-master distill` | Ponytail YAGNI pruning pass (strip premature wrappers, single-impl interfaces, flatten classes into pure functions). |
-| `/backend-master critique` | Architectural review (bounded contexts, service coupling, distributed sagas, single points of failure). |
-| `/backend-master dockerize` | Container infrastructure (multi-stage Dockerfiles, Docker Compose mesh, non-root users, secret handling). |
-| `/backend-master document` | Generate or update backend documentation, ADRs, or API contracts from codebase. |
-| `/backend-master init` | Workspace discovery (detect framework, dependencies, databases, environment configs, and initialize LTM). |
-| `/backend-master status` | Displays current activation state, active mode, internal LTM stack, STM task, and loaded skills. |
-| `/backend-master off` | Deactivates persistent mode; returns to default model behavior. |
-| `/unlazy` | Manually triggers the autonomous breakthrough circuit breaker with explicit `GATES.md` acceptance gates. |
-| Direct Sub-Skill Invocation | Direct calls (e.g. `/postgres-pro`, `/fastapi-expert`, `/docker-patterns`) integrate seamlessly at any time. |
 
 ### 🛡️ Laser Focus & Anti-Hallucination Policy:
 - **Stay On-Point**: Address only what is directly relevant to the backend task at hand. Eliminate unsolicited essays, meta-commentary, and conversational filler.
@@ -60,73 +67,75 @@ The universal supervisor for all backend engineering across frameworks, language
 
 ---
 
-## 🚀 Core Mission: Zero-Hassle Transparent Proxy & Fluid Multi-Stage Workflow
+## 🚫 The 7 Backend Anti-Patterns (Zero AI Backend Slop)
 
-The primary goal of `backend-master` is to **completely eliminate the cognitive overhead and hassle of discovering, searching for, configuring, or manually loading dozens of individual skills**. Developers and agents should never have to memorize skill names, search directories, or issue manual loading commands.
+Coding agents frequently fall into statistical failure modes when writing backend code. `backend-master` strictly enforces this non-negotiable contract:
 
-### 1. Zero-Hassle Transparent Proxy Principle
-- **No Manual Skill Hunting**: The engineer speaks naturally in plain English (or provides code, bug reports, logs, or requirements).
-- **Silent Autonomous Resolution**: `backend-master` transparently parses the prompt, identifies domain entities (e.g. Postgres, Fastify, Kafka, Docker, k6), matches them against the 73 curated sub-skills, and injects the top 1 to 3 domain specialists on the fly.
-- **Transparent Status Banner**: The agent displays what it resolved in the session banner so the engineer has full visibility without lifting a finger.
-
-### 2. "Work Through All of the Things": Fluid Multi-Stage Workflow Progression
-Real backend features naturally cross multiple technical boundaries as they progress:
-1. **Schema & Migration Stage**: Designing tables, indexes, constraints (`sql-pro`, `postgres-pro`, `database-migration`).
-2. **Application & Routing Stage**: Controllers, middleware, input validation, error handling (`fastify-best-practices`, `fastapi-expert`, `api-and-interface-design`).
-3. **Caching & Asynchronous Processing**: Cache-aside, background queues, pub/sub (`redis-patterns`, `kafka-development`, `rabbitmq-development`).
-4. **Security & Authentication**: JWT validation, rate limiting, RLS policies, vulnerability mitigation (`auth`, `security-and-hardening`, `owasp-top-10-testing`).
-5. **Containerization & Deployment**: Multi-stage Dockerfile, docker-compose network mesh (`docker-patterns`, `devops-engineer`).
-6. **Testing & Performance Verification**: Integration suites, stress benchmarks, load tests (`test-master`, `k6`, `performance-optimization`).
-
-**How `backend-master` Flexibly Navigates Progression**:
-- As the conversation naturally moves from one stage to the next (*"Now let's containerize it"*, *"Now benchmark this endpoint at 10,000 req/s"*), the orchestrator **dynamically rotates active skills in STM** to match the immediate stage.
-- **Zero Friction**: The engineer never needs to say "switch skill to k6". The orchestrator detects the new phase, loads `k6`, retains the service tech stack in LTM, and immediately gets to work.
-
-### 3. Pragmatic Flexibility & Adaptive Gating (Workable, Not Bureaucratic)
-- `backend-master` is built to be a **workable collaborator**, not a rigid roadblock.
-- **Adaptive Gate Scaling**:
-  - **Quick Fixes & Bug Traces (Bounded / Hotfix)**: Phase 1 & Phase 2 verification is fast and crisp (1-2 sentences: *"Root cause: X; proposed fix: Y in file Z. Ready to proceed?"*). No bloated multi-page thesis.
-  - **Major Architectural Shifts (Architectural)**: Phase 1 & 2 provide deep trade-off analysis (2-3 options with performance, complexity, and DB impact).
-  - The workflow moves at the engineer's rhythm—agile when debugging, rigorous when architecting.
+1. 🚫 **No N+1 Queries**: Never query a database inside a loop. Always use bulk queries (`WHERE id IN (...)`), joins, or DataLoader batching.
+2. 🚫 **No Unparameterized SQL**: Zero string interpolation or concatenation in queries (`f"SELECT ... {var}"` or `"SELECT ... " + var`). All dynamic inputs must use parameterized bindings to prevent SQL injection.
+3. 🚫 **No Event-Loop Blocking**: Zero synchronous blocking I/O calls (`time.sleep()`, `fs.readFileSync()`, synchronous HTTP clients) inside asynchronous handlers. Always use native async primitives (`asyncio.sleep()`, `fs.promises.readFile()`, `httpx.AsyncClient`).
+4. 🚫 **No Unbounded Pagination**: Never execute `SELECT *` without an explicit `LIMIT`. Prohibit large offset pagination (`OFFSET 100000`) on large tables; enforce keyset / cursor pagination.
+5. 🚫 **No Silent Error Swallowing**: Ban empty catch blocks (`except Exception: pass`, `catch (e) {}`). All errors must either be handled with specific recovery logic or mapped to structured [RFC 7807 Problem Details](https://datatracker.ietf.org/doc/html/rfc7807).
+6. 🚫 **No Hardcoded Secrets**: Zero plaintext passwords, API keys, or JWT secrets in code files. Enforce environment variable injection (`os.getenv()`, `process.env`) and secret masking in logs.
+7. 🚫 **No Table-Locking Migrations**: Forbid destructive, blocking DDL operations (`ALTER TABLE ... ADD COLUMN ... DEFAULT <val>` on active tables without non-blocking mechanisms). Enforce the expand-and-contract migration pattern with safe dual-writing.
 
 ---
 
-## 🧠 In-Session Memory Engine (LTM & STM)
+## 🌐 Language & Framework Support
 
-`backend-master` tracks memory **purely inside the session context** (zero files created on disk), dynamically balancing high-inertia architectural invariants with rolling task working states.
+### 1. First-Class Curated Languages (8 Languages, 16+ Frameworks)
+`backend-master` includes dedicated, curated specialists for the primary backend languages:
 
-### 1. Temporal Lifespan & Volatility Rules
-- **Long-Term Memory (LTM) — High Inertia (Slow to Change, Session Anchor)**:
-  - Anchors the entire session and project lifecycle.
-  - Represents foundational architectural invariants that **do NOT change from message to message**: Languages, Web Frameworks, Databases, Caching, Event Brokers, and Core Architectural Patterns.
-  - Resists erratic fluctuations; mutates *only* when the user issues an intentional, high-level migration directive (e.g. *"We are migrating from Express to Fastify"*).
-- **Short-Term Memory (STM) — Low Inertia (Current Text & Rolling Few-Text Window)**:
-  - Spans the **current prompt and the rolling micro-window of the last 2 to 4 related turns** (proposal ➔ feedback ➔ approval ➔ execution ➔ test verification).
-  - **Highly Volatile**: Automatically evolves, shifts, or resets when the active task is completed or when the user pivots to a new backend task.
+| Language | Frameworks & Libraries | Curated Specialist Skills |
+|---|---|---|
+| **Python** | FastAPI, Django, Flask, asyncpg, SQLAlchemy, Celery | `python-pro`, `fastapi-expert`, `django-expert`, `flask-python`, `managing-python-dependencies` |
+| **Node.js / TypeScript** | Fastify, Express, NestJS, Prisma, TypeORM, Micro | `nodejs-backend-patterns`, `fastify-best-practices`, `nestjs-expert`, `micro` |
+| **Go** | `net/http`, Gin, Echo, Chi, GORM, sqlx | `golang-pro` |
+| **Rust** | Axum, Actix-web, Tokio, SQLx, Diesel | `rust-engineer` |
+| **Java / Kotlin** | Spring Boot 3, Spring Data, Hibernate, Quarkus | `spring-boot-engineer` |
+| **C# / .NET** | ASP.NET Core, EF Core, Minimal APIs | `csharp-developer` |
+| **Ruby** | Ruby on Rails, Sinatra, Sidekiq, ActiveRecord | `rails-expert` |
+| **PHP** | Laravel, Symfony, Slim, Eloquent | `laravel-specialist`, `php-pro` |
 
-### 2. Multi-Framework & Polyglot Monorepo Flexibility
-Real-world systems frequently combine multiple frameworks and languages within the same project or monorepo. `backend-master` is natively polyglot and never forces a rigid single-framework lock:
-- **Multi-Service Catalog in LTM**: LTM tracks either a single stack OR a multi-service architectural map:
-  - Gateway / Streaming: Node.js + Fastify / Express
-  - AI / ML / Data Services: Python + FastAPI / Flask
-  - Admin / Legacy Portals: Django / Ruby on Rails / PHP
-  - Ingestion / High-Throughput: Go / Rust
-- **Directory & Context-Aware STM Routing**:
-  - The agent inspects the target file, directory (`services/*`, `apps/*`, `packages/*`), or prompt context.
-  - If the prompt touches `services/gateway`, STM engages `fastify-best-practices` without disturbing other services.
-  - If the prompt touches `services/ai`, STM engages `fastapi-expert`.
-  - If a task involves cross-service communication (e.g., Fastify API calling a FastAPI backend over gRPC or REST), the orchestrator coordinates both specialists cleanly within the Rule of $\le 3$.
+### 2. Universal Dynamic Polyglot Engine (ANY Language or Framework)
+When operating in a language or framework that does **not** have a static sub-skill (e.g. **Elixir / Phoenix**, **Kotlin / Ktor**, **Scala / Akka / Play**, **C++ / Crow / Drogon**, **Swift / Vapor**, **Zig**, **Clojure / Ring**, **Deno / Fresh**, **Bun / Elysia / Hono**):
 
-### 3. Prompt Intent Classification: LTM vs. STM
-Every incoming prompt is classified before execution:
-1. **Pure LTM Mutator**: Directives defining or shifting the stack (*"We are using Fastify and MongoDB"*, *"Switch cache from Redis to Memcached"*). Agent updates LTM invariants and confirms in the banner without prematurely generating code.
-2. **Pure STM Action**: Action verbs on specific features or bugs (*"Add a rate-limited endpoint"*, *"Fix query slow-log"*). Agent inherits established LTM and executes the 3-Phase Gate.
-3. **Dual-Intent**: Contains both a stack directive and an actionable task (*"We are using Express; create the auth middleware"*). Agent pins LTM first, then executes the STM task under the new stack.
-4. **Auto-Inspection on First Turn**: If an STM task arrives before LTM is defined, the agent auto-inspects repository manifests (`package.json`, `pyproject.toml`, `go.mod`) to infer the stack transparently.
+`backend-master` runs **dynamically over the project**:
+1. **Discovers Idioms Transparently**: Inspects language manifests (`mix.exs`, `build.gradle.kts`, `CMakeLists.txt`, `Package.swift`, `project.clj`, `deno.json`) to determine project dependencies and idioms.
+2. **Enforces Universal Architectural Invariants**:
+   - Strict separation of Domain entities from Framework / Transport adapters (Hexagonal / Ports & Adapters).
+   - Atomic database transactions with rollback on failure.
+   - Bounded connection pooling and timeout configurations.
+   - Parameterized queries and SQL injection protection.
+   - Idempotency keys on mutating operations (`POST`, `PATCH`).
+   - Standardized structured error responses (RFC 7807).
+3. **Applies Native Concurrency**: Translates concurrency best practices into the target runtime (BEAM processes and supervision trees in Elixir, coroutines in Kotlin, virtual threads in modern Java, actors in Scala, tasks in Swift).
 
 ---
 
-## 🔒 HARDCODED MANDATORY COMMAND FLOW: Plan-Then-Execute Gate
+## 🧠 In-Session Memory Engine (LTM, STM & `BACKEND.md`)
+
+`backend-master` maintains memory **purely inside the session context** (zero extraneous files created on disk), dynamically balancing high-inertia architectural invariants with rolling task working states.
+
+### 1. Durable System Truth: `BACKEND.md` (via `/backend-master init`)
+When `/backend-master init` is executed, the orchestrator inspects the workspace and creates or updates a root **`BACKEND.md`**:
+- **Tech Stack Invariants**: Primary languages, web frameworks, package managers, and runtimes.
+- **Data Layer**: Relational/NoSQL database engines, migration directory (`alembic/`, `prisma/`, `migrations/`), and connection pool limits.
+- **Authentication**: Primary auth strategy (JWT, OAuth2, session cookies, API keys).
+- **Messaging & Caching**: Active message brokers (Kafka, RabbitMQ) and caching layers (Redis).
+- *Result*: Future commands across long conversations never lose context or hallucinate conflicting tech choices.
+
+### 2. In-Session LTM & STM Dynamics
+- **Long-Term Memory (LTM) — High Inertia (Session Anchor)**:
+  - Tracks foundational architectural invariants: Languages, Frameworks, Databases, Caching, Event Brokers, and Service Maps.
+  - Mutates *only* when the user issues an intentional, high-level migration directive.
+- **Short-Term Memory (STM) — Low Inertia (Current Task Window)**:
+  - Spans the current prompt and the rolling micro-window of the last 2 to 4 related turns (proposal ➔ feedback ➔ approval ➔ execution ➔ test verification).
+  - Automatically resets when the active task completes or pivots.
+
+---
+
+## 🔒 The Hardcoded Workflow Gate (Plan-Then-Execute)
 
 Every backend task **MUST STRICTLY FOLLOW THIS HARD-GATED 3-PHASE SEQUENCE**. Never bypass the user verification gate.
 
@@ -134,7 +143,6 @@ Every backend task **MUST STRICTLY FOLLOW THIS HARD-GATED 3-PHASE SEQUENCE**. Ne
 ┌────────────────────────────────────────────────────────┐
 │  PHASE 1: CONTEXT EXPLORATION & BRAINSTORMING          │
 │  - Classify task (Spike, Bounded, or Architectural)    │
-│  - Mandatorily invoke `brainstorming` (from superpowers)│
 │  - Select ≤ 3 relevant curated skills (Rule of ≤ 3)    │
 │  - Present 2–3 trade-off approaches (or in-chat design)│
 └──────────────────────────┬─────────────────────────────┘
@@ -149,111 +157,33 @@ Every backend task **MUST STRICTLY FOLLOW THIS HARD-GATED 3-PHASE SEQUENCE**. Ne
                            │ (User confirms & approves plan)
                            ▼
 ┌────────────────────────────────────────────────────────┐
-│  PHASE 3: EXECUTION & SUPERPOWERS VERIFICATION         │
-│  - Bounded: Inline + `test-driven-development` (TDD)   │
-│  - Architectural: Sub-agents + `writing-plans`         │
+│  PHASE 3: EXECUTION & VERIFICATION                     │
+│  - Bounded: Inline + Test-Driven Development (TDD)     │
+│  - Architectural: Sub-agents + Writing Plans           │
 │  - Apply Ponytail discipline (full vs. ultra YAGNI)    │
-│  - Pre-completion: `verification-before-completion`    │
+│  - Pre-completion: Verification Before Completion      │
 └────────────────────────────────────────────────────────┘
 ```
 
 ### Phase 1: Explore & Plan (`brainstorming`)
-1. Classify the task out loud:
-   - **Spike**: Fast exploratory feasibility probe ("Can we...", "Is it possible to..."). Present question and probe plan in 2–3 sentences.
-   - **Bounded**: Scoped change to existing code (new endpoint, bugfix, schema addition, query optimization). Present short in-chat design (approach, files touched, testing).
-   - **Architectural**: New service, new database cluster, cross-cutting distributed flow, or breaking contract. Present 2–3 approaches with trade-offs and recommendations.
+1. Classify the task:
+   - **Spike**: Fast exploratory feasibility probe ("Can we...", "Is it possible to..."). Present probe plan in 2–3 sentences.
+   - **Bounded**: Scoped change to existing code (new endpoint, bugfix, schema addition, query optimization). Present short in-chat design.
+   - **Architectural**: New service, new database cluster, cross-cutting distributed flow, or breaking contract. Present 2–3 approaches with trade-offs.
 2. Select and read **only $\le 3$ relevant curated sub-skills** from the registry.
-3. **🔍 Token Optimization: Graft Recommendation (Opt-In with Consent)**:
-   - When exploring an existing codebase, symbols, or call hierarchies, check if `graft` MCP tools (`graft_find_code`, `graft_trace_calls`, `graft_file_api`, `graft_repo_map`) are available.
-   - **Recommendation Only**: `graft` is strictly an optional recommendation to optimize token usage. If the user does not want to use it, let it go and proceed seamlessly with standard file viewing/grep tools.
-   - **MANDATORY PERMISSION GATE**: The agent **MUST explicitly ask the user for permission before downloading or installing graft**. NEVER download, install, or clone `graft` without the user's explicit prior approval.
 
 ### Phase 2: The Strict User Verification Gate (HARD STOP)
 - **What "No Code Generation" Means**:
   - The agent **must halt execution** and wait for the human engineer's explicit approval.
-  - **PROHIBITED in Phase 2**: Generating production code files, editing existing code in the repository, or presenting the complete implementation. (Short illustrative pseudo-code snippets explaining a concept during discussion are permitted, but no implementation work is done).
+  - **PROHIBITED in Phase 2**: Generating production code files, editing existing code in the repository, or presenting complete implementation diffs.
   - The agent waits until the user explicitly confirms (*"Approved"*, *"Proceed with Option 2"*, *"Looks good"*).
 
-### 🛡️ Rationalization Counter-Table (Stop & Address Excuses)
-
-| Common Agent Rationalization | Engineering Reality & Rule |
-|---|---|
-| *"The user asked for code directly, so I should just write it."* | The hard gate applies to every task. Present the design/options in chat first and get approval. |
-| *"This is a small/simple backend change, no need to stop."* | Simple changes break production. Present a 2-sentence inline design and wait for confirmation. |
-| *"I already know the optimal architecture, why discuss options?"* | Unexamined assumptions cause the most rework. Presenting 2–3 trade-offs surfaces hidden constraints. |
-| *"I'll write the code and explain the design in the same turn."* | Presenting the design and writing code in the same breath skips the approval gate entirely. |
-
-### 🚩 Red Flags — STOP and Wait for Approval
-- Writing code before receiving user approval.
-- Editing repository files during Phase 1 or Phase 2.
-- Dumping entire sub-skill documentation files into the conversation turn.
-- Adding distributed complexity (Kafka, Redis clusters) when a standard library map or database index suffices.
-
-### Phase 3: Execution (Only After Approval)
-- **Bounded Tasks**: Run in **Inline Mode** using [`superpowers:test-driven-development`](file:///C:/Users/VATSAL%20M/.agents/skills/superpowers/skills/test-driven-development/SKILL.md) (RED: failing test $\rightarrow$ GREEN: minimal implementation $\rightarrow$ REFACTOR).
-- **Architectural Tasks**: Invoke [`superpowers:writing-plans`](file:///C:/Users/VATSAL%20M/.agents/skills/superpowers/skills/writing-plans/SKILL.md) and execute via **Sub-Agent Mode** (`invoke_subagent`).
-- **Quality Gate**: Before concluding any backend task, verify against [`superpowers:verification-before-completion`](file:///C:/Users/VATSAL%20M/.agents/skills/superpowers/skills/verification-before-completion/SKILL.md) and automated test suites.
-- **⚡ Autonomous Breakthrough Circuit Breaker: Escalation to `unlazy`**:
-  - **Dormant by Default (`unlazy:standby`)**: For standard clean implementations, `unlazy` remains dormant to avoid unnecessary overhead.
-  - **Auto-Escalates / Activates ONLY when (`unlazy:active`)**:
-    1. **Stall / Loop Detection**: The agent is caught in repetitive loops, failing the same test repeatedly, or spending excessive turns/time without forward progress.
-    2. **Half-Done Work**: Implementations are returned incomplete, with deferred TODOs or shallow mocks.
-    3. **Explicit Directive**: The user invokes `/unlazy` or requests an exhaustive, uncompromised solution ("go out of the box", "give your best", "do not stop until it is completely verified").
-  - **What Happens When Escalated**:
-    - Suspends casual shortcuts.
-    - Generates strict verifiable acceptance gates (`GATES.md`) with explicit `CHECK:` and `EXPECT:` conditions.
-    - Builds a Depth Tree to break complex multi-part deliverables into verifiable leaves.
-    - Re-verifies every check with execution evidence before reporting completion.
-
----
-
-## ⚙️ Dual Execution Modes: Inline vs. Sub-Agent
-
-Depending on the scope, dependencies, and parallelizability of the task, the orchestrator selects or recommends the appropriate execution mode:
-
-### 1. Inline Development Mode
-- **When to use**: Focused, bounded, localized tasks:
-  - Adding or modifying a single API endpoint or schema.
-  - Writing or optimizing a single database query or index.
-  - Adding a small utility, middleware, or configuration tweak.
-  - Fixing an isolated bug or writing a test file.
-- **Workflow**: Executed directly within the main conversation turn, keeping full context immediate and concise.
-
-### 2. Sub-Agent Development Mode (`invoke_subagent`)
-- **When to use**: Broad, parallel, complex, or cross-cutting tasks:
-  - Multi-service microservice scaffolding or cross-repo integrations.
-  - Large-scale architectural refactors across multiple subsystems.
-  - Complex multi-step database migrations with concurrent data backfilling.
-  - Independent parallel investigations (e.g., benchmarking performance while auditing security).
-- **Workflow**:
-  - The master agent defines clear, isolated tasks and launches specialized subagents via `invoke_subagent`.
-  - Subagents execute independently in their own context and report back completed diffs/results.
-  - The master agent reviews subagent results, verifies consistency, and synthesizes the final output for the user.
-
----
-
-## ✂️ Ponytail Integration & Dynamic Level Switching (`ponytail`)
-
-`backend-master` mandatorily integrates the **Ponytail** engineering discipline to eliminate bloat, premature abstraction, and unnecessary code complexity.
-
-### Dynamic Switching Modes:
-1. **Normal / Full Mode (`ponytail:full`) — Default**:
-   - Applied for standard feature implementation, API creation, database schemas, and clean architectures.
-   - Enforces standard library and native framework capabilities first before pulling in third-party libraries.
-   - Produces minimal working diffs with clean boundaries.
-2. **Ultra Mode (`ponytail:ultra`) — YAGNI Extremist**:
-   - Auto-switches for bugfixes, small scripts, hotfixes, or whenever there is a temptation to over-engineer.
-   - **Strict Rules**:
-     - Deletes before adding. Replaces complex classes with simple functions.
-     - Rejects single-implementation interfaces, speculative factories, and unnecessary wrapper layers.
-     - Refuses caching or distributed queues when an in-process or simple DB solution suffices.
-
-### Transparent Status Banner:
-Prefix every turn with a clean, unobtrusive status banner:
-```text
-⚡ [backend-master: AUTO|ACTIVE] [mode: lite|full|ultra] Loaded: [<skill-1>, <skill-2>]
-```
-*(Do NOT output multi-line LTM or STM memory blocks in chat turns; maintain them internally in context and only display them if the user explicitly asks via `/backend-master status`)*.
+### Phase 3: Execution & Verification
+- **Bounded Tasks**: Run in **Inline Mode** using Test-Driven Development (RED: failing test $\rightarrow$ GREEN: minimal implementation $\rightarrow$ REFACTOR).
+- **Architectural Tasks**: Execute via **Sub-Agent Mode** (`invoke_subagent`).
+- **Autonomous Breakthrough Circuit Breaker (`/unlazy`)**:
+  - Auto-escalates on stall/loop detection, half-done work, or explicit directive.
+  - Generates strict verifiable acceptance gates (`GATES.md`) and Depth Tree leaves.
 
 ---
 
@@ -318,7 +248,7 @@ Selective on-demand loading: Select and read **only the 1 to 3 sub-skills** dire
 - **`ai-gateway`**: Unified LLM model routing, multi-provider failover, SSE streaming responses, token cost tracking.
 
 ### 6. Production Readiness, Containerization, Cloud & DevOps
-- **`devops-engineer`**: Multi-stage Dockerfiles, Docker Compose, CI/CD pipelines, containerization automation.
+- **`devops-engineer`**: Multi-stage Dockerfiles, Docker Compose pipelines, containerization automation.
 - **`docker-patterns`**: Production Docker best practices, layer caching, non-root users, secret handling.
 - **`cloud-architect`**: AWS/GCP/Azure Well-Architected Framework, VPC networks, zero-trust topologies, DR.
 - **`shipping-and-launch`**: Pre-launch checklists, staged canary rollouts, zero-downtime cutovers, rollback procedures.

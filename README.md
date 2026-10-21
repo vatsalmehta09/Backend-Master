@@ -10,9 +10,9 @@
 <p align="center">
   <a href="https://github.com/vatsalmehta09/Backend-Master/actions"><img src="https://img.shields.io/badge/CI%2FCD-passing-brightgreen?style=flat-square" alt="CI/CD Status"></a>
   <a href="skills/"><img src="https://img.shields.io/badge/managed__skills-73-blue?style=flat-square" alt="Managed Skills"></a>
-  <a href="docs/decisions/"><img src="https://img.shields.io/badge/ADRs-10%20Accepted-blueviolet?style=flat-square" alt="ADRs"></a>
-  <a href="docs/ARCHITECTURE.md"><img src="https://img.shields.io/badge/architecture-documented-informational?style=flat-square" alt="Architecture"></a>
-  <a href="REFERENCES.md"><img src="https://img.shields.io/badge/ecosystem-skills.sh-informational?style=flat-square" alt="Ecosystem"></a>
+  <a href="#-the-7-backend-anti-patterns-zero-ai-backend-slop"><img src="https://img.shields.io/badge/anti--patterns-7%20enforced-red?style=flat-square" alt="Anti-Patterns Enforced"></a>
+  <a href="#-supported-languages--dynamic-polyglot-execution"><img src="https://img.shields.io/badge/languages-8%20curated%20%2B%20dynamic-blueviolet?style=flat-square" alt="Languages"></a>
+  <a href="docs/decisions/"><img src="https://img.shields.io/badge/ADRs-10%20Accepted-informational?style=flat-square" alt="ADRs"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License"></a>
   <img src="https://img.shields.io/badge/discipline-Ponytail%20YAGNI-ff69b4?style=flat-square" alt="Ponytail Discipline">
 </p>
@@ -22,472 +22,134 @@
 ## 📖 Table of Contents
 
 - [⚡ What is Backend-Master?](#-what-is-backend-master)
-- [🧩 Why Backend-Master? (The 4 Foundational Problems)](#-why-backend-master-the-4-foundational-problems)
-- [🚀 Zero-Hassle Transparent Proxy & Fluid Multi-Stage Workflow](#-zero-hassle-transparent-proxy--fluid-multi-stage-workflow)
-- [🏛️ Architecture & Decision Records (ADRs)](#️-architecture--decision-records-adrs)
-- [🧠 In-Session Memory Engine (LTM & STM)](#-in-session-memory-engine-ltm--stm)
-- [🔒 The Hardcoded Workflow Gate (Plan-Then-Execute)](#-the-hardcoded-workflow-gate-plan-then-execute)
-  - [🔍 Token Optimization: Graft Recommendation (Opt-In with Consent)](#-token-optimization-graft-recommendation-opt-in-with-consent)
-  - [⚡ Autonomous Breakthrough Circuit Breaker (Unlazy)](#-autonomous-breakthrough-circuit-breaker-unlazy)
-- [⚙️ Dual Execution Modes (Inline vs. Sub-Agent)](#️-dual-execution-modes-inline-vs-sub-agent)
-- [✂️ The Ponytail YAGNI Discipline](#️-the-ponytail-yagni-discipline)
-- [🌐 Comprehensive Practice Areas (8 Core Domains)](#-comprehensive-practice-areas-8-core-domains)
-  - [1. Core Architecture, Domain-Driven Design & Microservices](#1-core-architecture-domain-driven-design--microservices)
-  - [2. API Design, Protocols & Inter-Service IPC](#2-api-design-protocols--inter-service-ipc)
-  - [3. Databases, Caching & Zero-Downtime Data Evolution](#3-databases-caching--zero-downtime-data-evolution)
-  - [4. Polyglot Language & Framework Specialization](#4-polyglot-language--framework-specialization)
-  - [5. Distributed Workflows, Message Brokers & Event Streaming](#5-distributed-workflows-message-brokers--event-streaming)
-  - [6. Containerization, Cloud Infrastructure & SRE](#6-containerization-cloud-infrastructure--sre)
-  - [7. Testing Architectures, Mocking & Load Profiling](#7-testing-architectures-mocking--load-profiling)
-  - [8. Defense-in-Depth Security, Auth & Hardening](#8-defense-in-depth-security-auth--hardening)
-- [📦 Complete Catalog of 73 Curated Sub-Skills](#-complete-catalog-of-73-curated-sub-skills)
-- [🕹️ Commands & Dynamic Activation Modes](#️-commands--dynamic-activation-modes)
-- [🚀 Installation & Setup](#-installation--setup)
-- [🔄 Automated Upstream Tracking & Synchronization](#-automated-upstream-tracking--synchronization)
-- [🛡️ Community Synthesis & Review Disclaimer](#️-community-synthesis--review-disclaimer)
-- [📄 License & Credits](#-license--credits)
+- [🕹️ Commands & Usage](#️-commands--usage)
+- [🎛️ Three Operating Modes (`lite` | `full` | `ultra`)](#️-three-operating-modes-lite--full--ultra)
+- [🚫 The 7 Backend Anti-Patterns (Zero AI Backend Slop)](#-the-7-backend-anti-patterns-zero-ai-backend-slop)
+- [🌐 Supported Languages & Dynamic Polyglot Execution](#-supported-languages--dynamic-polyglot-execution)
+- [🚀 Installation & Quick Start](#-installation--quick-start)
+- [📦 Curated Sub-Skills & Credits](#-curated-sub-skills--credits)
 
 ---
 
 ## ⚡ What is Backend-Master?
 
-Modern backend development spans dozens of disciplines: designing clean domain models, writing high-throughput REST/GraphQL/gRPC APIs, tuning Postgres queries, implementing Redis caching, setting up Docker Compose meshes, orchestrating Kafka event streams, and locking down OAuth2 security.
+When AI coding agents (Claude Code, Cursor, Codex, Gemini CLI) write backend code without strict orchestrator guidance, they frequently fall into statistical traps: **monolithic God-files**, **hidden N+1 database queries**, **unparameterized SQL strings**, **blocking async event loops**, and **unhandled exceptions**.
 
-Instead of forcing developers and AI coding agents to manually remember and invoke dozens of standalone skills, **`Backend-Master`** serves as a **Universal Dynamic Session Supervisor**:
+**`Backend-Master`** is the single universal orchestrator that eliminates this hassle:
 
-1. **Automatic Backend Detection**: Automatically recognizes backend context (APIs, schemas, databases, queues, Docker, testing, performance) and activates dynamic routing.
-2. **Selective Just-in-Time Injection (Rule of $\le 3$)**: Selects and injects **only the 1 to 3 relevant domain sub-skills** needed for the immediate prompt, preventing context window exhaustion while maintaining strict production standards.
-3. **Mandatory Hard-Gated Planning**: Enforces a strict 3-phase discipline (Context Exploration $\rightarrow$ **Wait for User Verification** $\rightarrow$ Code Execution). Under no circumstance is unreviewed code written.
-4. **Dual Execution Engine**: Dynamically routes work between focused **Inline Development** (single-service/file) and parallel **Sub-Agent Development** (multi-service/complex refactors).
-5. **Integrated Ponytail YAGNI Pruning**: Enforces standard library first and dynamically switches between normal clean architecture and ultra-minimalist code pruning.
-6. **Self-Contained Standalone Replicas**: Houses complete, verified copies of **73 curated open-source sub-skills** directly in [`skills/`](skills/) with zero missing dependencies.
+1. **Zero-Hassle Transparent Proxy**: You never need to search for, remember, or manually load dozens of specialized skills. Speak in plain English, and the orchestrator automatically detects your tech stack and injects the top 1 to 3 domain specialists on the fly.
+2. **Durable Truth (`BACKEND.md`)**: Runs `/backend-master init` to record your databases, connection pool limits, migration paths, and auth patterns once—eliminating context drift across long conversations.
+3. **Hard-Gated Plan-Then-Execute**: Enforces a strict 3-phase discipline (Explore $\rightarrow$ **Wait for User Verification Gate** $\rightarrow$ Execute with TDD). Under no circumstance is unreviewed code written.
+4. **Standalone Replicas**: Packages **73 curated open-source sub-skills** directly in [`skills/`](skills/) covering 8 core domains.
 
 ---
 
-## 🧩 Why Backend-Master? (The 4 Foundational Problems)
+## 🕹️ Commands & Usage
 
-| Challenge in AI Coding | Traditional Agent Behavior | Backend-Master Solution |
+All commands use the unified `/backend-master <command> [target]` syntax, where `[target]` is an optional path, service, endpoint, or query:
+
+```bash
+/backend-master audit services/auth           # Audit security, SQLi, and pool leaks
+/backend-master test src/controllers/order    # Scaffold unit + integration tests with mocks
+/backend-master harden api/v1/payments        # Add rate limiting, JWT guards, RFC 7807, and RLS
+/backend-master profile queries/search.sql    # Run EXPLAIN ANALYZE & indexing strategy
+/backend-master schema users                  # Design schema & zero-downtime expand/contract DDL
+```
+
+### Complete Action Command Palette
+
+| Command | What it executes | Underlying Specialist Skills |
 |---|---|---|
-| **Context Window Bloat** | Loading 40+ skills dumps 200KB of documentation into context, degrading attention and reasoning. | **Selective JIT Injection**: Evaluates capability matrix and loads $\le 3$ relevant skills on demand. |
-| **Premature Over-Engineering** | Generates speculative factories, unnecessary interfaces, and premature microservices. | **Ponytail Integration**: Standard library first; dynamically switches between `full` and `ultra` YAGNI. |
-| **Rushed / Unverified Code** | Starts writing code immediately without exploring architectural trade-offs or getting developer sign-off. | **Hard-Gated Plan-Then-Execute**: Mandatory brainstorming, 2–3 trade-offs, and a hard stop for verification. |
-| **Monolithic vs Distributed Mismatch** | Applies the same execution pattern to a 10-line bug fix and a 10-service distributed migration. | **Dual Execution Modes**: Inline mode for bounded tasks; Sub-agent mode for parallel cross-cutting work. |
+| `/backend-master active` | Locks persistent active orchestrator for the session (default: `full` mode). | Core Orchestrator |
+| `/backend-master lite` | Switches session to **Lite** mode (rapid turnaround, 1-line confirmation gate). | Core Orchestrator |
+| `/backend-master full` | Switches session to **Full** mode (standard clean architecture & comprehensive TDD). | Core Orchestrator |
+| `/backend-master ultra` | Switches session to **Ultra** mode (Ponytail YAGNI extremist: delete bloat, stdlib first). | `ponytail` |
+| `/backend-master init` | Project inspection & setup: detects frameworks, DBs, ORMs, and initializes durable `BACKEND.md`. | Core Orchestrator |
+| `/backend-master audit [target]` | Codebase sweep: OWASP Top 10, N+1 queries, unhandled errors, connection pool leaks, dead code. | `owasp-top-10-testing`, `security-audit`, `database-optimizer` |
+| `/backend-master diagnose [target]` | Root-cause a specific bug, crash, or failing test: stack trace analysis, log triage, fault isolation. | Framework specialists, `observability-and-instrumentation` |
+| `/backend-master profile [target]` | Quantitative performance breakdown: slow queries (`EXPLAIN ANALYZE`), CPU hotspots, pool contention. | `database-optimizer`, `postgres-pro`, `performance-optimization` |
+| `/backend-master scaffold [target]` | Generate clean service, router, handler, or module boilerplate with opinionated boundaries. | `clean-ddd-hexagonal`, `backend-patterns`, framework specialists |
+| `/backend-master schema [target]` | Relational or document schema design, normalization, zero-downtime expand/contract migrations, non-blocking DDL. | `sql-pro`, `postgres-pro`, `database-migration`, `mongodb-*` |
+| `/backend-master api [target]` | Contract-first API modeling: OpenAPI 3.1 specs, Protocol Buffers IDL, GraphQL SDL, cursor pagination, idempotency keys. | `api-and-interface-design`, `public-grpc-api-design`, `graphql-architect` |
+| `/backend-master integrate [target]` | Inter-service messaging & workflows: Kafka topics, RabbitMQ exchanges/DLX, Temporal sagas, WebSocket rooms. | `kafka-development`, `rabbitmq-development`, `temporal-developer`, `websocket-engineer` |
+| `/backend-master harden [target]` | Defense-in-depth: rate limiting, CORS/CSRF, JWT/OIDC auth guards, RFC 7807 error envelopes, timeouts, RLS. | `security-and-hardening`, `auth`, `oauth`, `vibesec` |
+| `/backend-master pentest [target]` | Active red-team probe: simulates attack payloads (SQLi, BOLA/IDOR, SSRF, broken auth, input fuzzing). | `api-security-testing`, `owasp-top-10-testing`, `security-diff-scan` |
+| `/backend-master test [target]` | Scaffold unit & integration test suites, mock strategies, database fixtures, and coverage audits. | `test-master`, framework testing libraries |
+| `/backend-master loadtest [target]` | Generate & execute k6 load/stress tests: measure throughput ceilings, p95/p99 latency, breaking points. | `k6`, `performance-optimization` |
+| `/backend-master optimize [target]` | Targeted performance fixes: composite indexing, query rewrites, Redis cache-aside, connection pool tuning. | `database-optimizer`, `redis-patterns`, `runtime-cache` |
+| `/backend-master containerize [target]` | Production container infrastructure: multi-stage Dockerfiles, Docker Compose meshes, unprivileged users, healthchecks. | `docker-patterns`, `devops-engineer`, `kubernetes-specialist` |
+| `/backend-master observe [target]` | Vendor-neutral observability: OpenTelemetry traces/spans, Prometheus RED/USE metrics, structured JSON logging. | `observability-and-instrumentation`, `monitoring-expert` |
+| `/backend-master status` | Displays current activation state, active mode, internal LTM stack, STM task, and loaded skills. | Core Orchestrator |
+| `/backend-master off` | Deactivates persistent mode; returns to default model behavior. | Core Orchestrator |
 
 ---
 
-## 🚀 Zero-Hassle Transparent Proxy & Fluid Multi-Stage Workflow
+## 🎛️ Three Operating Modes (`lite` | `full` | `ultra`)
 
-The primary value proposition of `Backend-Master` is **frictionless developer experience**: developers should never have to search for, remember, or manually load specialized backend skills.
+`backend-master` dynamically adapts its execution depth to match your immediate velocity needs:
 
-### 1. The Transparent Proxy Experience
-```
-┌────────────────────────────────────────────────────────┐
-│  Developer Prompt in Natural Plain English:            │
-│  "My orders query is slow and I need Redis caching"    │
-└──────────────────────────┬─────────────────────────────┘
-                           │ (Silent Domain Entity Resolution)
-                           ▼
-┌────────────────────────────────────────────────────────┐
-│  ⚡ Backend-Master Autopilot:                          │
-│  - Identifies DB: PostgreSQL -> Loads postgres-pro    │
-│  - Identifies Performance: Slow Query -> Loads query   │
-│    optimization & database-optimizer                   │
-│  - Identifies Caching: Redis -> Loads redis-patterns  │
-│  - Zero manual typing, zero skill hunting             │
-└────────────────────────────────────────────────────────┘
-```
-
-### 2. "Work Through All of the Things": Fluid Multi-Stage Progression
-Real backend features naturally cross multiple technical boundaries as they progress:
-1. **Schema & Migration Stage**: Designing tables, indexes, constraints (`sql-pro`, `postgres-pro`, `database-migration`).
-2. **Application & Routing Stage**: Controllers, middleware, input validation, error handling (`fastify-best-practices`, `fastapi-expert`, `api-and-interface-design`).
-3. **Caching & Asynchronous Processing**: Cache-aside, background queues, pub/sub (`redis-patterns`, `kafka-development`, `rabbitmq-development`).
-4. **Security & Authentication**: JWT validation, rate limiting, RLS policies, vulnerability mitigation (`auth`, `security-and-hardening`, `owasp-top-10-testing`).
-5. **Containerization & Deployment**: Multi-stage Dockerfile, docker-compose network mesh (`docker-patterns`, `devops-engineer`).
-6. **Testing & Performance Verification**: Integration suites, stress benchmarks, load tests (`test-master`, `k6`, `performance-optimization`).
-
-**How `Backend-Master` Flexibly Navigates Progression**:
-- As the conversation naturally moves from one stage to the next (*"Now let's containerize it"*, *"Now benchmark this endpoint at 10,000 req/s"*), the orchestrator **dynamically rotates active skills in STM** to match the immediate stage.
-- **Zero Friction**: The engineer never needs to say "switch skill to k6". The orchestrator detects the new phase, loads `k6`, retains the service tech stack in LTM, and immediately gets to work.
-
-### 3. Pragmatic Flexibility & Adaptive Gating (Workable, Not Bureaucratic)
-- `Backend-Master` is built to be a **workable collaborator**, not a rigid roadblock.
-- **Adaptive Gate Scaling**:
-  - **Quick Fixes & Bug Traces (Bounded / Hotfix)**: Phase 1 & Phase 2 verification is fast and crisp (1-2 sentences: *"Root cause: X; proposed fix: Y in file Z. Ready to proceed?"*). No bloated multi-page thesis.
-  - **Major Architectural Shifts (Architectural)**: Phase 1 & 2 provide deep trade-off analysis (2-3 options with performance, complexity, and DB impact).
-  - The workflow moves at the engineer's rhythm—agile when debugging, rigorous when architecting.
+| Operating Mode | When to Use | Execution Behavior | Confirmation Gate |
+|---|---|---|---|
+| **`lite`** (`/backend-master lite`) | Quick fixes, 1-file edits, minor bug investigations | Minimal ceremony, direct code edits, instant delivery | Fast 1-line check (*"Fix X in Y. Proceed?"*) |
+| **`full`** (`/backend-master full`) *(Default)* | Production features, domain modeling, migrations | Hexagonal boundaries, 2–3 architectural trade-offs, TDD | Strict Phase 2 Hard Stop (plan confirmation) |
+| **`ultra`** (`/backend-master ultra`) | Technical debt refactoring, bloat elimination | **Ponytail YAGNI extremist**: deletes dead code, strips wrappers, stdlib first | Deletion diff review & confirmation |
 
 ---
 
-## 🏛️ Architecture & Decision Records (ADRs)
+## 🚫 The 7 Backend Anti-Patterns (Zero AI Backend Slop)
 
-The technical foundations, context, constraints, and trade-offs behind `Backend-Master` are fully documented under [`docs/`](docs/):
-- **[System Architecture Specification](docs/ARCHITECTURE.md)**: End-to-end pipeline diagram, intent classification, memory model, and circuit breaker flow.
-- **[Architecture Decision Records Index (docs/decisions/)](docs/decisions/README.md)**:
-  - [ADR-001: Universal Master Orchestrator Architecture & JIT Injection](docs/decisions/ADR-001-universal-orchestrator-and-jit-injection.md)
-  - [ADR-002: In-Session Memory Engine (Zero Disk Footprint, LTM vs. STM Dynamics)](docs/decisions/ADR-002-in-session-memory-engine-ltm-stm.md)
-  - [ADR-003: Polyglot Monorepo & Multi-Framework Dynamic Routing](docs/decisions/ADR-003-polyglot-monorepo-and-multi-framework-routing.md)
-  - [ADR-004: Mandatory Plan-Then-Execute Hard Gate (Phase 2 Hard Stop)](docs/decisions/ADR-004-mandatory-plan-then-execute-hard-gate.md)
-  - [ADR-005: Optional Codebase Token Optimization via Graft with Consent Gate](docs/decisions/ADR-005-token-optimization-via-graft-with-user-consent.md)
-  - [ADR-006: Autonomous Breakthrough Circuit Breaker (Unlazy Escalation)](docs/decisions/ADR-006-autonomous-breakthrough-circuit-breaker-unlazy.md)
-  - [ADR-007: Zero-Hassle Transparent Proxy & Fluid Multi-Stage Workflow](docs/decisions/ADR-007-zero-hassle-transparent-proxy-and-multi-stage-workflow.md)
-  - [ADR-008: Ponytail YAGNI Engineering Discipline Integration](docs/decisions/ADR-008-ponytail-yagni-discipline-integration.md)
-  - [ADR-009: Self-Contained Curated Skill Replicas & Automated Upstream Tracking](docs/decisions/ADR-009-standalone-curated-skill-replicas-and-upstream-tracking.md)
-  - [ADR-010: Action Command Palette & Three-Tier Operating Modes](docs/decisions/ADR-010-command-palette-and-three-tier-operating-modes.md)
+`backend-master` hardcodes a non-negotiable contract to prevent the standard failure modes of AI code generation:
 
----
+1. 🚫 **No N+1 Queries**: Never query a database inside loops. Mandate bulk fetching (`WHERE id IN (...)`), joins, or DataLoader batching.
+2. 🚫 **No Unparameterized SQL**: Zero string interpolation or concatenation in queries (`f"SELECT ... {var}"` or `"SELECT ... " + var`). All dynamic inputs must use parameterized bindings to prevent SQL injection.
+3. 🚫 **No Event-Loop Blocking**: Zero synchronous blocking I/O calls (`time.sleep()`, `fs.readFileSync()`, synchronous HTTP clients) inside asynchronous handlers.
+4. 🚫 **No Unbounded Pagination**: Never execute `SELECT *` without an explicit `LIMIT`. Enforce keyset / cursor pagination over large offset queries.
+5. 🚫 **No Silent Error Swallowing**: Ban empty catch blocks (`except Exception: pass`, `catch (e) {}`). All errors must map to structured [RFC 7807 Problem Details](https://datatracker.ietf.org/doc/html/rfc7807).
+6. 🚫 **No Hardcoded Secrets**: Zero plaintext passwords, API keys, or JWT secrets in code files. Enforce environment variable injection (`os.getenv()`, `process.env`).
+7. 🚫 **No Table-Locking Migrations**: Forbid destructive, blocking DDL operations on active tables. Enforce the expand-and-contract migration pattern.
 
-## 🧠 In-Session Memory Engine (LTM & STM)
-
-`Backend-Master` maintains memory **purely inside the session context in memory** (zero files created on disk), dynamically balancing high-inertia architectural invariants with rolling task working states:
-
-### 1. Temporal Lifespan & Volatility Rules
-- **Long-Term Memory (LTM) — High Inertia (Slow to Change, Session Anchor)**:
-  - Anchors the entire session and project lifecycle.
-  - Represents foundational architectural invariants that **do NOT change from message to message**: Languages, Web Frameworks, Databases, Caching, Event Brokers, and Core Architectural Patterns.
-  - Resists erratic fluctuations; mutates *only* when the user issues an intentional, high-level migration directive (e.g. *"We are migrating from Express to Fastify"*).
-- **Short-Term Memory (STM) — Low Inertia (Current Text & Rolling Few-Text Window)**:
-  - Spans the **current prompt and the rolling micro-window of the last 2 to 4 related turns** (proposal ➔ feedback ➔ approval ➔ execution ➔ test verification).
-  - **Highly Volatile**: Automatically evolves, shifts, or resets when the active task is completed or when the user pivots to a new backend task.
-
-### 2. Multi-Framework & Polyglot Monorepo Flexibility
-Real-world systems frequently combine multiple frameworks and languages within the same project or monorepo. `Backend-Master` is natively polyglot and never forces a rigid single-framework lock:
-- **Multi-Service Catalog in LTM**: LTM tracks either a single stack OR a multi-service architectural map:
-  - Gateway / Streaming: Node.js + Fastify / Express
-  - AI / ML / Data Services: Python + FastAPI / Flask
-  - Admin / Legacy Portals: Django / Ruby on Rails / PHP
-  - Ingestion / High-Throughput: Go / Rust
-- **Directory & Context-Aware STM Routing**:
-  - The agent inspects the target file, directory (`services/*`, `apps/*`, `packages/*`), or prompt context.
-  - If the prompt touches `services/gateway`, STM engages `fastify-best-practices` without disturbing other services.
-  - If the prompt touches `services/ai`, STM engages `fastapi-expert`.
-  - If a task involves cross-service communication (e.g., Fastify API calling a FastAPI backend over gRPC or REST), the orchestrator coordinates both specialists cleanly within the Rule of $\le 3$.
-
-### 3. Prompt Intent Classification: LTM vs. STM
-Every incoming prompt is classified before execution:
-1. **Pure LTM Mutator**: Directives defining or shifting the stack (*"We are using Fastify and MongoDB"*, *"Switch cache from Redis to Memcached"*). Agent updates LTM invariants and confirms in the banner without prematurely generating code.
-2. **Pure STM Action**: Action verbs on specific features or bugs (*"Add a rate-limited endpoint"*, *"Fix query slow-log"*). Agent inherits established LTM and executes the 3-Phase Gate.
-3. **Dual-Intent**: Contains both a stack directive and an actionable task (*"We are using Express; create the auth middleware"*). Agent pins LTM first, then executes the STM task under the new stack.
-4. **Auto-Inspection on First Turn**: If an STM task arrives before LTM is defined, the agent auto-inspects repository manifests (`package.json`, `pyproject.toml`, `go.mod`) to infer the stack transparently.
-
-### Session Banner Output:
-```text
-⚡ [backend-master: ACTIVE]
-   [LTM: FastAPI in /services/ai | Fastify in /services/gateway | PostgreSQL]
-   [STM: Phase 2/3 GATE | Target: /services/gateway | Bounded | unlazy: standby] Loaded: [fastify-best-practices, redis-patterns]
+### 🧪 Deterministic Codebase Scanner
+Scan your repository deterministically for these 7 anti-patterns without making an LLM API call:
+```bash
+python scripts/backend-detector.py [optional/target/directory]
 ```
 
 ---
 
-## 🔒 The Hardcoded Workflow Gate (Plan-Then-Execute)
+## 🌐 Supported Languages & Dynamic Polyglot Execution
 
-Every backend task processed by `Backend-Master` strictly adheres to a mandatory 3-phase flow with deep **Superpowers** integration:
+### 1. First-Class Curated Languages & Frameworks (8 Languages, 16+ Frameworks)
+Dedicated sub-skills are maintained and updated for the primary backend ecosystems:
 
-```mermaid
-flowchart TD
-    A["User Request (Backend Task Detected)"] --> B["Phase 1: Explore & Classify (Spike / Bounded / Architectural)"]
-    B --> C["Invoke /brainstorming & Select ≤ 3 Sub-Skills"]
-    C --> D{"Phase 2: HARD STOP (Wait for User Verification)"}
-    D -- "User Selects Option & Approves" --> E["Phase 3: Execution Engine"]
-    D -- "Feedback / Revision Requested" --> B
-    E --> F{"Task Classification"}
-    F -- "Bounded / Single Service" --> G["Inline Mode + /test-driven-development"]
-    F -- "Architectural / Cross-Cutting" --> H["Sub-Agent Mode + /writing-plans"]
-    G --> I["Apply Ponytail YAGNI (full | ultra)"]
-    H --> I
-    I --> J{"Autonomous Stall / Loop Detected?"}
-    J -- "Yes / Explicit Directive" --> K["Escalate to /unlazy (Strict GATES.md)"]
-    J -- "No (Clean Pass)" --> L["Verify via /verification-before-completion"]
-    K --> L
-    L --> M["Output Verified Solution"]
-```
+- **Python**: FastAPI, Django, Flask, asyncpg, SQLAlchemy, Celery (`python-pro`, `fastapi-expert`, `django-expert`, `flask-python`)
+- **Node.js / TypeScript**: Fastify, Express, NestJS, Prisma, TypeORM (`nodejs-backend-patterns`, `fastify-best-practices`, `nestjs-expert`, `micro`)
+- **Go**: Standard `net/http`, Gin, Echo, Chi, GORM, sqlx (`golang-pro`)
+- **Rust**: Axum, Actix-web, Tokio, SQLx, Diesel (`rust-engineer`)
+- **Java / Kotlin**: Spring Boot 3, Spring Data JPA, Hibernate, Quarkus (`spring-boot-engineer`)
+- **C# / .NET**: ASP.NET Core, EF Core, Minimal APIs (`csharp-developer`)
+- **Ruby**: Ruby on Rails, Sinatra, Sidekiq, ActiveRecord (`rails-expert`)
+- **PHP**: Laravel, Symfony, Slim, Eloquent (`laravel-specialist`, `php-pro`)
 
-### Phase 1: Context Exploration & Brainstorming
-- Classifies the task scope out loud:
-  - **Spike**: Fast exploratory proof-of-concept ("Can we...", "Is it possible to..."). Present probe plan in 2–3 sentences.
-  - **Bounded**: Concrete, well-scoped change within existing code (new endpoint, bugfix, schema tweak). Present short in-chat design (approach, files touched, testing).
-  - **Architectural**: New service, database schema evolution, distributed workflow, or breaking API contract. Formulate 2–3 architectural approaches comparing performance, complexity, database load, and maintenance trade-offs.
-- Injects **only $\le 3$ relevant curated sub-skills** from the registry to prevent context bloat.
+### 2. Universal Dynamic Polyglot Engine (ANY Language or Framework)
+When operating in a language or framework that does **not** have a static sub-skill (such as **Elixir / Phoenix**, **Kotlin / Ktor**, **Scala / Akka**, **C++ / Crow / Drogon**, **Swift / Vapor**, **Zig**, **Clojure / Ring**, **Deno / Fresh**, or **Bun / Elysia / Hono**):
 
-#### 🔍 Token Optimization: Graft Recommendation (Opt-In with Consent)
-- When exploring large codebases, symbols, or call hierarchies, check if `graft` MCP tools (`graft_find_code`, `graft_trace_calls`, `graft_file_api`, `graft_repo_map`) are available.
-- **Recommendation Only**: `graft` is strictly an optional recommendation to optimize token usage. If the user does not want to use it, let it go and proceed seamlessly with standard file viewing/grep tools.
-- **MANDATORY PERMISSION GATE**: The agent **MUST explicitly ask the user for permission before downloading or installing graft**. NEVER download, install, or clone `graft` without the user's explicit prior approval.
-
-### Phase 2: The Strict User Verification Gate (HARD STOP)
-> [!IMPORTANT]
-> **What "No Code Generation" Means**:
-> - The agent **halts execution** and waits for explicit user confirmation (*"Approved"*, *"Proceed with Option 2"*, etc.).
-> - **Zero code files are generated or modified** during Phase 2. Illustrative pseudo-code snippets explaining a concept during discussion are permitted, but no implementation work is done until the user confirms.
-
-#### 🛡️ Rationalization Counter-Table
-
-| Common Agent Rationalization | Engineering Reality & Rule |
-|---|---|
-| *"The user asked for code directly, so I should just write it."* | The hard gate applies to every task. Present the design/options in chat first and get approval. |
-| *"This is a small/simple backend change, no need to stop."* | Simple changes break production. Present a 2-sentence inline design and wait for confirmation. |
-| *"I already know the optimal architecture, why discuss options?"* | Unexamined assumptions cause the most rework. Presenting 2–3 trade-offs surfaces hidden constraints. |
-| *"I'll write the code and explain the design in the same turn."* | Presenting the design and writing code in the same breath skips the approval gate entirely. |
-
-#### 🚩 Red Flags — STOP and Wait for Approval
-- Writing code before receiving user approval.
-- Editing repository files during Phase 1 or Phase 2.
-- Dumping entire sub-skill documentation files into the conversation turn.
-- Adding distributed complexity (Kafka, Redis clusters) when a standard library map or database index suffices.
-
-### Phase 3: Execution & Superpowers Verification
-- **Bounded Tasks**: Run in **Inline Mode** using [`superpowers:test-driven-development`](skills/test-master) (RED $\rightarrow$ GREEN $\rightarrow$ REFACTOR).
-- **Architectural Tasks**: Invoke [`superpowers:writing-plans`](skills/architecture-patterns) and execute via **Sub-Agent Mode** (`invoke_subagent`).
-- **Quality Gate**: Every task concludes by verifying against [`superpowers:verification-before-completion`](skills/test-master) and automated test suites.
-
-#### ⚡ Autonomous Breakthrough Circuit Breaker (Unlazy)
-- **Dormant by Default (`unlazy:standby`)**: For standard clean implementations, `unlazy` remains dormant to avoid unnecessary overhead.
-- **Auto-Escalates / Activates ONLY when (`unlazy:active`)**:
-  1. **Stall / Loop Detection**: The agent is caught in repetitive loops, failing the same test repeatedly, or spending excessive turns/time without forward progress.
-  2. **Half-Done Work**: Implementations are returned incomplete, with deferred TODOs or shallow mocks.
-  3. **Explicit Directive**: The user invokes `/unlazy` or requests an exhaustive, uncompromised solution ("go out of the box", "give your best", "do not stop until it is completely verified").
-- **What Happens When Escalated**:
-  - Suspends casual shortcuts.
-  - Generates strict verifiable acceptance gates (`GATES.md`) with explicit `CHECK:` and `EXPECT:` conditions.
-  - Builds a Depth Tree to break complex multi-part deliverables into verifiable leaves.
-  - Re-verifies every check with execution evidence before reporting completion.
+`backend-master` executes **dynamically over the project**:
+1. Inspects language manifests (`mix.exs`, `build.gradle.kts`, `CMakeLists.txt`, `Package.swift`, `project.clj`, `deno.json`) to determine runtime idioms.
+2. Dynamically enforces universal invariants: Ports & Adapters separation, ACID transaction rollback, connection pool constraints, parameterized queries, and RFC 7807 error envelopes.
+3. Applies runtime-native concurrency primitives (BEAM processes in Elixir, coroutines in Kotlin, virtual threads in modern Java, actors in Scala, tasks in Swift).
 
 ---
 
-## ⚙️ Dual Execution Modes (Inline vs. Sub-Agent)
-
-`Backend-Master` adapts its execution strategy based on task scope:
-
-### 1. Inline Development Mode
-- **Best suited for**: Single-endpoint additions, bug fixes, query optimizations, writing single migration files, or unit tests.
-- **How it runs**: Operates directly within the active conversation turn, ensuring low latency, immediate context, and clean minimal diffs.
-
-### 2. Sub-Agent Development Mode (`invoke_subagent`)
-- **Best suited for**: Multi-service microservice scaffolding, complex zero-downtime database migrations with background backfills, concurrent API mocking + implementation, or simultaneous performance profiling and security auditing.
-- **How it runs**:
-  1. The master orchestrator decomposes the approved plan into independent work units.
-  2. Spawns specialized background subagents (e.g., Database Specialist, API Implementer, Security Reviewer).
-  3. Subagents execute in isolated contexts and return verified diffs to the master.
-  4. The master orchestrator reviews and synthesizes the final changes for the user.
-
----
-
-## ✂️ The Ponytail YAGNI Discipline
-
-Premature optimization and bloat are the enemies of maintainable backend code. `Backend-Master` continuously applies the **Ponytail** engineering discipline with dynamic level switching:
-
-### `ponytail:full` (Normal / Default Mode)
-- **Target**: New feature implementation, service architecture, API modeling, database schemas.
-- **Guiding Principles**:
-  - Prefer standard library and built-in framework capabilities before pulling in third-party packages.
-  - Enforce clean separation of concerns without creating single-implementation abstractions.
-  - Produce minimal, highly readable working diffs.
-
-### `ponytail:ultra` (Ultra YAGNI Mode)
-- **Target**: Bugfixes, hotfixes, utilities, refactoring, or whenever there is a temptation to over-engineer.
-- **Guiding Principles**:
-  - **Delete before adding**: Prioritizes dead-code elimination.
-  - **Zero speculative abstractions**: Rejects premature factories, generic base classes, or wrappers around single classes.
-  - **In-process over distributed**: Refuses to introduce Redis caching or Kafka queues when a native in-memory map or simple database index completely solves the problem.
-
----
-
-## 🌐 Comprehensive Practice Areas (8 Core Domains)
-
-`Backend-Master` synthesizes 73 curated sub-skills across 8 complete engineering practice areas:
-
-```mermaid
-graph LR
-    BM["Backend-Master Core"]
-    BM --> A1["1. Architecture & DDD"]
-    BM --> A2["2. API, Protocols & IPC"]
-    BM --> A3["3. Databases & Caching"]
-    BM --> A4["4. Polyglot Frameworks"]
-    BM --> A5["5. Queues & Streaming"]
-    BM --> A6["6. Cloud, Docker & SRE"]
-    BM --> A7["7. Testing & Profiling"]
-    BM --> A8["8. Security & Auth"]
-```
-
-### 1. Core Architecture, Domain-Driven Design & Microservices
-- **Disciplines**: Clean Architecture, Hexagonal / Ports & Adapters, Domain-Driven Design (Bounded Contexts, Aggregates, Entities, Value Objects), CQRS, Event Sourcing, Distributed Sagas, Transactional Outbox Pattern.
-- **Curated Skills**: [`clean-ddd-hexagonal`](skills/clean-ddd-hexagonal), [`backend-patterns`](skills/backend-patterns), [`architecture-patterns`](skills/architecture-patterns), [`microservices-architect`](skills/microservices-architect).
-
-### 2. API Design, Protocols & Inter-Service IPC
-- **Disciplines**: Strict REST contracts (RFC 7807 problem details, idempotency keys, cursor pagination), Apollo Federation 2.5+ GraphQL schemas, low-latency WebSockets with Redis pub/sub scaling, high-performance Protocol Buffers IDL and streaming gRPC (`google.rpc.Status`), and enterprise webhook platform architecture (HMAC-SHA256 signature verification, exponential retry backoff, replay attack prevention, dead-letter dispatch).
-- **Curated Skills**: [`api-and-interface-design`](skills/api-and-interface-design), [`graphql-architect`](skills/graphql-architect), [`api-designer`](skills/api-designer), [`rest-api`](skills/rest-api), [`websocket-engineer`](skills/websocket-engineer), [`websockets`](skills/websockets), [`public-grpc-api-design`](skills/public-grpc-api-design), [`webhook-platform-design`](skills/webhook-platform-design).
-
-### 3. Databases, Caching & Zero-Downtime Data Evolution
-- **Disciplines**: Relational 3NF & denormalization trade-offs, PostgreSQL query optimization (`EXPLAIN ANALYZE`, index sizing, JSONB indexing, connection pooling), zero-downtime expand-and-contract migrations, Redis caching patterns (cache-aside, write-through, probabilistic early expiration, Redlock distributed locking), MongoDB replica set connection resiliency, document schema validation, aggregation pipeline tuning, Elasticsearch full-text search indexing, mapping optimizations, shard topologies, Supabase Row Level Security (RLS), and S3/R2 cloud object storage.
-- **Curated Skills**: [`sql-pro`](skills/sql-pro), [`postgres-pro`](skills/postgres-pro), [`database-optimizer`](skills/database-optimizer), [`database-migration`](skills/database-migration), [`redis-patterns`](skills/redis-patterns), [`mongodb-connection`](skills/mongodb-connection), [`mongodb-query-optimizer`](skills/mongodb-query-optimizer), [`elasticsearch-index-design`](skills/elasticsearch-index-design), [`supabase-postgres-best-practices`](skills/supabase-postgres-best-practices), [`django-storages-s3`](skills/django-storages-s3), [`runtime-cache`](skills/runtime-cache), [`vercel-storage`](skills/vercel-storage).
-
-### 4. Polyglot Language & Framework Specialization
-- **Disciplines**: Idiomatic patterns across backend stacks:
-  - **Python**: Modern Python 3.11/3.12+, FastAPI async lifespan handlers, Pydantic v2 validation, Django ORM queryset optimization, Flask blueprints and application factories, uv dependency locking.
-  - **TypeScript / Node.js**: Modular NestJS dependency injection, controllers, guards, interceptors; Express.js layered architecture (controllers, services, repositories, middleware, error handling, JWT); Fastify high-performance encapsulation, plugins, hooks, JSON schema validation, microservices.
-  - **Go**: Goroutine concurrency, context propagation, channels, idiomatic error handling.
-  - **Rust**: Tokio runtime, memory safety, Axum/Actix web frameworks, zero-cost abstractions.
-  - **Enterprise Polyglot**: Spring Boot 3 / Java, ASP.NET Core 8 / C#, Ruby on Rails, Laravel / Modern PHP 8.2+.
-- **Curated Skills**: [`python-pro`](skills/python-pro), [`fastapi-expert`](skills/fastapi-expert), [`django-expert`](skills/django-expert), [`flask-python`](skills/flask-python), [`managing-python-dependencies`](skills/managing-python-dependencies), [`nodejs-backend-patterns`](skills/nodejs-backend-patterns), [`fastify-best-practices`](skills/fastify-best-practices), [`nestjs-expert`](skills/nestjs-expert), [`golang-pro`](skills/golang-pro), [`rust-engineer`](skills/rust-engineer), [`spring-boot-engineer`](skills/spring-boot-engineer), [`csharp-developer`](skills/csharp-developer), [`rails-expert`](skills/rails-expert), [`laravel-specialist`](skills/laravel-specialist), [`php-pro`](skills/php-pro), [`micro`](skills/micro).
-
-### 5. Distributed Workflows, Message Brokers & Event Streaming
-- **Disciplines**: Apache Kafka topic design, consumer groups, partition keys, schema registries, idempotency; RabbitMQ topic/direct exchanges, dead-letter exchanges (DLX), acknowledgments, backpressure; Temporal durable workflows, activities, deterministic replay; vector storage and hybrid RAG retrieval (pgvector); enterprise AI model gateway routing, provider failover, streaming SSE responses, and LLM token cost telemetry.
-- **Curated Skills**: [`temporal-developer`](skills/temporal-developer), [`temporal-cloud-setup`](skills/temporal-cloud-setup), [`temporal-ops`](skills/temporal-ops), [`temporal-serverless`](skills/temporal-serverless), [`kafka-development`](skills/kafka-development), [`rabbitmq-development`](skills/rabbitmq-development), [`vercel-queues`](skills/vercel-queues), [`rag-architect`](skills/rag-architect), [`ai-gateway`](skills/ai-gateway).
-
-### 6. Containerization, Cloud Infrastructure & SRE
-- **Disciplines**: Multi-stage production Dockerfiles (minimal alpine/distroless, layer cache mounts, non-root users), Docker Compose development meshes, AWS/GCP/Azure Well-Architected Framework, VPC networks, private subnets, Terraform Infrastructure as Code (IaC), Kubernetes orchestration (Deployments, StatefulSets, HPA, Helm), automated CI/CD pipelines (GitHub Actions), OpenTelemetry tracing, Prometheus/Grafana alerting, and SRE incident remediation.
-- **Curated Skills**: [`devops-engineer`](skills/devops-engineer), [`docker-patterns`](skills/docker-patterns), [`cloud-architect`](skills/cloud-architect), [`shipping-and-launch`](skills/shipping-and-launch), [`ci-cd-and-automation`](skills/ci-cd-and-automation), [`git-workflow-and-versioning`](skills/git-workflow-and-versioning), [`deprecation-and-migration`](skills/deprecation-and-migration), [`observability-and-instrumentation`](skills/observability-and-instrumentation), [`monitoring-expert`](skills/monitoring-expert), [`sentry`](skills/sentry), [`kubernetes-specialist`](skills/kubernetes-specialist), [`terraform-engineer`](skills/terraform-engineer), [`sre-engineer`](skills/sre-engineer).
-
-### 7. Testing Architectures, Mocking & Load Profiling
-- **Disciplines**: Unit, integration, and contract test architectures, mock servers (Prism, WireMock), test flakiness mitigation, k6 API load testing (stress tests, soak tests, throughput benchmarking), and systematic performance profiling (measure-identify-fix-verify, CPU flamegraphs, memory leak remediation).
-- **Curated Skills**: [`test-master`](skills/test-master), [`k6`](skills/k6), [`performance-optimization`](skills/performance-optimization).
-
-### 8. Defense-in-Depth Security, Auth & Hardening
-- **Disciplines**: OAuth 2.0 / OIDC authentication, JWT access/refresh token rotation, password hashing (Argon2id), input sanitization, CSRF/CORS policies, OWASP API Top 10 mitigation (BOLA/IDOR, SQLi, SSRF), endpoint penetration audits, and automated PR diff vulnerability scanning.
-- **Curated Skills**: [`auth`](skills/auth), [`oauth`](skills/oauth), [`security-and-hardening`](skills/security-and-hardening), [`security-audit`](skills/security-audit), [`security-diff-scan`](skills/security-diff-scan), [`owasp-top-10-testing`](skills/owasp-top-10-testing), [`api-security-testing`](skills/api-security-testing), [`vibesec`](skills/vibesec).
-
----
-
-## 📦 Complete Catalog of 73 Curated Sub-Skills
-
-| Skill Name | Primary Focus | Language / Stack |
-|---|---|---|
-| [`clean-ddd-hexagonal`](skills/clean-ddd-hexagonal) | Domain-Driven Design, Bounded Contexts, Ports & Adapters | Language-Agnostic |
-| [`backend-patterns`](skills/backend-patterns) | Repository/Service Layer, Caching, Transactions | Language-Agnostic |
-| [`architecture-patterns`](skills/architecture-patterns) | CQRS, Event Sourcing, Circuit Breakers | Distributed Systems |
-| [`microservices-architect`](skills/microservices-architect) | Service Boundaries, Distributed Sagas, Outbox Pattern | Microservices |
-| [`api-and-interface-design`](skills/api-and-interface-design) | Strict REST Contracts, Idempotency, RFC 7807 Errors | HTTP / REST |
-| [`graphql-architect`](skills/graphql-architect) | Apollo Federation 2.5+, DataLoader, Query Complexity | GraphQL |
-| [`api-designer`](skills/api-designer) | OpenAPI / Swagger Specifications, Contract Testing | REST / OpenAPI |
-| [`rest-api`](skills/rest-api) | HTTP Verbs, Semantic Status Codes, RESTful Resources | REST |
-| [`websocket-engineer`](skills/websocket-engineer) | Real-Time WebSockets, Rooms, Redis Pub/Sub | Real-Time Systems |
-| [`websockets`](skills/websockets) | WebSocket Connection Management, Heartbeats, Backpressure | WebSockets |
-| [`public-grpc-api-design`](skills/public-grpc-api-design) | Protobuf IDL, Streaming gRPC Contracts, `google.rpc.Status` | gRPC / Protobuf |
-| [`webhook-platform-design`](skills/webhook-platform-design) | Webhook Delivery Architecture, HMAC Signatures, Retries, Idempotency | Samber / Webhooks |
-| [`sql-pro`](skills/sql-pro) | Relational Schema Design, Normalization, Complex Joins | SQL / RDBMS |
-| [`postgres-pro`](skills/postgres-pro) | PostgreSQL Optimization, JSONB, Concurrency, Partitioning | PostgreSQL |
-| [`database-optimizer`](skills/database-optimizer) | Query Execution Plans, `EXPLAIN ANALYZE`, Connection Pools | Database Performance |
-| [`database-migration`](skills/database-migration) | Zero-Downtime Migrations, Expand-and-Contract DDL | Database Ops |
-| [`redis-patterns`](skills/redis-patterns) | Cache-Aside, Write-Through, Redlock, TTLs, Eviction | Redis |
-| [`mongodb-connection`](skills/mongodb-connection) | Connection Pooling, Replica Sets, Resilient Cluster Connect | MongoDB / NoSQL |
-| [`mongodb-query-optimizer`](skills/mongodb-query-optimizer) | Index Strategy, Explain Plans, Aggregation Optimization | MongoDB / NoSQL |
-| [`elasticsearch-index-design`](skills/elasticsearch-index-design) | Sharding, Mappings, Inverted Index, Fuzzy Search | Elasticsearch / Search |
-| [`supabase-postgres-best-practices`](skills/supabase-postgres-best-practices) | Row Level Security (RLS), Edge Functions, Triggers | Supabase / Postgres |
-| [`django-storages-s3`](skills/django-storages-s3) | Cloud Object Storage (S3, MinIO, R2), Signed URLs | Storage / Django |
-| [`runtime-cache`](skills/runtime-cache) | Cache Layer Invalidation, Stampede Protection | Caching |
-| [`vercel-storage`](skills/vercel-storage) | Serverless Blob, Edge Config, Key-Value Stores | Cloud Storage |
-| [`python-pro`](skills/python-pro) | Modern Python 3.11/3.12+, Typing, Asyncio, Memory Tuning | Python |
-| [`fastapi-expert`](skills/fastapi-expert) | Pydantic v2, Async Lifespans, Asyncpg Connection Pools | Python / FastAPI |
-| [`django-expert`](skills/django-expert) | Django ORM, QuerySet Optimization, DRF Serializers | Python / Django |
-| [`flask-python`](skills/flask-python) | Flask Blueprints, Application Factories, REST APIs, Contexts | Python / Flask |
-| [`managing-python-dependencies`](skills/managing-python-dependencies) | uv, Poetry, Pip-Tools, Reproducible Lockfiles | Python Packaging |
-| [`nodejs-backend-patterns`](skills/nodejs-backend-patterns) | Express/Fastify Controllers, Services, Repositories, JWT Auth | Node.js / Express |
-| [`fastify-best-practices`](skills/fastify-best-practices) | High-Throughput Fastify Plugins, Encapsulation, Hooks, Schema Validation | Node.js / Fastify |
-| [`nestjs-expert`](skills/nestjs-expert) | Modular TS Architecture, DI, Guards, Interceptors | TypeScript / Node.js |
-| [`golang-pro`](skills/golang-pro) | Goroutines, Channels, Context Propagation, net/http | Go |
-| [`rust-engineer`](skills/rust-engineer) | Tokio Runtime, Borrow Checker, Axum/Actix Frameworks | Rust |
-| [`spring-boot-engineer`](skills/spring-boot-engineer) | Spring Boot 3, Spring Data, Spring Security | Java / JVM |
-| [`csharp-developer`](skills/csharp-developer) | .NET Core 8, EF Core, LINQ, ASP.NET Core Pipelines | C# / .NET |
-| [`rails-expert`](skills/rails-expert) | ActiveRecord, Sidekiq Background Jobs, Turbo | Ruby on Rails |
-| [`laravel-specialist`](skills/laravel-specialist) | Eloquent ORM, Service Providers, Queue Workers | PHP / Laravel |
-| [`php-pro`](skills/php-pro) | Modern PHP 8.2+, OOP, Strict Types | PHP |
-| [`micro`](skills/micro) | Asynchronous Microservices HTTP Framework | Node.js |
-| [`temporal-developer`](skills/temporal-developer) | Workflows, Activities, Deterministic Replay, Sagas | Temporal |
-| [`temporal-cloud-setup`](skills/temporal-cloud-setup) | Cloud Namespace Setup, mTLS, Access Control | Temporal Cloud |
-| [`temporal-ops`](skills/temporal-ops) | Worker Auto-Scaling, Operational Cluster Diagnostics | Temporal Ops |
-| [`temporal-serverless`](skills/temporal-serverless) | Serverless Workers, Ephemeral Execution Patterns | Temporal |
-| [`kafka-development`](skills/kafka-development) | Topic Design, Consumer Groups, Partitions, Schema Registry | Apache Kafka |
-| [`rabbitmq-development`](skills/rabbitmq-development) | Direct/Topic Exchanges, Dead-Letter Queues (DLX), Acks | RabbitMQ |
-| [`vercel-queues`](skills/vercel-queues) | Async Message Delivery, Background Worker Retries | Serverless Queues |
-| [`rag-architect`](skills/rag-architect) | Vector Databases (pgvector, Pinecone), Hybrid RAG | AI Backends |
-| [`ai-gateway`](skills/ai-gateway) | Multi-Provider Model Routing, Fallback, SSE Streaming, Cost Tracking | AI Gateways / LLM |
-| [`devops-engineer`](skills/devops-engineer) | Multi-Stage Dockerfiles, Docker Compose, CI/CD, GitOps | DevOps / Containers |
-| [`docker-patterns`](skills/docker-patterns) | Production Docker Best Practices, Layer Caching, Non-Root | Docker |
-| [`cloud-architect`](skills/cloud-architect) | AWS/GCP/Azure Well-Architected Framework, VPCs, DR | Multi-Cloud |
-| [`shipping-and-launch`](skills/shipping-and-launch) | Pre-Launch Checklists, Canary Rollouts, Instant Rollback | Release Engineering |
-| [`ci-cd-and-automation`](skills/ci-cd-and-automation) | Automated GitHub Actions Pipelines, Quality Gates | CI / CD |
-| [`git-workflow-and-versioning`](skills/git-workflow-and-versioning) | SemVer Releases, Trunk-Based Development, Atomic Commits | Git |
-| [`deprecation-and-migration`](skills/deprecation-and-migration) | API Deprecation Roadmaps, Sunsetting, Hyrum's Law | Versioning |
-| [`observability-and-instrumentation`](skills/observability-and-instrumentation) | OpenTelemetry Distributed Tracing, RED/USE Metrics | Observability |
-| [`monitoring-expert`](skills/monitoring-expert) | Prometheus Metrics, Grafana Dashboards, Alerting SLOs | Monitoring |
-| [`sentry`](skills/sentry) | Exception Capturing, Performance Tracing, Alerts | Error Tracking |
-| [`kubernetes-specialist`](skills/kubernetes-specialist) | Deployments, StatefulSets, Ingress, HPA, Helm Charts | Kubernetes |
-| [`terraform-engineer`](skills/terraform-engineer) | Infrastructure as Code (IaC), State Locking, Modules | Terraform |
-| [`sre-engineer`](skills/sre-engineer) | Site Reliability Engineering, Circuit Breakers, Chaos | SRE |
-| [`test-master`](skills/test-master) | Unit/Integration/E2E Test Architecture, Mock Strategies | Software Testing |
-| [`k6`](skills/k6) | API Load Testing, Stress Testing, Throughput Benchmarks | Load Testing |
-| [`performance-optimization`](skills/performance-optimization) | Bottleneck Identification, CPU Flamegraphs, N+1 Fixes | Performance |
-| [`auth`](skills/auth) | Password Hashing (Argon2id), Session Security | Authentication |
-| [`oauth`](skills/oauth) | OAuth 2.0, OpenID Connect (OIDC), JWT Token Rotation | OAuth / OIDC |
-| [`security-and-hardening`](skills/security-and-hardening) | Defense-in-Depth, Input Sanitization, CSRF/CORS | Security |
-| [`security-audit`](skills/security-audit) | Static Code Security Auditing, Dependency Vulnerabilities | Security Audit |
-| [`security-diff-scan`](skills/security-diff-scan) | PR & Commit Diff Vulnerability Scanning | Diff Scanning |
-| [`owasp-top-10-testing`](skills/owasp-top-10-testing) | OWASP API Top 10 Auditing, SQLi, SSRF, BOLA/IDOR | OWASP Testing |
-| [`api-security-testing`](skills/api-security-testing) | Endpoint Penetration Testing, Auth Bypass Checks | Penetration Testing |
-| [`vibesec`](skills/vibesec) | Automated Web Application Security Auditing | Web Security |
-
----
-
-## 🕹️ Commands & Dynamic Operating Modes
-
-`Backend-Master` can be operated dynamically out-of-the-box or controlled via dedicated action commands:
-
-### 🎛️ Three Operating Modes (`lite` | `full` | `ultra`)
-1. **`lite` Mode (`/backend-master lite`)**:
-   - **Best for**: Fast bugfixes, quick query tuning, micro-endpoints, single-file edits, or rapid iteration.
-   - **Behavior**: Fast 1-line confirmation gate (*"Proposed fix: X in file Y. Proceed?"*). Minimal overhead, maximum speed, laser focus on immediate delivery.
-2. **`full` Mode (`/backend-master full` — Default)**:
-   - **Best for**: Standard production backend engineering, new feature modules, and domain modeling.
-   - **Behavior**: Comprehensive Phase 1 exploration, 2–3 architectural trade-offs, strict Phase 2 Hard Stop, and Phase 3 TDD with clean architecture.
-3. **`ultra` Mode (`/backend-master ultra`)**:
-   - **Best for**: Refactoring technical debt, hotfixes, or preventing premature architectural complexity (Ponytail YAGNI extremist).
-   - **Behavior**: Deletes dead code, strips wrapper layers, eliminates speculative interfaces and factories, rejects third-party dependencies when standard library suffices, refuses premature caching/queues.
-
-### 🕹️ Action Command Palette
-
-| Command | What it does |
-|---|---|
-| `/backend-master` or `/backend-master active` | Locks persistent active mode for the session (default: full mode). |
-| `/backend-master lite` | Switches session to **Lite** mode (fast, minimal overhead, 1-line check). |
-| `/backend-master full` | Switches session to **Full** mode (standard clean architecture & TDD). |
-| `/backend-master ultra` | Switches session to **Ultra** mode (YAGNI extremist, delete bloat, standard library first). |
-| `/backend-master audit` | Run technical quality checks (OWASP API Top 10, SQLi, N+1 queries, pool/memory leaks, unhandled errors). |
-| `/backend-master harden` | Defense-in-depth pass (input validation, rate limiting, JWT/auth verification, CORS/CSRF, RFC 7807 error envelopes, timeouts). |
-| `/backend-master optimize` | Performance tuning (slow query analysis, `EXPLAIN ANALYZE`, indexing strategy, cache-aside, pool sizing). |
-| `/backend-master benchmark` | Load and stress testing (generates & executes `k6` scripts, benchmarks p95/p99 latency and throughput). |
-| `/backend-master schema` | Database schema design, normalization, zero-downtime expand/contract migrations, non-blocking DDL. |
-| `/backend-master api` | Contract-first API modeling (REST, GraphQL, gRPC, WebSockets, OpenAPI specs, cursor pagination, idempotency). |
-| `/backend-master distill` | Ponytail YAGNI pruning pass (strip premature wrappers, single-impl interfaces, flatten classes into pure functions). |
-| `/backend-master critique` | Architectural review (bounded contexts, service coupling, distributed sagas, single points of failure). |
-| `/backend-master dockerize` | Container infrastructure (multi-stage Dockerfiles, Docker Compose mesh, non-root users, secret handling). |
-| `/backend-master document` | Generate or update backend documentation, ADRs, or API contracts from codebase. |
-| `/backend-master init` | Workspace discovery (detect framework, dependencies, databases, environment configs, and initialize LTM). |
-| `/backend-master status` | Displays current activation state, active mode, internal LTM stack, STM task, and loaded skills. |
-| `/backend-master off` | Deactivates persistent mode; returns to default model behavior. |
-| `/unlazy` | Manually triggers the autonomous breakthrough circuit breaker with explicit `GATES.md` acceptance gates. |
-| Direct Sub-Skill Invocation | Direct calls (e.g. `/postgres-pro`, `/fastapi-expert`, `/docker-patterns`) integrate seamlessly at any time. |
-
-### 🛡️ Laser Focus & Anti-Hallucination Policy
-- **On-Point Execution**: The agent stays focused on the backend task at hand. No unsolicited conversational essays or fluff.
-- **Minimal Status Banner**: Displays a single, clean banner per turn:
-  ```text
-  ⚡ [backend-master: ACTIVE] [mode: full] Loaded: [<skill-1>, <skill-2>]
-  ```
-  *(LTM and STM memory states are managed internally in context; they are not printed in regular turns unless explicitly requested via `/backend-master status`)*.
-- **Ground Truth Verification**: Validates all schemas, routes, dependencies, and file paths against actual files in the repository before making claims.
-
----
-
-## 🚀 Installation & Setup
+## 🚀 Installation & Quick Start
 
 ### Install via `npx skills` (Recommended)
-Install globally across all supported AI coding agents with a single command:
+Install globally across all supported AI coding harnesses with one command:
 ```bash
 npx skills add vatsalmehta09/Backend-Master -g -y
 ```
 
 ### Manual Installation
-Copy or symlink [`SKILL.md`](SKILL.md) and [`REFERENCES.md`](REFERENCES.md) into your agent's skills directory:
+Copy or symlink [`SKILL.md`](SKILL.md) and [`REFERENCES.md`](REFERENCES.md) into your harness's skills directory:
 
 - **Universal / Antigravity / Gemini CLI:** `~/.agents/skills/backend-master/`
 - **Claude Code:** `~/.claude/skills/backend-master/`
@@ -496,42 +158,25 @@ Copy or symlink [`SKILL.md`](SKILL.md) and [`REFERENCES.md`](REFERENCES.md) into
 
 ---
 
-## 🔄 Automated Upstream Tracking & Synchronization
+## 📦 Curated Sub-Skills & Credits
 
-Because `Backend-Master` hosts standalone replicas of 73 curated skills, the repository includes an automated 3-part update tracking engine:
+`backend-master` packages and coordinates **73 curated open-source sub-skills** across 8 core engineering disciplines:
+1. Core Architecture, Domain-Driven Design & Microservices
+2. API Design, Protocols & Inter-Service IPC
+3. Databases, Caching & Zero-Downtime Data Evolution
+4. Polyglot Language & Framework Specialization
+5. Distributed Workflows, Message Brokers & Event Streaming
+6. Containerization, Cloud Infrastructure & SRE
+7. Testing Architectures, Mocking & Load Profiling
+8. Defense-in-Depth Security, Auth & Hardening
 
-1. **Upstream Commit Lockfile ([`upstream-lock.json`](upstream-lock.json))**: Tracks the exact commit SHAs of all 19 upstream open-source repositories.
-2. **Update Checker Script ([`scripts/check-updates.ps1`](scripts/check-updates.ps1))**:
-   ```powershell
-   # Scan all 19 upstream repositories and local copies for updates:
-   pwsh scripts/check-updates.ps1
-
-   # Apply newer local edits and automatically commit/push to GitHub:
-   pwsh scripts/check-updates.ps1 -ApplyLocal -AutoCommit
-   ```
-3. **Automated Weekly GitHub Action ([`.github/workflows/check-upstream-updates.yml`](.github/workflows/check-upstream-updates.yml))**:
-   - Runs automatically on GitHub every Monday at 00:00 UTC (and via manual dispatch).
-   - Monitors upstream repositories and alerts maintainers when newer commits are available.
-4. **Maintenance Sync & Test Suite**:
-   ```powershell
-   # Preview local synchronization:
-   pwsh scripts/sync-skills.ps1 -DryRun
-
-   # Run automated regression test suite:
-   pwsh scripts/test-sync.ps1
-   ```
+👉 **[View the Complete 73 Sub-Skills Catalog](skills/README.md)**  
+👉 **[View Upstream Repositories, Authors & References](REFERENCES.md)**  
+👉 **[View Architecture Decision Records (10 ADRs)](docs/decisions/README.md)**
 
 ---
 
-## 🛡️ Community Synthesis & Review Disclaimer
-
-> [!NOTE]
-> **Engineering Review Policy**: Backend-Master synthesizes open-source community skills, architectural patterns, and workflows. While these patterns are battle-tested and curated for high quality, always review all architectural proposals, database migrations, and generated code before applying them to production environments. Full upstream credits, authors, and registry URLs are documented in [**`REFERENCES.md`**](REFERENCES.md).
-
----
-
-## 📄 License & Credits
+## 📄 License
 
 - **License**: MIT License.
-- **Author & Maintainer**: [Vatsal Mehta](https://github.com/vatsalmehta09).
-- **Upstream Credits**: Deep gratitude to [Jeff Allan](https://github.com/Jeffallan), [Affaan M](https://github.com/affaan-m), [Grafana Labs](https://github.com/grafana), [Samuel Berthe](https://github.com/samber), [MongoDB Inc.](https://github.com/mongodb), [Elastic](https://github.com/elastic), [Mindrally](https://github.com/mindrally), [W.S. Hobson](https://github.com/wshobson), [Strix Security](https://github.com/usestrix), [Supabase](https://github.com/supabase), [Vercel Labs](https://github.com/vercel-labs), [Matteo Collina](https://github.com/mcollina), and the entire [skills.sh](https://skills.sh/) community.
+- **Maintainer**: [Vatsal Mehta](https://github.com/vatsalmehta09).
