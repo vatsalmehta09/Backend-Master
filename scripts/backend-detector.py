@@ -149,6 +149,19 @@ def scan_file(file_path: Path) -> List[Violation]:
     return violations
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] in ("-h", "--help"):
+        print("Usage: python backend-detector.py [target_path]")
+        print("Scans backend codebases for the 7 deadly backend anti-patterns (AST + RegEx).")
+        print("\nRules:")
+        print("  BM001: N+1 Database Query in loops")
+        print("  BM002: Dynamic SQL string formatting / SQL injection")
+        print("  BM003: Blocking I/O inside async event loop")
+        print("  BM004: Unbounded pagination / missing LIMIT clause")
+        print("  BM005: Bare exception swallowing / unhandled error")
+        print("  BM006: Hardcoded secrets or tokens")
+        print("  BM007: Dangerous table-locking DDL statements")
+        sys.exit(0)
+
     target = sys.argv[1] if len(sys.argv) > 1 else "."
     target_path = Path(target).resolve()
 
